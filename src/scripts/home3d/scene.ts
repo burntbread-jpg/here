@@ -42,8 +42,8 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(isSmall ? 38 : 28, host.clientWidth / host.clientHeight, 0.1, 600);
-  // 데스크톱은 왼쪽 아래 글과 겹치지 않게 지도를 오른쪽으로 비켜 놓는다
-  const home = { pos: new THREE.Vector3(isSmall ? 4 : 1, isSmall ? 70 : 38, isSmall ? 58 : 52), target: new THREE.Vector3(isSmall ? 1.5 : -7.5, 0, isSmall ? 8 : 4.5) };
+  // 지도 칸 가운데에 한반도를 둔다(소개 글은 별도 칸이라 겹치지 않음)
+  const home = { pos: new THREE.Vector3(isSmall ? 1.2 : 4, isSmall ? 41 : 40, isSmall ? 32 : 50), target: new THREE.Vector3(isSmall ? 0.4 : 1.8, 0, isSmall ? 2.5 : 3) };
   camera.position.copy(home.pos).add(new THREE.Vector3(0, 30, 18));
 
   const controls = new OrbitControls(camera, renderer.domElement);

@@ -122,3 +122,5 @@ CHROME_PATH=~/.claude/bin/chromium-nosandbox node ~/.claude/skills/taste-skill/s
 
 추가로 고친 것: 소개 글 대비(소개 영역 바탕 그라데이션 강화), 목록 페이지 선택 상자 포커스 링, 모바일 버튼 44px.
 재점검: Impeccable detect 낮·밤 × 1440·390 **0건**, Taste contrast·focus-ring **통과**, 남은 Taste 경고는 머리말 링크 터치 크기(경고 수준).
+
+추가(같은 날): 소개 글을 지도와 겹치지 않는 왼쪽 칸(모바일은 아래)으로 옮김 → Taste `overlap-text`·`collide` 사라짐, 모바일 머리말 링크 44px. 재점검 Impeccable 0건, Taste contrast·tap-size·focus-ring 통과(1440·390).

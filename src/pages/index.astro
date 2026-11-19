@@ -7,42 +7,41 @@ import { getData } from '../lib/data';
 const { places, courses, source } = await getData();
 const count = (id: string) => places.filter((p) => p.primary === id).length;
 ---
-<Base title="HERE — 가까운 곳을 찍고 잇는 지도">
-  <div class="relative h-dvh w-full overflow-hidden">
-    <div id="scene" class="absolute inset-0" aria-hidden="true"></div>
+<Base title="HERE — 가까운 곳을 찍고 잇는 지도" scroll>
+  <!-- 데스크톱: 왼쪽 소개 칸 + 오른쪽 지도 칸(겹치지 않음). 모바일: 위 지도, 아래 소개 -->
+  <div class="home relative grid w-full md:h-dvh md:grid-cols-[minmax(340px,31%)_1fr]">
     <SiteHeader current="home" />
 
-    <section class="hero pointer-events-none absolute inset-x-0 bottom-0 z-20 px-4 pb-5 sm:px-6 sm:pb-6">
-      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <div class="pointer-events-auto max-w-[30rem]">
-          <p class="eyebrow !text-[var(--color-ink-2)]">{places.length}곳 · {courses.length}개의 코스{source === 'sample' && ' · 샘플 데이터'}</p>
-          <h2 class="display mt-3 text-[34px] leading-[1.12] sm:text-[46px]">가까운 곳을<br />찍고, 잇다</h2>
-          <p class="mt-3 text-[14px] leading-relaxed text-[var(--color-ink-2)]">한지를 겹쳐 만든 한반도. 장소가 많은 곳일수록 높이 쌓이고, 코스는 청실·홍실로 꿰맸어요.</p>
-          <div class="mt-5 flex flex-wrap items-center gap-2">
-            <a href="/map" class="hero-btn hero-btn-solid">지도로 보기</a>
-            <a href="/places" class="hero-btn">목록</a>
-            <button type="button" id="mode" class="hero-btn" aria-pressed="false">밤</button>
-            <button type="button" id="skip" class="hero-btn hero-btn-quiet">건너뛰기</button>
-          </div>
-        </div>
-        <ul class="legend pointer-events-auto flex flex-wrap gap-x-4 gap-y-1.5 md:max-w-[22rem] md:justify-end" aria-label="분류">
-          {CATEGORIES.map((c) => (
-            <li><a href={`/places/${c.id}`} class="flex items-center gap-1.5 text-[12.5px]"><span class="knot" style={`--ink:${c.ink}`}></span><span class="display text-[14px]">{c.syllable}</span><span class="num text-[var(--color-caption)]">{count(c.id)}</span></a></li>
-          ))}
-        </ul>
+    <section class="intro order-2 flex flex-col justify-end px-4 pt-6 pb-8 sm:px-6 md:order-1 md:pt-28 md:pb-8 md:pr-10">
+      <p class="eyebrow">{places.length}곳 · {courses.length}개의 코스{source === 'sample' && ' · 샘플 데이터'}</p>
+      <h2 class="display mt-3 text-[34px] leading-[1.12] sm:text-[44px]">가까운 곳을<br />찍고, 잇다</h2>
+      <p class="mt-4 max-w-[26rem] text-[14.5px] leading-relaxed text-[var(--color-ink-2)]">한지를 겹쳐 만든 한반도. 장소가 많은 곳일수록 높이 쌓이고, 코스는 청실·홍실로 꿰맸어요.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <a href="/map" class="hero-btn hero-btn-solid">지도로 보기</a>
+        <a href="/places" class="hero-btn">목록</a>
+        <button type="button" id="mode" class="hero-btn" aria-pressed="false">밤</button>
+        <button type="button" id="skip" class="hero-btn hero-btn-quiet">건너뛰기</button>
       </div>
-      <p id="hint" class="mt-4 text-[12px] text-[var(--color-caption)]" aria-live="polite"><span class="hidden md:inline">시·도를 누르면 그 지역 지도로 들어가요 · 끌어서 돌리고, 휠로 가까이 · Tab으로도 고를 수 있어요</span><span class="md:hidden">시·도를 눌러 골라 보세요</span></p>
+      <ul class="legend mt-8 grid grid-cols-3 gap-x-3 gap-y-1 border-t border-[var(--color-linen)] pt-4" aria-label="분류">
+        {CATEGORIES.map((c) => (
+          <li><a href={`/places/${c.id}`} class="flex items-center gap-1.5 text-[12.5px]"><span class="knot" style={`--ink:${c.ink}`}></span><span class="display text-[14px]">{c.syllable}</span><span class="num text-[var(--color-caption)]">{count(c.id)}</span></a></li>
+        ))}
+      </ul>
+      <p id="hint" class="mt-5 text-[12px] leading-relaxed text-[var(--color-caption)]" aria-live="polite"><span class="hidden md:inline">시·도를 누르면 그 지역 지도로 들어가요 · 끌어서 돌리고, 휠로 가까이 · Tab으로도 고를 수 있어요</span><span class="md:hidden">시·도를 눌러 골라 보세요</span></p>
     </section>
 
-    <!-- 시·도 이름표(링크): 화면에서는 지도 위에 있지만 Tab 순서는 머리말·소개 다음 -->
-    <nav id="labels" class="pointer-events-none absolute inset-0 z-10" aria-label="시·도별 지도로 들어가기"></nav>
-    <noscript><p class="absolute inset-0 grid place-items-center">3D 홈은 JavaScript가 필요해요. <a href="/map" class="underline">지도로 보기</a></p></noscript>
+    <div class="stage relative order-1 h-[64dvh] min-h-[440px] overflow-hidden md:order-2 md:h-auto md:min-h-0 md:border-l md:border-[var(--color-linen)]">
+      <div id="scene" class="absolute inset-0" aria-hidden="true"></div>
+      <!-- 시·도 이름표(링크): Tab 순서는 머리말·소개 다음 -->
+      <nav id="labels" class="pointer-events-none absolute inset-0 z-10" aria-label="시·도별 지도로 들어가기"></nav>
+    </div>
+    <noscript><p class="p-6">3D 홈은 JavaScript가 필요해요. <a href="/map" class="underline">지도로 보기</a></p></noscript>
   </div>
 </Base>
 <style is:global>
   html[data-scene='night'] { --color-ink: #EDE9E1; --color-ink-2: #CFCAC0; --color-caption: #A9A49A; --color-paper: #121211; --color-linen: #3A3935; --color-land: #272725; }
   html[data-scene='night'] body { background: #121211; }
-  .hero { background: linear-gradient(to top, color-mix(in oklab, var(--color-paper) 97%, transparent) 0%, color-mix(in oklab, var(--color-paper) 90%, transparent) 50%, color-mix(in oklab, var(--color-paper) 55%, transparent) 78%, transparent 100%); padding-top: 150px; } /* 지도 위에서도 글자 대비 확보 */
+  .intro { background: var(--color-paper); position: relative; z-index: 20; }
   .hero-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; font-size: 14px; border: 1px solid var(--color-ink); border-radius: 2px; color: var(--color-ink);
     background: color-mix(in oklab, var(--color-paper) 70%, transparent); transition: background-color 160ms var(--ease-out), color 160ms, transform 120ms var(--ease-out); cursor: pointer; }
   .hero-btn:hover { background: var(--color-ink); color: var(--color-paper); }
