@@ -76,3 +76,31 @@ pnpm build && (cd .vercel/output/static && python3 -m http.server 4401 &)
 CHROME_PATH=~/.claude/bin/chromium-nosandbox node ~/.claude/skills/taste-skill/scripts/consistency.mjs http://localhost:4401/ --widths 1440,390 --profile .taste-skill/chrome --no-sweep --no-slow
 CHROME_PATH=~/.claude/bin/chromium-nosandbox node ~/.claude/skills/taste-skill/scripts/perf.mjs http://localhost:4401/ --profile .taste-skill/chrome
 ```
+
+## 3D 홈 평가 (2026-11-19, 브랜치 `feat/home-3d`)
+
+도구: Emil(emil-design-eng 기준으로 모션·인터랙션 검토), Impeccable detect(1440·390, 낮·밤), Taste consistency·perf, Playwright MCP(접근성 스냅샷·콘솔) + Playwright 스크립트(마우스 올리기·Tab·클릭·모바일·동작 줄이기).
+⚠️ Impeccable critique 는 서브 에이전트 2개로 나눠 평가하도록 되어 있으나, 사용자가 서브 에이전트를 요청하지 않아 한 맥락에서 진행(degraded).
+이 컨테이너는 GPU가 없어(SwiftShader, 초당 약 1프레임) 실제 프레임 속도·부드러움은 측정하지 못했다.
+
+### 실제 문제 (우선순위)
+1. **키보드·화면 낭독기로 시·도에 들어갈 수 없음** — 핵심 동작이 캔버스에만 있음. Tab 순서에 시·도가 없고 라벨은 aria-hidden.
+2. **홈이 지도 라이브러리(MapLibre)까지 내려받음** — `shortSido` 하나 때문에 `map/base.ts` 를 import → 약 290KB(gzip) 낭비.
+3. **글꼴 740–790KB** — 함렛 가변 글꼴의 한글 조각을 많이 받음(22–24개 파일). 실제로 쓰는 글자만 남기는 서브셋 필요.
+4. **동작 줄이기 설정에서도 먼지 입자가 계속 움직임**.
+5. **등장 연출(약 10초)이 방문할 때마다 재생** — 처음 한 번은 좋지만 다시 올 때는 방해.
+6. **마우스 올렸을 때 더미가 들리는 정도(0.32)가 너무 작아 거의 안 보임**, 선형 보간이라 무게감 없음.
+7. **터치 기기**: 첫 탭에 바로 이동 → 무엇을 누르는지 확인할 틈이 없음.
+8. **라벨 숫자 대비 부족**(종이·그림자 위 캡션색, 약 3:1).
+9. **모바일 분류 범례 탭 영역 21px**(44px 권장), 서울·인천·경기 라벨 겹침.
+10. 감지용 WebGL 문맥을 하나 더 만들고 해제하지 않음, 낮/밤 전환마다 재질을 복제(메모리 누수).
+
+### 확인된 정상 동작
+- 마우스 올리기: 경기 더미 강조, 커서 pointer. 클릭 → `/map?sido=경기도` 이동.
+- 동작 줄이기 설정: 등장 연출 없이 완성 장면.
+- 콘솔 오류 0 (GPU 성능 경고만 — SwiftShader 특성).
+- Impeccable detect: 1440·390 × 낮·밤 모두 0건.
+
+### 오탐으로 판단
+- Taste `shader-lint`(three.js 내부 셰이더), `no-visual`·`overlap-text`·`collide`(라벨을 의도적으로 캔버스 위에 띄움), `hero-*`·`section-*`·`container-edges`(랜딩 페이지 규칙), `copy-headline`(h1은 숨김 처리된 사이트 제목).
+- Taste perf의 전송량은 로컬 서버가 gzip을 하지 않아 실제보다 큼.
