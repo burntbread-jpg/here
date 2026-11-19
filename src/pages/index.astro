@@ -1,64 +1,98 @@
 ---
+// 홈 — "한지 바느질 지도"(3D). 시·도를 누르면 /map 으로 들어간다. 설명은 docs/HOME3D.md
 import Base from '../layouts/Base.astro';
-import MapShell from '../components/MapShell.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { CATEGORIES } from '../data/categories';
+import { getData } from '../lib/data';
+const { places, courses, source } = await getData();
+const count = (id: string) => places.filter((p) => p.primary === id).length;
 ---
-<Base title="HERE — 국내 장소 지도">
-  <MapShell>
-    <div slot="top" class="pointer-events-none absolute inset-x-0 top-[52px] z-30 px-4 sm:top-[60px] sm:px-6 md:left-[408px]">
-      <div id="chips" class="no-scrollbar pointer-events-auto flex gap-1 overflow-x-auto py-1" role="group" aria-label="분류 거르기"></div>
-    </div>
-    <div slot="panel" class="flex min-h-0 flex-1 flex-col">
-      <div class="px-5 pt-1 pb-4 md:px-6 md:pt-6">
-        <div class="flex items-baseline justify-between">
-          <p id="sheet-level" class="eyebrow !tracking-[0.08em]">시·도별</p>
-          <p class="eyebrow !tracking-[0.08em]">샘플 데이터</p>
-        </div>
-        <h2 id="sheet-title" class="display mt-3 text-[30px] leading-[1.15] md:text-[34px]">전국</h2>
-        <p id="sheet-sub" class="mt-1.5 text-[13px] text-[var(--color-caption)] tnum"></p>
-        <div id="sheet-bars" class="mt-5 hidden flex-col gap-[7px] md:flex"></div>
+<Base title="HERE — 가까운 곳을 찍고 잇는 지도" scroll>
+  <!-- 데스크톱: 왼쪽 소개 칸 + 오른쪽 지도 칸(겹치지 않음). 모바일: 위 지도, 아래 소개 -->
+  <div class="home relative grid w-full md:h-dvh md:grid-cols-[minmax(340px,31%)_1fr]">
+    <SiteHeader current="home" />
+
+    <section class="intro order-2 flex flex-col justify-end px-4 pt-6 pb-8 sm:px-6 md:order-1 md:pt-28 md:pb-8 md:pr-10">
+      <p class="eyebrow">{places.length}곳 · {courses.length}개의 코스{source === 'sample' && ' · 샘플 데이터'}</p>
+      <h2 class="display mt-3 text-[34px] leading-[1.12] sm:text-[44px]">가까운 곳을<br />찍고, 잇다</h2>
+      <p class="mt-4 max-w-[26rem] text-[14.5px] leading-relaxed text-[var(--color-ink-2)]">한지를 겹쳐 만든 한반도. 장소가 많은 곳일수록 높이 쌓이고, 코스는 청실·홍실로 꿰맸어요.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <a href="/map" class="hero-btn hero-btn-solid">지도로 보기</a>
+        <a href="/places" class="hero-btn">목록</a>
+        <button type="button" id="mode" class="hero-btn" aria-pressed="false">밤</button>
+        <button type="button" id="skip" class="hero-btn hero-btn-quiet">건너뛰기</button>
       </div>
-      <ul id="sheet-list" class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-[var(--color-linen)] px-5 pb-6 md:px-6"></ul>
+      <ul class="legend mt-8 grid grid-cols-3 gap-x-3 gap-y-1 border-t border-[var(--color-linen)] pt-4" aria-label="분류">
+        {CATEGORIES.map((c) => (
+          <li><a href={`/places/${c.id}`} class="flex items-center gap-1.5 text-[12.5px]"><span class="knot" style={`--ink:${c.ink}`}></span><span class="display text-[14px]">{c.syllable}</span><span class="num text-[var(--color-caption)]">{count(c.id)}</span></a></li>
+        ))}
+      </ul>
+      <p id="hint" class="mt-5 text-[12px] leading-relaxed text-[var(--color-caption)]" aria-live="polite"><span class="hidden md:inline">시·도를 누르면 그 지역 지도로 들어가요 · 끌어서 돌리고, 휠로 가까이 · Tab으로도 고를 수 있어요</span><span class="md:hidden">시·도를 눌러 골라 보세요</span></p>
+    </section>
+
+    <div class="stage relative order-1 h-[64dvh] min-h-[440px] overflow-hidden md:order-2 md:h-auto md:min-h-0 md:border-l md:border-[var(--color-linen)]">
+      <div id="scene" class="absolute inset-0" aria-hidden="true"></div>
+      <!-- 시·도 이름표(링크): Tab 순서는 머리말·소개 다음 -->
+      <nav id="labels" class="pointer-events-none absolute inset-0 z-10" aria-label="시·도별 지도로 들어가기"></nav>
     </div>
-  </MapShell>
+    <noscript><p class="p-6">3D 홈은 JavaScript가 필요해요. <a href="/map" class="underline">지도로 보기</a></p></noscript>
+  </div>
 </Base>
 <style is:global>
-  .no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
-  .chip { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; height: 34px; padding: 0 11px 0 5px; border-radius: 3px;
-    background: var(--color-paper); border: 1px solid var(--color-linen); cursor: pointer;
-    transition: border-color 160ms var(--ease-out), opacity 160ms var(--ease-out), transform 120ms var(--ease-out); }
-  @media (hover: hover) { .chip:hover { border-color: var(--color-taupe); } }
-  .chip:active { transform: scale(.97); }
-  .chip-s { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 2px; background: var(--tint); color: var(--ink); font-size: 14px; }
-  .chip-e { font-family: var(--f-latin); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--color-caption); }
-  .chip[aria-pressed='false'] { opacity: .45; } .chip[aria-pressed='false'] .chip-s { background: transparent; color: var(--color-caption); }
-  @media (max-width: 767.98px) { .chip { height: 40px; } }
-
-  .dist-row { display: flex; align-items: center; gap: 10px; }
-  .dist-row > .display { width: 16px; text-align: center; }
-  .dist-row > .eyebrow { width: 54px; }
-
-  .row { transition: opacity 160ms; }
-  @media (hover: hover) { #sheet-list:hover .row { opacity: .72; } #sheet-list .row:hover { opacity: 1; } }
-
-  /* 지역 묶음: 가는 분류 고리 + 숫자, 이름은 원 아래 */
-  .rb { width: var(--s); height: var(--s); border: 0; padding: 0; background: none; cursor: pointer; transition: transform 200ms var(--ease-out); }
-  @media (hover: hover) { .rb:hover { transform: scale(1.06); } }
-  .rb:active { transform: scale(.97); }
-  .rb-ring { position: absolute; inset: 0; border-radius: 999px; box-shadow: 0 1px 2px rgb(36 35 31 / .10), 0 4px 12px -4px rgb(36 35 31 / .18); }
-  .rb-core { position: absolute; inset: 3px; border-radius: 999px; background: var(--color-land); display: grid; place-content: center; }
-  .rb-core b { font-size: 14px; color: var(--color-ink); }
-  .rb-lg .rb-core b { font-size: 16px; }
-  .rb-name { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; font-size: 11.5px; font-weight: 500; color: var(--color-ink); white-space: nowrap;
-    text-shadow: 0 0 2px var(--color-land), 0 0 4px var(--color-land), 0 0 6px var(--color-land); }
-  .dot { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; border: 1.5px solid var(--color-land); color: #fff; font-size: 12.5px;
-    box-shadow: 0 1px 3px rgb(36 35 31 / .25); cursor: pointer; padding: 0; transition: transform 160ms var(--ease-out); }
-  @media (hover: hover) { .dot:hover { transform: scale(1.15); } }
-  .dot-n { width: 32px; height: 32px; border: 0; }
-  .dot-n b { position: absolute; inset: 3px; border-radius: 999px; background: var(--color-land); color: var(--color-ink); display: grid; place-items: center; font-size: 12px; }
-  @media (max-width: 767.98px) { .rb-core b, .rb-lg .rb-core b { font-size: 12.5px; } .rb-name { font-size: 11px; } }
+  html[data-scene='night'] { --color-ink: #EDE9E1; --color-ink-2: #CFCAC0; --color-caption: #A9A49A; --color-paper: #121211; --color-linen: #3A3935; --color-land: #272725; }
+  html[data-scene='night'] body { background: #121211; }
+  .intro { background: var(--color-paper); position: relative; z-index: 20; }
+  .hero-btn { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; font-size: 14px; border: 1px solid var(--color-ink); border-radius: 2px; color: var(--color-ink);
+    background: color-mix(in oklab, var(--color-paper) 70%, transparent); transition: background-color 160ms var(--ease-out), color 160ms, transform 120ms var(--ease-out); cursor: pointer; }
+  .hero-btn:hover { background: var(--color-ink); color: var(--color-paper); }
+  .hero-btn:active { transform: scale(.97); }
+  .hero-btn-solid { background: var(--color-ink); color: var(--color-paper); }
+  .hero-btn-quiet { border-color: transparent; color: var(--color-caption); }
+  .knot { width: 9px; height: 9px; border-radius: 999px; background: var(--ink); box-shadow: inset 0 -1.5px 0 rgb(0 0 0 / .22); }
+  html[data-scene='night'] .knot { box-shadow: 0 0 8px var(--ink); }
+  /* 라벨: 캔버스 위에서도 읽히도록 종이색 바탕을 깐다(대비 확보). 링크라서 Tab 으로 갈 수 있다 */
+  .r3-label { position: absolute; left: 0; top: 0; display: flex; align-items: baseline; gap: 5px; white-space: nowrap; font-size: 11.5px; color: var(--color-ink);
+    padding: 2px 6px; border-radius: 2px; pointer-events: auto; background: color-mix(in oklab, var(--color-paper) 82%, transparent);
+    transition: opacity 150ms var(--ease-out), background-color 150ms var(--ease-out), color 150ms var(--ease-out); will-change: transform; }
+  .r3-label b { font-weight: 500; }
+  .r3-label .num { color: var(--color-ink-2); font-size: 11px; }
+  .r3-label.is-hidden { opacity: 0; pointer-events: none; }
+  .r3-label::after { content: ''; position: absolute; inset: -12px -6px; } /* 보이는 크기는 그대로, 누르는 영역만 넓힌다 */
+  .r3-label:focus-visible { opacity: 1; outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  #labels.has-on .r3-label:not(.is-on) { opacity: .45; }
+  #labels.has-on .r3-label.is-hidden:not(.is-on) { opacity: 0; }
+  .r3-label.is-on { background: var(--color-ink); color: var(--color-paper); opacity: 1; z-index: 2; }
+  .r3-label.is-on .num { color: inherit; opacity: .8; }
+  html[data-tour='on'] #skip { display: inline-flex; } #skip { display: none; }
+  /* 모바일: 범례 한 칸을 손가락 크기(44px)로 */
+  @media (max-width: 767.98px) { .hero-btn { height: 44px; } .r3-label { font-size: 11px; padding: 2px 5px; } .legend { gap: 0 6px; } .legend a { min-height: 44px; padding: 0 6px; } }
 </style>
 <script>
-  import { initHomeMap } from '../scripts/map/home-map';
-  initHomeMap();
+  import { initHome3D } from '../scripts/home3d/scene';
+  const host = document.getElementById('scene')!;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const q = new URLSearchParams(location.search);
+  let mode: 'day' | 'night' = q.get('mode') === 'night' ? 'night' : 'day';
+  try { if (!q.get('mode') && localStorage.getItem('here-scene') === 'night') mode = 'night'; } catch {}
+  const btn = document.getElementById('mode')!;
+  const sync = () => { btn.textContent = mode === 'night' ? '낮' : '밤'; btn.setAttribute('aria-pressed', String(mode === 'night')); };
+  sync();
+  // WebGL2 확인용 문맥은 바로 돌려준다(문맥이 두 개 생기지 않게)
+  const hasGL = (() => { try { const gl = document.createElement('canvas').getContext('webgl2'); gl?.getExtension('WEBGL_lose_context')?.loseContext(); return !!gl; } catch { return false; } })();
+  if (!hasGL) { location.replace('/map'); }
+  else {
+    // 등장 연출은 한 세션에 한 번만(다시 오면 바로 완성 장면). ?intro 로 다시 볼 수 있다
+    let seen = false; try { seen = sessionStorage.getItem('here-intro') === '1'; sessionStorage.setItem('here-intro', '1'); } catch {}
+    const frame = q.has('frame') ? Number(q.get('frame')) : undefined;
+    const intro = frame !== undefined || q.has('intro') || !seen;
+    if (!reduced && !q.has('still') && intro) document.documentElement.dataset.tour = 'on';
+    const hint = document.getElementById('hint')!; const hintBase = hint.innerHTML;
+    const api = await initHome3D(host, { mode, reduced: reduced || q.has('still'), intro, frame,
+      onHint: (t) => { hint.innerHTML = t ? `<span>${t}</span>` : hintBase; } });
+    btn.addEventListener('click', () => { mode = mode === 'night' ? 'day' : 'night'; api.setMode(mode); sync(); try { localStorage.setItem('here-scene', mode); } catch {} });
+    const skip = () => { api.skip(); document.documentElement.dataset.tour = 'off'; };
+    document.getElementById('skip')!.addEventListener('click', skip);
+    host.addEventListener('pointerdown', skip);
+    setTimeout(() => (document.documentElement.dataset.tour = 'off'), 11000);
+  }
 </script>
-

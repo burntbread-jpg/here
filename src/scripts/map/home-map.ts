@@ -153,6 +153,10 @@ export async function initHomeMap() {
     const at = new URLSearchParams(location.search).get('at');
     if (at === 'seoul') map.jumpTo({ center: [126.985, 37.56], zoom: isMobile ? 9.6 : 10.2 });
     render(); { const its = at === 'seoul' ? visible().filter((p) => p.sido === '서울특별시') : visible(); summarize(its, at === 'seoul' ? '서울' : '전국', `${its.length}곳 · 지역을 누르면 좁혀 봐요`); }
+    // 3D 홈에서 시·도를 눌러 들어온 경우: /map?sido=서울특별시
+    const want = new URLSearchParams(location.search).get('sido');
+    const f = want && regions.sido.features.find((x) => (x.properties as RegionProps).sidonm === want);
+    if (f) { const its = visible().filter((x) => x.sido === want); summarize(its, want!, `${its.length}곳`); fitRegion(f); }
   });
   map.on('moveend', render);
   map.on('click', () => summarize(visible(), '전국', `${visible().length}곳`));

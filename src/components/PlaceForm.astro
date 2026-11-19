@@ -1,0 +1,91 @@
+---
+// 장소 쓰기·고치기 폼. 위치는 지도에서 찍고, 사진은 브라우저에서 줄여 Supabase Storage 로 바로 올린다.
+import { CATEGORIES, ATTRIBUTE_TAGS } from '../data/categories';
+import type { PlaceInput } from '../lib/admin';
+interface Props { action: string; place?: Partial<PlaceInput>; deleteAction?: string }
+const { action, place = {}, deleteAction } = Astro.props;
+const sec = new Set(place.secondary ?? []);
+const tags = new Set(place.tags ?? []);
+---
+<form method="post" action={action} id="place-form" class="mt-10 space-y-10">
+  <label class="field"><span>이름</span>
+    <input class="input display !text-[22px]" name="title" required maxlength="120" value={place.title ?? ''} placeholder="장소 이름" />
+  </label>
+
+  <fieldset>
+    <legend class="mb-3 text-[13px] text-[var(--color-caption)]">주 분류 <span class="opacity-80">— 이곳에 가는 가장 큰 이유 하나</span></legend>
+    <div class="grid grid-cols-3 gap-2 sm:grid-cols-9">
+      {CATEGORIES.map((c) => (
+        <label class="catpick" style={`--ink:${c.ink};--tint:${c.tint}`}>
+          <input type="radio" name="primary_cat" value={c.id} required checked={place.primary_cat === c.id} class="sr-only" />
+          <span class="display text-[22px]">{c.syllable}</span><span class="eyebrow !tracking-[0.06em]">{c.en}</span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <div class="grid gap-8 sm:grid-cols-2">
+    <fieldset>
+      <legend class="mb-3 text-[13px] text-[var(--color-caption)]">보조 분류 <span class="opacity-80">— 2개까지</span></legend>
+      <div class="flex flex-wrap gap-1.5" id="secondary">
+        {CATEGORIES.map((c) => (
+          <label class="chk"><input type="checkbox" name="secondary" value={c.id} checked={sec.has(c.id)} /><span class="display cat-chip inline-grid size-6 place-items-center rounded-[2px] text-[14px]" style={`--tint:${c.tint};--ink:${c.ink}`}>{c.syllable}</span></label>
+        ))}
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="mb-3 text-[13px] text-[var(--color-caption)]">속성</legend>
+      <div class="flex flex-wrap gap-1.5">
+        {ATTRIBUTE_TAGS.map((t) => (
+          <label class="chk"><input type="checkbox" name="tags" value={t.id} checked={tags.has(t.id)} /><span class="text-[14px]">{t.label}</span></label>
+        ))}
+      </div>
+    </fieldset>
+  </div>
+
+  <div>
+    <p class="mb-3 text-[13px] text-[var(--color-caption)]">위치 <span class="opacity-80">— 지도를 눌러 찍으세요. 확대는 두 손가락이나 휠</span></p>
+    <div id="pick-map" class="aspect-[4/3] w-full overflow-hidden border border-[var(--color-linen)] sm:aspect-[16/9]"></div>
+    <p class="mt-2 text-[14px]" id="pick-label" aria-live="polite">{place.sido ? `${place.sido} ${place.sgg}` : '아직 찍지 않았어요'}</p>
+    <input type="hidden" name="lng" value={place.lng ?? ''} /><input type="hidden" name="lat" value={place.lat ?? ''} />
+    <input type="hidden" name="sido" value={place.sido ?? ''} /><input type="hidden" name="sgg" value={place.sgg ?? ''} />
+  </div>
+
+  <label class="field max-w-[14rem]"><span>다녀온 날</span><input class="input" type="date" name="visited_on" value={place.visited_on ?? ''} /></label>
+
+  <div>
+    <p class="mb-3 text-[13px] text-[var(--color-caption)]">사진 <span class="opacity-80">— 첫 사진이 대표 사진. 긴 변 1600px로 줄여 올립니다</span></p>
+    <ul id="photo-list" class="grid grid-cols-3 gap-2 sm:grid-cols-6"></ul>
+    <label class="btn mt-3 cursor-pointer"><input type="file" accept="image/jpeg,image/png,image/webp" multiple class="sr-only" id="photo-input" />사진 추가</label>
+    <p id="photo-status" class="mt-2 text-[13px] text-[var(--color-caption)]" aria-live="polite"></p>
+    <textarea name="photos" hidden>{(place.photos ?? []).join('\n')}</textarea>
+  </div>
+
+  <label class="field"><span>글 <span class="opacity-80">— 빈 줄로 문단을 나눕니다</span></span>
+    <textarea class="input min-h-[16rem] leading-[1.8]" name="body" maxlength="20000">{place.body ?? ''}</textarea>
+  </label>
+
+  <div class="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-ink)] pt-6">
+    <label class="flex items-center gap-2 text-[15px]"><input type="checkbox" name="published" checked={place.published ?? false} class="size-4 accent-[var(--color-ink)]" /> 공개하기</label>
+    <button class="btn btn-solid">저장</button>
+  </div>
+</form>
+{deleteAction && (
+  <form method="post" action={deleteAction} class="mt-10" onsubmit="return confirm('이 장소를 지울까요? 되돌릴 수 없어요.')">
+    <button class="btn btn-quiet">이 장소 지우기</button>
+  </form>
+)}
+<style>
+  .catpick { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; border: 1px solid var(--color-linen); border-radius: 2px; cursor: pointer; color: var(--ink); transition: border-color 160ms, background-color 160ms; }
+  .catpick:hover { border-color: var(--color-taupe); }
+  .catpick:has(input:checked) { background: var(--tint); border-color: var(--ink); }
+  .catpick:has(input:focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .chk { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 10px 0 8px; border: 1px solid var(--color-linen); border-radius: 2px; cursor: pointer; }
+  .chk:has(input:checked) { border-color: var(--color-ink); }
+  .chk input { accent-color: var(--color-ink); }
+  :global(.pick-pin) { width: 18px; height: 18px; border-radius: 999px; background: var(--color-ink); border: 3px solid var(--color-land); box-shadow: 0 1px 4px rgb(0 0 0 / .3); }
+</style>
+<script>
+  import { initPlaceForm } from '../scripts/admin/place-form';
+  initPlaceForm(document.getElementById('place-form') as HTMLFormElement);
+</script>

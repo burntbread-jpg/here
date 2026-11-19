@@ -14,7 +14,8 @@ pnpm dev                # http://localhost:4321
 
 | 주소 | 내용 |
 |---|---|
-| `/` | 홈 지도 (`?at=seoul`: 서울 확대) |
+| `/` | 3D 홈 "한지 바느질 지도" (`?mode=night`, `?still`) — docs/HOME3D.md |
+| `/map` | 지도 (`?at=seoul`, `?sido=서울특별시`) |
 | `/places`, `/places/[분류]` | 목록 |
 | `/place/[id]` | 장소 상세 |
 | `/course` | 코스 지도 (`?c=코스ID`) |
@@ -38,6 +39,8 @@ Astro 7 + TypeScript + Tailwind 4, pnpm. 글꼴 함렛 + Pretendard + Manrope, N
 - [docs/AUTH.md](docs/AUTH.md) — 편집 권한(관리자·편집자) 모델과 인증 방식 비교
 - [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) — 색·글꼴·마커 규칙
 - [docs/DESIGN_AUDIT.md](docs/DESIGN_AUDIT.md) — 디자인 도구 설치·점검 결과
+- [docs/OPERATIONS.md](docs/OPERATIONS.md) — 무료 운영(사진 복사, 주 1회 백업·일시 정지 방지)
+- [docs/DATA.md](docs/DATA.md) — 데이터 흐름과 주소
 
 ## 데이터 출처
 

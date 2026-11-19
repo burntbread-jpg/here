@@ -4,15 +4,15 @@
 interface Props { current?: string; variant?: 'map' | 'page' }
 const { current = 'map', variant = 'map' } = Astro.props;
 const nav = [
-  { id: 'map', label: '지도', href: '/' },
+  { id: 'map', label: '지도', href: '/map' },
   { id: 'list', label: '목록', href: '/places' },
   { id: 'course', label: '코스', href: '/course' },
 ];
 ---
 <header class:list={['site-header z-30 flex items-center justify-between gap-4 px-4 sm:px-6', variant === 'map' ? 'pointer-events-none absolute inset-x-0 top-0 pt-3 pb-8 sm:pt-4' : 'is-page sticky top-0 py-3 sm:py-4']}>
-  <div class="pointer-events-auto flex items-baseline gap-6">
+  <div class="pointer-events-auto flex items-baseline gap-6 max-md:items-center max-md:gap-3">
     <a href="/" class="wordmark" aria-label="HERE 홈">HERE</a>
-    <nav class="flex items-baseline gap-5" aria-label="주요 메뉴">
+    <nav class="flex items-baseline gap-5 max-md:items-center max-md:gap-1" aria-label="주요 메뉴">
       {nav.map((n) => (
         <a href={n.href} aria-current={n.id === current ? 'page' : undefined} class="navlink">{n.label}</a>
       ))}
@@ -36,5 +36,6 @@ const nav = [
     transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 120ms var(--ease-out); }
   .edit-btn:hover { background: var(--color-ink); color: var(--color-paper); }
   .edit-btn:active { transform: scale(.97); }
-  @media (max-width: 767.98px) { .edit-btn { padding: 11px 14px; } .navlink { padding: 12px 0; } }
+  /* 모바일: 머리말 링크도 손가락 크기(44px)로 */
+  @media (max-width: 767.98px) { .edit-btn { padding: 11px 14px; } nav .navlink { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 4px; } .wordmark { display: inline-flex; align-items: center; min-height: 44px; } }
 </style>

@@ -37,7 +37,9 @@ export function placeRow(p: Place, i = 0) {
       <span class="mt-0.5 block truncate text-[12.5px] text-[var(--color-caption)]">${p.sgg} · ${p.author}</span>
       <span class="mt-2 flex items-center gap-1">${syllableChip(p.primary)}${p.secondary.map((s) => syllableChip(s)).join('')}</span>
     </span>
-    <span class="size-14 shrink-0 rounded-[2px] transition-transform duration-200 group-hover:scale-[1.03]" style="${thumbStyle(p)}"></span>
+    ${p.thumb
+      ? `<img src="${p.thumb}" alt="" loading="lazy" width="56" height="56" class="size-14 shrink-0 rounded-[2px] object-cover transition-transform duration-200 group-hover:scale-[1.03]" />`
+      : `<span class="size-14 shrink-0 rounded-[2px] transition-transform duration-200 group-hover:scale-[1.03]" style="${thumbStyle(p)}"></span>`}
     </a></li>`;
 }
 

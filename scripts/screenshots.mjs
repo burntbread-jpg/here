@@ -6,7 +6,7 @@ let pw; try { pw = require('playwright'); } catch { pw = require('/opt/node-tool
 const base = process.argv[2] ?? 'http://localhost:4321';
 const scale = Number(process.argv[3] ?? 2);
 const pages = [
-  ['home', '/'], ['home-seoul', '/?at=seoul'], ['course', '/course'],
+  ['home', '/?still'], ['home-night', '/?still&mode=night'], ['home-sewing', '/?frame=6.2'], ['home-sewing-night', '/?frame=6.2&mode=night'], ['map', '/map'], ['home-seoul', '/map?at=seoul'], ['course', '/course'],
   ['places', '/places'], ['places-eat', '/places/eat'], ['place', '/place/p001'],
 ];
 const sizes = [['1440', { width: 1440, height: 900 }], ['390', { width: 390, height: 844 }]];
@@ -17,7 +17,7 @@ for (const [w, viewport] of sizes) {
     const page = await ctx.newPage();
     const errs = []; page.on('pageerror', (e) => errs.push(e.message));
     await page.goto(base + path, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(path.startsWith('/?') ? 5000 : 1500); // 3D 홈은 소프트웨어 렌더링이 느리다
     await page.screenshot({ path: `shots/${name}-${w}.png` });
     console.log(`shots/${name}-${w}.png`, errs.length ? 'ERRORS: ' + errs.join(' | ') : '');
     await page.close();

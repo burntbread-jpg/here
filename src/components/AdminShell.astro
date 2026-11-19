@@ -1,0 +1,33 @@
+---
+// 편집 화면 공통 틀
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+interface Props { title: string; wide?: boolean }
+const { title, wide = false } = Astro.props;
+const err = Astro.url.searchParams.get('error');
+const saved = Astro.url.searchParams.has('saved');
+---
+<Base title={`${title} — HERE 편집`} scroll>
+  <SiteHeader variant="page" />
+  <main class:list={['mx-auto px-4 pt-10 pb-24 sm:px-6 sm:pt-14', wide ? 'max-w-[1120px]' : 'max-w-[760px]']}>
+    <nav class="flex gap-2 text-[13px] text-[var(--color-caption)]" aria-label="편집 위치"><a href="/admin" class="hover:text-[var(--color-ink)]">편집</a><slot name="crumb" /></nav>
+    <h1 class="display mt-4 text-[40px] leading-[1.1]">{title}</h1>
+    {err && <p role="alert" class="mt-6 border-l-2 border-[#B44226] pl-3 text-[14px]">{err}</p>}
+    {saved && <p role="status" class="mt-6 border-l-2 border-[var(--color-ink)] pl-3 text-[14px]">저장했어요.</p>}
+    <slot />
+  </main>
+</Base>
+<style is:global>
+  .btn { display: inline-flex; align-items: center; font-size: 14px; padding: 10px 18px; border: 1px solid var(--color-ink); border-radius: 2px; background: var(--color-paper); color: var(--color-ink); transition: background-color 160ms, color 160ms, transform 120ms; cursor: pointer; }
+  .btn:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn:active { transform: scale(.97); }
+  .btn-solid { background: var(--color-ink); color: var(--color-paper); }
+  .btn-quiet { border-color: var(--color-linen); color: var(--color-caption); }
+  .btn-quiet:hover { border-color: #B44226; background: transparent; color: #B44226; }
+  .field { display: block; }
+  .field > span:first-child { display: block; font-size: 13px; color: var(--color-caption); margin-bottom: 6px; }
+  .input { width: 100%; border: 1px solid var(--color-linen); background: var(--color-land); border-radius: 2px; padding: 10px 12px; font-size: 15px; color: var(--color-ink); }
+  .input:focus { outline: none; border-color: var(--color-ink); }
+  .meta-row { display: grid; grid-template-columns: 7rem 1fr; border-bottom: 1px solid var(--color-linen); padding: 12px 0; font-size: 14px; }
+  .meta-row > dt { color: var(--color-caption); }
+</style>
