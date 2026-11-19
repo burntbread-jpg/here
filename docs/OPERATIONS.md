@@ -55,3 +55,21 @@ GitHub 저장소 → Settings → Secrets and variables → Actions → New repo
 `pnpm build` = `astro build && node scripts/subset-fonts.mjs`.
 빌드된 HTML·`/data/places.json`·소스의 한글 문자열에서 글자를 모아 함렛(`fonts-src/Hahmlet-Regular.woff2`, OFL, 굵기 400 고정)과 Pretendard 의 작은 판을 만든다(약 60KB + 120KB).
 미리 알 수 없는 글자(편집 화면에서 새로 쓴 글)는 원래 글꼴(fontsource·pretendard 의 쪼갠 파일)로 넘어간다. 개발 서버에서는 원래 글꼴만 쓴다.
+
+## 5. 유료로 넘어가지 않게 막기 (2026-11-19 사용자 요청)
+
+### 코드·DB 안전장치 (`supabase/migrations/0003_free_tier_guards.sql`)
+- 사진 한 장 3MB 이하, 사진 저장소 합계 **900MB** 넘으면 새 사진 올리기 거부(Free 1GB 전에 멈춤). 편집 화면에 이유를 보여 준다.
+- 장소 1만 곳·코스 2천 개 상한, 본문 2만 자 상한.
+- 방문자 사진은 빌드 때 사본을 만들어 Vercel 이 보낸다(Supabase 전송량 5GB 보호). Vercel 이미지 최적화(유료 계량 항목)는 쓰지 않는다.
+- GitHub Actions 는 주 1회, 15분 제한.
+
+### 계정에서 사용자가 확인할 것 (제가 접근할 수 없음)
+| 서비스 | 할 것 | 하지 말 것 |
+|---|---|---|
+| Supabase | 조직 Billing 에서 플랜이 **Free** 인지 확인. Compute 는 **Nano**(무료) 그대로 | Pro 업그레이드, 결제 수단 등록, Add-ons(PITR·Custom domain·IPv4·Compute 업그레이드) |
+| Vercel | 팀이 **Hobby** 인지 확인 | Pro 체험(Trial)·업그레이드, Speed Insights·Web Analytics 유료 사용, 광고 등 상업적 이용 |
+| GitHub | Settings → Billing and licensing → Budgets 에서 Actions 예산 **$0**(사용량 다 쓰면 멈춤) | 결제 수단 등록 후 예산 해제 |
+| Google Cloud | OAuth 동의 화면·클라이언트만 만든다(결제 계정 불필요) | 결제 계정(Billing) 연결, 유료 API 사용 |
+
+무료 플랜은 결제 수단이 없으면 한도를 넘어도 청구되지 않고, 대신 기능이 제한·일시 정지된다. 결제 수단을 등록하거나 업그레이드하지 않는 것이 가장 확실한 차단이다 — 각 서비스의 현재 약관은 [확인 필요].

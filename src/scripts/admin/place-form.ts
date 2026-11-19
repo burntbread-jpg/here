@@ -83,7 +83,7 @@ export async function initPlaceForm(form: HTMLFormElement) {
         const blob = await shrink(file, 1600);
         const path = `${crypto.randomUUID()}.webp`;
         const { error } = await sb.storage.from('photos').upload(path, blob, { contentType: 'image/webp', cacheControl: '31536000' });
-        if (error) throw error;
+        if (error) throw new Error(/row-level security|policy/i.test(error.message) ? '사진 저장 공간이 무료 한도에 가까워 더 올릴 수 없어요. 관리자에게 알려 주세요.' : error.message);
         urls.push(sb.storage.from('photos').getPublicUrl(path).data.publicUrl); draw();
       } catch (err) { status.textContent = `올리지 못했어요: ${(err as Error).message}`; return; }
     }

@@ -56,7 +56,7 @@ ELSEWHERE는 정적 출력만 썼다. HERE는 `@astrojs/vercel` 어댑터를 붙
 
 ## 5. 연결 순서 (사용자가 Supabase·Vercel 대시보드에서)
 
-1. **DB 만들기**: Supabase → SQL Editor 에 `supabase/migrations/0001_init.sql`, 이어서 `0002_storage_and_touch.sql` 을 차례로 붙여 넣고 실행. (`api.supabase.com` 개인 액세스 토큰을 주면 Claude가 관리 API로 대신 실행할 수 있다)
+1. **DB 만들기**: Supabase → SQL Editor 에 `supabase/migrations/0001_init.sql`, `0002_storage_and_touch.sql`, `0003_free_tier_guards.sql` 을 차례로 붙여 넣고 실행. (`api.supabase.com` 개인 액세스 토큰을 주면 Claude가 관리 API로 대신 실행할 수 있다)
 2. **첫 관리자 등록**: 같은 SQL Editor에서 직접 입력(이메일은 저장소·대화에 남기지 않는다).
    `insert into members (email, role, name) values ('<관리자 이메일>', 'admin', '<표시 이름>');`
    `name`은 공개 페이지에 '쓴 사람'으로 보이는 이름이다.
