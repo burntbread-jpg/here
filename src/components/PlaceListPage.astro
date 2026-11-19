@@ -1,0 +1,74 @@
+---
+// 목록 페이지 본체. /places(전체)와 /places/[분류]가 함께 쓴다.
+import Base from '../layouts/Base.astro';
+import SiteHeader from './SiteHeader.astro';
+import PlaceRow from './PlaceRow.astro';
+import { CATEGORIES, CAT, type CategoryId } from '../data/categories';
+import { getData } from '../lib/data';
+interface Props { cat?: CategoryId }
+const { cat } = Astro.props;
+const { places: all, source } = await getData();
+const byCat = (id: CategoryId) => all.filter((p) => p.primary === id || p.secondary.includes(id));
+const places = (cat ? byCat(cat) : all).toSorted((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title, 'ko'));
+const sidos = [...new Set(places.map((p) => p.sido))].sort((a, b) => a.localeCompare(b, 'ko'));
+const c = cat ? CAT[cat] : null;
+const title = c ? `${c.syllable} — ${c.meaning}` : '모든 곳';
+---
+<Base title={`${c ? c.syllable + ' · ' : ''}목록 — HERE`} scroll description={c ? `${c.meaning}: ${c.examples}` : undefined}>
+  <SiteHeader current="list" variant="page" />
+  <main class="mx-auto max-w-[1120px] px-4 pt-10 pb-24 sm:px-6 sm:pt-16">
+    <div class="grid gap-8 lg:grid-cols-[5fr_7fr] lg:items-end">
+      <div>
+        <h1 class="display text-[40px] leading-[1.1] sm:text-[56px]">
+          {c ? <><span class="cat-text" style={`--ink:${c.ink}`}>{c.syllable}</span><span class="text-[var(--color-caption)]"> — </span>{c.meaning}</> : title}
+        </h1>
+        <p class="mt-4 text-[15px] text-[var(--color-caption)]">{c ? `${c.en} · ${c.examples}` : '지도에 찍은 모든 장소'} · <span class="num">{places.length}</span>곳{source === 'sample' && ' · 샘플 데이터'}</p>
+      </div>
+      <nav aria-label="분류" class="flex flex-wrap gap-1.5 lg:justify-end">
+        <a href="/places" class="catnav" aria-current={!cat ? 'page' : undefined}><span class="eyebrow !tracking-[0.06em]">All</span></a>
+        {CATEGORIES.map((k) => (
+          <a href={`/places/${k.id}`} class="catnav" aria-current={k.id === cat ? 'page' : undefined} title={k.en}>
+            <span class="display cat-chip inline-grid size-6 place-items-center rounded-[2px] text-[14px]" style={`--tint:${k.tint};--ink:${k.ink}`}>{k.syllable}</span>
+            <span class="num text-[12px] text-[var(--color-caption)]">{byCat(k.id).length}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="mt-12 flex items-center justify-between gap-4 border-b border-[var(--color-ink)] pb-3">
+      <label class="flex items-center gap-3 text-[13px] text-[var(--color-caption)]">
+        지역
+        <select id="sido" class="border-0 border-b border-[var(--color-linen)] bg-transparent py-1 pr-6 text-[14px] text-[var(--color-ink)] focus:border-[var(--color-ink)] focus:outline-none">
+          <option value="">전체</option>
+          {sidos.map((s) => <option value={s}>{s}</option>)}
+        </select>
+      </label>
+      <p class="text-[13px] text-[var(--color-caption)]"><span id="shown" class="num">{places.length}</span>곳 · 최근 다녀온 순</p>
+    </div>
+
+    {places.length
+      ? <ol id="list">{places.map((p, i) => <PlaceRow place={p} index={i} />)}</ol>
+      : <p class="py-20 text-center text-[15px] text-[var(--color-caption)]">아직 이 분류에 등록된 곳이 없어요.</p>}
+  </main>
+</Base>
+<style>
+  .catnav { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 10px 0 6px; border: 1px solid var(--color-linen); border-radius: 3px;
+    transition: border-color 160ms var(--ease-out); }
+  .catnav:first-child { padding: 0 12px; }
+  .catnav:hover { border-color: var(--color-taupe); }
+  .catnav[aria-current='page'] { border-color: var(--color-ink); }
+  @media (hover: hover) { #list:hover .row { opacity: .7; } #list .row:hover { opacity: 1; } }
+  :global(.row) { transition: opacity 160ms; }
+</style>
+<script>
+  // 지역 거르기: 화면에서만 숨긴다(정적 페이지라 서버 왕복 없음)
+  const sel = document.getElementById('sido') as HTMLSelectElement | null;
+  const shown = document.getElementById('shown')!;
+  sel?.addEventListener('change', () => {
+    let n = 0;
+    document.querySelectorAll<HTMLElement>('.place-row').forEach((li) => {
+      const on = !sel.value || li.dataset.sido === sel.value; li.hidden = !on; if (on) n++;
+    });
+    shown.textContent = String(n);
+  });
+</script>

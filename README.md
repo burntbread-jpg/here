@@ -8,17 +8,19 @@
 
 ```bash
 pnpm install
-cp .env.example .env    # HERE_MEMBERS 에 관리자 이메일 입력 (커밋 금지)
+cp .env.example .env    # Supabase URL·anon 키 (커밋 금지). 없으면 샘플 데이터로 동작
 pnpm dev                # http://localhost:4321
 ```
 
 | 주소 | 내용 |
 |---|---|
-| `/` | 홈 (시안 B) |
-| `/drafts/a` | 시안 A · 사진 핀 (`?sel=1`: 가장 큰 묶음 선택 상태) |
-| `/drafts/b` | 시안 B · 음절 + 행정구역 묶음 (`?at=seoul`: 서울 확대) |
-| `/drafts/c` | 코스 탭 시안 (작성자가 등록한 코스만 선으로) |
-| `/admin` | 편집 화면 자리 (로그인 연결 전) |
+| `/` | 홈 지도 (`?at=seoul`: 서울 확대) |
+| `/places`, `/places/[분류]` | 목록 |
+| `/place/[id]` | 장소 상세 |
+| `/course` | 코스 지도 (`?c=코스ID`) |
+| `/admin` | 편집 입구 (Supabase Google 로그인) |
+
+데이터 흐름은 [docs/DATA.md](docs/DATA.md).
 
 스크린샷: `pnpm dev` 를 띄운 상태에서 `node scripts/screenshots.mjs` → `shots/*.png` (1440·390).
 

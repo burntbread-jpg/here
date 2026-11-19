@@ -32,6 +32,7 @@ HERE — 국내의 맛집·카페·병원·산책로·숙소·생활 정보를 �
 | 2026-11-19 | 편집자는 **다른 사람의 글을 수정·삭제할 수 없다**(관리자만 가능) |
 | 2026-11-19 | 글씨체 **② 함렛** 확정(제목·음절·숫자). 크림 대신 다른 바탕색 후보 요청 → 5개 시안 |
 | 2026-11-19 | 바탕색 **한지**(#F4F4F1, 땅 #FFFFFF) 확정, `design/b-refine` → main 병합 |
+| 2026-11-19 | Supabase 프로젝트 `olbwwfnxcoecxtoukhyz` 제공. 장소 목록·상세 페이지 추가, 시안 A 삭제, 코스 탭 `/course` 로 이동 |
 | 2026-11-19 | 사용자 피드백: "ELSEWHERE보다 감도가 떨어진다", "글씨체가 마음에 안 든다" → ELSEWHERE 톤으로 다듬고 글씨체 후보 3개 제시 |
 
 ## 4. 사용자 선택을 기다리는 것
@@ -43,17 +44,17 @@ HERE — 국내의 맛집·카페·병원·산책로·숙소·생활 정보를 �
 ## 5. 현재 상태
 
 - Astro 7 + Tailwind 4 + MapLibre 6. ELSEWHERE(Astro 5)와 같은 계열이지만, 새 프로젝트라 최신 판을 썼다.
-- `/` = 시안 B. `/drafts/a`(보관), `/drafts/b`, `/drafts/c`(코스 탭 시안).
+- `/` 홈 지도, `/places` 목록, `/place/[id]` 상세, `/course` 코스, `/admin` 편집 입구. docs/DATA.md
 - 디자인 점검(Impeccable·Taste) 실행 완료 — 결과와 오탐 정리는 docs/DESIGN_AUDIT.md.
 - 장소 데이터는 전부 **샘플**(`src/data/sample-places.json`, 생성 스크립트 `scripts/make_sample_places.py`). 실제 장소·사진 없음. 썸네일은 분류색 그라데이션 자리표시.
-- 로그인 없음. `/admin` 은 자리만.
+- 로그인 코드는 있음(Supabase Google). anon 키·DB 설정 전이라 실제로는 동작하지 않음.
 - 행정구역 경계: SGIS → vuski/admdongkor 2026-10-01 판(CC BY 4.0). docs/MAP.md.
 
 ## 6. 다음 할 일 (시안 확정 후)
 
-1. 시안 A(`/drafts/a`) 정리 여부 결정, `/drafts/b`·`/drafts/c`를 정식 경로(`/`, `/course`)로 옮기기
-2. 장소 상세(사진·글) 페이지, 목록 페이지, 코스 페이지
-3. Supabase 연결 → `/admin` 편집 화면(지도에서 위치 찍기, 사진 올리기)
+1. Supabase 설정(사용자): docs/AUTH.md §5 의 1–5단계, anon 키를 Vercel·로컬 `.env`에
+2. `/admin` 장소 쓰기 화면(지도에서 위치 찍기, 사진 올리기, 공개 → 재배포 훅), 계정 관리 화면
+3. 이 컨테이너에서 Supabase 접속이 막혀 있음 — 시험하려면 환경 네트워크에 `olbwwfnxcoecxtoukhyz.supabase.co` 허용 필요
 4. Vercel 연결, 도메인 결정 후 `astro.config.mjs` 의 `site` 교체
 5. 소개 페이지에 경계 데이터 출처 표기
 
@@ -73,7 +74,11 @@ pnpm build                                  # Vercel 출력(.vercel/output)
 src/data/categories.ts        분류 9개(음절·영문·색) + 속성 태그
 src/data/sample-places.json    샘플 장소·코스
 src/scripts/map/base.ts        백지도(경계, 라벨, 확대 범위) — 모든 시안 공통
-src/scripts/map/variant-*.ts   시안 A·B·C
+src/scripts/map/home-map.ts    홈 지도
+src/scripts/map/course-map.ts  코스 지도
+src/scripts/map/mini-map.ts    상세의 작은 지도
+src/lib/data.ts                데이터 읽기(Supabase 공개 뷰 또는 샘플)
+src/lib/supabase.ts            로그인용 서버 클라이언트
 src/components/MapShell.astro  지도 + 패널/시트 골격
 src/lib/auth/roles.ts          역할·권한 판단
 supabase/migrations/           DB 스키마 + RLS (배포 연결 때 적용)

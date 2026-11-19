@@ -1,19 +1,20 @@
-// 시안 C · 잇기 — 장소 사이를 선으로 잇는다. 기준: 같은 코스(실선) / 같은 날(점선) / 같은 작성자(가는 점선).
+// 코스 지도 — 작성자가 직접 등록한 코스만 장소 사이를 선으로 잇는다(2026-11-19 결정).
 import * as maplibregl from 'maplibre-gl';
 import { createBaseMap, loadRegions, attachRegionLabels, prefersReducedMotion } from './base';
-import { PLACES, COURSES, CAT, syllableChip, type Place } from './places';
+import { PLACES, COURSES, CAT, syllableChip, type Place, loadData } from './places';
 
 
-export async function initVariantC() {
-  const regions = await loadRegions();
+export async function initCourseMap() {
+  const [regions] = await Promise.all([loadRegions(), loadData()]);
   const isMobile = matchMedia('(max-width: 767.98px)').matches;
   const padding = isMobile ? { top: 120, bottom: 200, left: 24, right: 24 } : { top: 140, bottom: 60, left: 420, right: 60 };
   const map = createBaseMap(document.getElementById('map')!, regions, { padding });
-  attachRegionLabels(map, regions);
+  attachRegionLabels(map, regions, isMobile ? { sggFrom: 13 } : {});
 
   const stops = PLACES.filter((p) => p.course).sort((a, b) => (a.course! < b.course! ? -1 : a.course! > b.course! ? 1 : a.order! - b.order!));
   const others = PLACES.filter((p) => !p.course);
-  let activeCourse = 'c1';
+  const want = new URLSearchParams(location.search).get('c');
+  let activeCourse = COURSES.some((c) => c.id === want) ? want! : COURSES[0]?.id ?? '';
 
   // 선은 작성자가 직접 코스로 등록한 경우에만 그린다(같은 날·같은 작성자 자동 연결은 하지 않기로 함, 2026-11-19).
   function links(): GeoJSON.FeatureCollection {
@@ -38,11 +39,12 @@ export async function initVariantC() {
       el.style.setProperty('--ink', CAT[p.primary].ink);
       el.innerHTML = `<b class="tnum">${p.order}</b><span>${CAT[p.primary].syllable}</span>`;
       el.setAttribute('aria-label', `${p.title}, ${CAT[p.primary].en}`);
-      el.onclick = (e) => { e.stopPropagation(); setCourse(p.course!, false); };
+      // 선택된 코스의 정류장을 누르면 장소 상세로, 다른 코스면 그 코스를 고른다
+      el.onclick = (e) => { e.stopPropagation(); if (p.course === activeCourse) location.href = `/place/${p.id}`; else setCourse(p.course!, false); };
       stopMarkers.push({ p, m: new maplibregl.Marker({ element: el }).setLngLat([p.lng, p.lat]).addTo(map) });
     }
     setCourse(activeCourse, false);
-    map.fitBounds(bounds(stops.filter((p) => p.sido === '서울특별시')), { padding, duration: 0 });
+    map.fitBounds(bounds(want ? stops.filter((p) => p.course === activeCourse) : stops.filter((p) => p.sido === '서울특별시')), { padding, duration: 0, maxZoom: 14 });
   });
 
   function bounds(ps: Place[]) { const b = new maplibregl.LngLatBounds(); ps.forEach((p) => b.extend([p.lng, p.lat])); return b; }
