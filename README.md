@@ -14,7 +14,8 @@ pnpm dev                # http://localhost:4321
 
 | 주소 | 내용 |
 |---|---|
-| `/` | 홈 지도 (`?at=seoul`: 서울 확대) |
+| `/` | 3D 홈 "한지 바느질 지도" (`?mode=night`, `?still`) — docs/HOME3D.md |
+| `/map` | 지도 (`?at=seoul`, `?sido=서울특별시`) |
 | `/places`, `/places/[분류]` | 목록 |
 | `/place/[id]` | 장소 상세 |
 | `/course` | 코스 지도 (`?c=코스ID`) |

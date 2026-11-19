@@ -4,7 +4,7 @@
 interface Props { current?: string; variant?: 'map' | 'page' }
 const { current = 'map', variant = 'map' } = Astro.props;
 const nav = [
-  { id: 'map', label: '지도', href: '/' },
+  { id: 'map', label: '지도', href: '/map' },
   { id: 'list', label: '목록', href: '/places' },
   { id: 'course', label: '코스', href: '/course' },
 ];
