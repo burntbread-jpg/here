@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import MapShell from '../../components/MapShell.astro';
+import DraftBadge from '../../components/DraftBadge.astro';
+const modes = [
+  { id: 'course', label: '같은 코스', hint: '실선' },
+  { id: 'day', label: '같은 날', hint: '점선' },
+  { id: 'author', label: '같은 작성자', hint: '가는 점선' },
+];
+---
+<Base title="HERE — 시안 C">
+  <MapShell current="course">
+    <div slot="top" class="pointer-events-none absolute inset-x-0 top-[62px] z-30 flex px-3 sm:top-[72px] sm:px-4 md:left-[392px]">
+      <div id="modes" class="pointer-events-auto inline-flex rounded-[14px] bg-[color-mix(in_oklab,var(--color-paper)_90%,transparent)] p-1 shadow-[0_0_0_1px_rgb(0_0_0/.07),0_1px_2px_rgb(0_0_0/.05)] backdrop-blur-md" role="group" aria-label="잇는 기준">
+        {modes.map((m, i) => (
+          <button type="button" data-mode={m.id} aria-pressed={i === 0 ? 'true' : 'false'} class="mode flex items-center gap-2 rounded-[10px] px-3 py-1.5 text-[13.5px]">
+            <svg width="22" height="6" aria-hidden="true"><line x1="1" y1="3" x2="21" y2="3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray={m.id === 'course' ? undefined : m.id === 'day' ? '5 4' : '0.1 4.5'} /></svg>
+            {m.label}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div slot="panel" class="flex min-h-0 flex-1 flex-col">
+      <div class="px-5 pt-2 pb-3 md:pt-5">
+        <div class="flex items-end justify-between">
+          <h2 class="font-[family-name:var(--font-serif)] text-[22px] font-semibold tracking-[-0.02em]">코스</h2>
+          <span class="rounded-full bg-black/5 px-2.5 py-1 text-[11.5px] text-[var(--color-ink-2)]">샘플 데이터</span>
+        </div>
+        <p class="mt-0.5 text-[13px] text-[var(--color-ink-3)]">함께 들르면 좋은 곳을 순서대로 이었어요</p>
+      </div>
+      <ul id="course-list" class="min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain px-3 pb-6"></ul>
+    </div>
+    <DraftBadge code="c" name="잇기 · 코스" />
+  </MapShell>
+</Base>
+<style is:global>
+  .mode { color: var(--color-ink-2); transition: background-color 160ms var(--ease-out), color 160ms; }
+  .mode[aria-pressed='true'] { background: var(--color-ink); color: var(--color-paper); }
+  .course { transition: background-color 160ms var(--ease-out); }
+  .course:hover { background: rgb(0 0 0 / .035); }
+  .course[aria-current='true'] { background: #fff; box-shadow: 0 0 0 1.5px var(--color-ink), 0 4px 14px rgb(0 0 0 / .06); }
+  .stop { display: flex; align-items: center; gap: 0; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; transition: opacity 200ms, transform 140ms var(--ease-out); }
+  .stop b { display: grid; place-items: center; min-width: 28px; height: 28px; border-radius: 999px; background: var(--color-ink); color: #fff; font-family: var(--font-latin); font-size: 13px; font-weight: 800;
+    border: 2px solid #fff; box-shadow: 0 2px 6px rgb(0 0 0 / .25); position: relative; z-index: 1; }
+  .stop span { margin-left: -6px; padding: 0 7px 0 10px; height: 22px; display: grid; place-items: center; border-radius: 0 999px 999px 0; background: #fff; color: var(--ink); font-size: 12px; font-weight: 700;
+    box-shadow: 0 1px 4px rgb(0 0 0 / .18); }
+  .stop.is-dim { opacity: .55; } .stop.is-dim b { background: #8C867B; }
+  @media (hover: hover) { .stop:hover { transform: translateY(-1px); } }
+</style>
+<script>
+  import { initVariantC } from '../../scripts/map/variant-c';
+  initVariantC();
+</script>

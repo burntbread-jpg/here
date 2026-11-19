@@ -1,0 +1,6563 @@
+{
+"_note": "시안용 샘플. 실제 장소 아님.",
+"places": [
+{
+"id": "p000",
+"title": "샘플 장소 1",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [
+"tip"
+],
+"lng": 126.82661,
+"lat": 37.50189,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 A",
+"date": "2026-02-14"
+},
+{
+"id": "p001",
+"title": "샘플 장소 2",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.00807,
+"lat": 37.48344,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 A",
+"date": "2026-10-19"
+},
+{
+"id": "p002",
+"title": "샘플 장소 3",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.97599,
+"lat": 37.45306,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 A",
+"date": "2026-10-19"
+},
+{
+"id": "p003",
+"title": "샘플 장소 4",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.72391,
+"lat": 37.56178,
+"sido": "인천광역시",
+"sgg": "계양구",
+"author": "편집자 C",
+"date": "2026-08-19"
+},
+{
+"id": "p004",
+"title": "샘플 장소 5",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.93484,
+"lat": 35.09875,
+"sido": "경상남도",
+"sgg": "사천시",
+"author": "편집자 C",
+"date": "2026-10-03"
+},
+{
+"id": "p005",
+"title": "샘플 장소 6",
+"primary": "eat",
+"secondary": [
+"care"
+],
+"tags": [
+"deal"
+],
+"lng": 127.09,
+"lat": 37.60837,
+"sido": "서울특별시",
+"sgg": "중랑구",
+"author": "편집자 E",
+"date": "2026-06-11"
+},
+{
+"id": "p006",
+"title": "샘플 장소 7",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 127.12206,
+"lat": 37.44212,
+"sido": "경기도",
+"sgg": "성남시수정구",
+"author": "편집자 A",
+"date": "2026-05-21"
+},
+{
+"id": "p007",
+"title": "샘플 장소 8",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [
+"tip",
+"season"
+],
+"lng": 128.93979,
+"lat": 35.2067,
+"sido": "부산광역시",
+"sgg": "강서구",
+"author": "편집자 C",
+"date": "2026-03-24"
+},
+{
+"id": "p008",
+"title": "샘플 장소 9",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 126.90708,
+"lat": 37.57882,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 D",
+"date": "2026-06-22"
+},
+{
+"id": "p009",
+"title": "샘플 장소 10",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 129.09329,
+"lat": 36.16937,
+"sido": "경상북도",
+"sgg": "포항시북구",
+"author": "편집자 E",
+"date": "2026-10-11"
+},
+{
+"id": "p010",
+"title": "샘플 장소 11",
+"primary": "walk",
+"secondary": [
+"eat",
+"read"
+],
+"tags": [],
+"lng": 126.70692,
+"lat": 33.30351,
+"sido": "제주특별자치도",
+"sgg": "서귀포시",
+"author": "편집자 E",
+"date": "2026-07-13"
+},
+{
+"id": "p011",
+"title": "샘플 장소 12",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.95421,
+"lat": 37.44475,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 D",
+"date": "2026-08-16"
+},
+{
+"id": "p012",
+"title": "샘플 장소 13",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 127.31846,
+"lat": 34.92647,
+"sido": "전남광주통합특별시",
+"sgg": "순천시",
+"author": "편집자 C",
+"date": "2026-03-23"
+},
+{
+"id": "p013",
+"title": "샘플 장소 14",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.01217,
+"lat": 35.16801,
+"sido": "부산광역시",
+"sgg": "부산진구",
+"author": "편집자 B",
+"date": "2026-06-25"
+},
+{
+"id": "p014",
+"title": "샘플 장소 15",
+"primary": "walk",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.93072,
+"lat": 37.61762,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 B",
+"date": "2026-04-17"
+},
+{
+"id": "p015",
+"title": "샘플 장소 16",
+"primary": "eat",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 126.81521,
+"lat": 35.15906,
+"sido": "전남광주통합특별시",
+"sgg": "광산구",
+"author": "편집자 C",
+"date": "2026-02-08"
+},
+{
+"id": "p016",
+"title": "샘플 장소 17",
+"primary": "style",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 127.04924,
+"lat": 37.57581,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 A",
+"date": "2026-11-04"
+},
+{
+"id": "p017",
+"title": "샘플 장소 18",
+"primary": "style",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 129.0661,
+"lat": 37.0122,
+"sido": "경상북도",
+"sgg": "봉화군",
+"author": "편집자 D",
+"date": "2026-08-13"
+},
+{
+"id": "p018",
+"title": "샘플 장소 19",
+"primary": "walk",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.90362,
+"lat": 37.6544,
+"sido": "경기도",
+"sgg": "고양시덕양구",
+"author": "편집자 B",
+"date": "2026-01-01"
+},
+{
+"id": "p019",
+"title": "샘플 장소 20",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.19123,
+"lat": 37.02515,
+"sido": "경기도",
+"sgg": "안성시",
+"author": "편집자 C",
+"date": "2026-08-22"
+},
+{
+"id": "p020",
+"title": "샘플 장소 21",
+"primary": "read",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 129.10959,
+"lat": 35.17882,
+"sido": "부산광역시",
+"sgg": "연제구",
+"author": "편집자 B",
+"date": "2026-03-05"
+},
+{
+"id": "p021",
+"title": "샘플 장소 22",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [
+"tip"
+],
+"lng": 127.16326,
+"lat": 37.55184,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 B",
+"date": "2026-04-09"
+},
+{
+"id": "p022",
+"title": "샘플 장소 23",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.95215,
+"lat": 37.52861,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 E",
+"date": "2026-04-23"
+},
+{
+"id": "p023",
+"title": "샘플 장소 24",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 126.85658,
+"lat": 37.5128,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 D",
+"date": "2026-03-14"
+},
+{
+"id": "p024",
+"title": "샘플 장소 25",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.09118,
+"lat": 37.57331,
+"sido": "서울특별시",
+"sgg": "중랑구",
+"author": "편집자 B",
+"date": "2026-11-22"
+},
+{
+"id": "p025",
+"title": "샘플 장소 26",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.94277,
+"lat": 37.50706,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 D",
+"date": "2026-09-13"
+},
+{
+"id": "p026",
+"title": "샘플 장소 27",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.90431,
+"lat": 37.45696,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 A",
+"date": "2026-04-04"
+},
+{
+"id": "p027",
+"title": "샘플 장소 28",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.09533,
+"lat": 37.5709,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 B",
+"date": "2026-07-03"
+},
+{
+"id": "p028",
+"title": "샘플 장소 29",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.83703,
+"lat": 37.51367,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 C",
+"date": "2026-10-05"
+},
+{
+"id": "p029",
+"title": "샘플 장소 30",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.9926,
+"lat": 37.53247,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 A",
+"date": "2026-01-01"
+},
+{
+"id": "p030",
+"title": "샘플 장소 31",
+"primary": "style",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 127.08935,
+"lat": 37.8829,
+"sido": "경기도",
+"sgg": "동두천시",
+"author": "편집자 E",
+"date": "2026-07-17"
+},
+{
+"id": "p031",
+"title": "샘플 장소 32",
+"primary": "eat",
+"secondary": [
+"read",
+"walk"
+],
+"tags": [],
+"lng": 126.83241,
+"lat": 37.4839,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 A",
+"date": "2026-02-21"
+},
+{
+"id": "p032",
+"title": "샘플 장소 33",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [
+"deal"
+],
+"lng": 126.59918,
+"lat": 37.22741,
+"sido": "경기도",
+"sgg": "안산시단원구",
+"author": "편집자 E",
+"date": "2026-01-13"
+},
+{
+"id": "p033",
+"title": "샘플 장소 34",
+"primary": "play",
+"secondary": [
+"care",
+"life"
+],
+"tags": [],
+"lng": 126.99968,
+"lat": 37.55866,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 E",
+"date": "2026-11-05"
+},
+{
+"id": "p034",
+"title": "샘플 장소 35",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 126.9925,
+"lat": 37.54239,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 A",
+"date": "2026-11-19"
+},
+{
+"id": "p035",
+"title": "샘플 장소 36",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [
+"tip"
+],
+"lng": 127.2904,
+"lat": 36.90711,
+"sido": "경기도",
+"sgg": "안성시",
+"author": "편집자 E",
+"date": "2026-09-03"
+},
+{
+"id": "p036",
+"title": "샘플 장소 37",
+"primary": "rest",
+"secondary": [
+"walk",
+"style"
+],
+"tags": [],
+"lng": 127.29008,
+"lat": 36.28176,
+"sido": "대전광역시",
+"sgg": "유성구",
+"author": "편집자 D",
+"date": "2026-02-16"
+},
+{
+"id": "p037",
+"title": "샘플 장소 38",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 128.98417,
+"lat": 36.81718,
+"sido": "경상북도",
+"sgg": "봉화군",
+"author": "편집자 E",
+"date": "2026-03-01"
+},
+{
+"id": "p038",
+"title": "샘플 장소 39",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.77387,
+"lat": 34.84099,
+"sido": "전남광주통합특별시",
+"sgg": "여수시",
+"author": "편집자 B",
+"date": "2026-10-27"
+},
+{
+"id": "p039",
+"title": "샘플 장소 40",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.69911,
+"lat": 37.39211,
+"sido": "인천광역시",
+"sgg": "남동구",
+"author": "편집자 D",
+"date": "2026-07-10"
+},
+{
+"id": "p040",
+"title": "샘플 장소 41",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 126.85701,
+"lat": 37.43708,
+"sido": "경기도",
+"sgg": "광명시",
+"author": "편집자 A",
+"date": "2026-04-23"
+},
+{
+"id": "p041",
+"title": "샘플 장소 42",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.00431,
+"lat": 37.58264,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-05-04"
+},
+{
+"id": "p042",
+"title": "샘플 장소 43",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.99514,
+"lat": 37.53755,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 D",
+"date": "2026-01-26"
+},
+{
+"id": "p043",
+"title": "샘플 장소 44",
+"primary": "read",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 127.19993,
+"lat": 37.74652,
+"sido": "경기도",
+"sgg": "남양주시",
+"author": "편집자 D",
+"date": "2026-10-25"
+},
+{
+"id": "p044",
+"title": "샘플 장소 45",
+"primary": "life",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.05909,
+"lat": 37.6062,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 C",
+"date": "2026-11-09"
+},
+{
+"id": "p045",
+"title": "샘플 장소 46",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 127.00783,
+"lat": 37.47674,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 D",
+"date": "2026-09-08"
+},
+{
+"id": "p046",
+"title": "샘플 장소 47",
+"primary": "rest",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 127.09842,
+"lat": 37.52465,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 C",
+"date": "2026-04-12"
+},
+{
+"id": "p047",
+"title": "샘플 장소 48",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.89896,
+"lat": 37.56373,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 C",
+"date": "2026-03-22"
+},
+{
+"id": "p048",
+"title": "샘플 장소 49",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.80076,
+"lat": 34.74106,
+"sido": "전남광주통합특별시",
+"sgg": "강진군",
+"author": "편집자 D",
+"date": "2026-05-28"
+},
+{
+"id": "p049",
+"title": "샘플 장소 50",
+"primary": "play",
+"secondary": [
+"life"
+],
+"tags": [
+"deal"
+],
+"lng": 127.09646,
+"lat": 37.20636,
+"sido": "경기도",
+"sgg": "화성시동탄구",
+"author": "편집자 E",
+"date": "2026-08-15"
+},
+{
+"id": "p050",
+"title": "샘플 장소 51",
+"primary": "life",
+"secondary": [
+"care",
+"eat"
+],
+"tags": [
+"tip"
+],
+"lng": 126.93712,
+"lat": 37.59111,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-02"
+},
+{
+"id": "p051",
+"title": "샘플 장소 52",
+"primary": "eat",
+"secondary": [
+"care",
+"play"
+],
+"tags": [
+"tip"
+],
+"lng": 126.61893,
+"lat": 37.56948,
+"sido": "인천광역시",
+"sgg": "검단구",
+"author": "편집자 E",
+"date": "2026-04-13"
+},
+{
+"id": "p052",
+"title": "샘플 장소 53",
+"primary": "style",
+"secondary": [
+"walk"
+],
+"tags": [
+"deal"
+],
+"lng": 126.9456,
+"lat": 37.54764,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 A",
+"date": "2026-01-07"
+},
+{
+"id": "p053",
+"title": "샘플 장소 54",
+"primary": "eat",
+"secondary": [
+"care",
+"read"
+],
+"tags": [
+"tip"
+],
+"lng": 127.39571,
+"lat": 34.56843,
+"sido": "전남광주통합특별시",
+"sgg": "고흥군",
+"author": "편집자 D",
+"date": "2026-06-22"
+},
+{
+"id": "p054",
+"title": "샘플 장소 55",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 126.94367,
+"lat": 37.4478,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 C",
+"date": "2026-02-20"
+},
+{
+"id": "p055",
+"title": "샘플 장소 56",
+"primary": "life",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.21873,
+"lat": 35.2481,
+"sido": "전남광주통합특별시",
+"sgg": "곡성군",
+"author": "편집자 E",
+"date": "2026-03-14"
+},
+{
+"id": "p056",
+"title": "샘플 장소 57",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 126.99533,
+"lat": 37.52501,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 A",
+"date": "2026-06-14"
+},
+{
+"id": "p057",
+"title": "샘플 장소 58",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.57186,
+"lat": 38.07058,
+"sido": "강원특별자치도",
+"sgg": "춘천시",
+"author": "편집자 A",
+"date": "2026-01-23"
+},
+{
+"id": "p058",
+"title": "샘플 장소 59",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.12388,
+"lat": 37.5398,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 D",
+"date": "2026-01-13"
+},
+{
+"id": "p059",
+"title": "샘플 장소 60",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 126.97826,
+"lat": 37.5647,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-05-24"
+},
+{
+"id": "p060",
+"title": "샘플 장소 61",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [
+"deal"
+],
+"lng": 126.76717,
+"lat": 37.4934,
+"sido": "경기도",
+"sgg": "부천시원미구",
+"author": "편집자 D",
+"date": "2026-07-26"
+},
+{
+"id": "p061",
+"title": "샘플 장소 62",
+"primary": "life",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 126.90072,
+"lat": 37.56198,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 B",
+"date": "2026-10-08"
+},
+{
+"id": "p062",
+"title": "샘플 장소 63",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 126.89148,
+"lat": 37.45288,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 D",
+"date": "2026-02-21"
+},
+{
+"id": "p063",
+"title": "샘플 장소 64",
+"primary": "life",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.99753,
+"lat": 37.55302,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-07-16"
+},
+{
+"id": "p064",
+"title": "샘플 장소 65",
+"primary": "read",
+"secondary": [
+"rest",
+"care"
+],
+"tags": [],
+"lng": 127.04243,
+"lat": 35.72572,
+"sido": "전북특별자치도",
+"sgg": "김제시",
+"author": "편집자 C",
+"date": "2026-05-24"
+},
+{
+"id": "p065",
+"title": "샘플 장소 66",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.95307,
+"lat": 37.54455,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 A",
+"date": "2026-11-15"
+},
+{
+"id": "p066",
+"title": "샘플 장소 67",
+"primary": "care",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal",
+"season"
+],
+"lng": 127.30237,
+"lat": 35.81303,
+"sido": "전북특별자치도",
+"sgg": "진안군",
+"author": "편집자 B",
+"date": "2026-10-27"
+},
+{
+"id": "p067",
+"title": "샘플 장소 68",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.06473,
+"lat": 35.19017,
+"sido": "부산광역시",
+"sgg": "연제구",
+"author": "편집자 A",
+"date": "2026-06-11"
+},
+{
+"id": "p068",
+"title": "샘플 장소 69",
+"primary": "walk",
+"secondary": [
+"read",
+"care"
+],
+"tags": [
+"deal"
+],
+"lng": 126.9948,
+"lat": 37.59257,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 B",
+"date": "2026-10-10"
+},
+{
+"id": "p069",
+"title": "샘플 장소 70",
+"primary": "play",
+"secondary": [
+"style",
+"stay"
+],
+"tags": [],
+"lng": 127.0843,
+"lat": 37.54401,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 C",
+"date": "2026-07-10"
+},
+{
+"id": "p070",
+"title": "샘플 장소 71",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 129.35044,
+"lat": 35.5456,
+"sido": "울산광역시",
+"sgg": "남구",
+"author": "편집자 B",
+"date": "2026-07-24"
+},
+{
+"id": "p071",
+"title": "샘플 장소 72",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.99061,
+"lat": 37.48609,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 D",
+"date": "2026-02-19"
+},
+{
+"id": "p072",
+"title": "샘플 장소 73",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.44345,
+"lat": 37.45887,
+"sido": "인천광역시",
+"sgg": "영종구",
+"author": "편집자 D",
+"date": "2026-08-25"
+},
+{
+"id": "p073",
+"title": "샘플 장소 74",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.82552,
+"lat": 37.24388,
+"sido": "경기도",
+"sgg": "화성시만세구",
+"author": "편집자 D",
+"date": "2026-03-19"
+},
+{
+"id": "p074",
+"title": "샘플 장소 75",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.91802,
+"lat": 37.61889,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 B",
+"date": "2026-01-18"
+},
+{
+"id": "p075",
+"title": "샘플 장소 76",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 127.45838,
+"lat": 36.58134,
+"sido": "충청북도",
+"sgg": "청주시서원구",
+"author": "편집자 D",
+"date": "2026-05-19"
+},
+{
+"id": "p076",
+"title": "샘플 장소 77",
+"primary": "style",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 126.92807,
+"lat": 37.5745,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-08-25"
+},
+{
+"id": "p077",
+"title": "샘플 장소 78",
+"primary": "care",
+"secondary": [
+"rest"
+],
+"tags": [
+"deal"
+],
+"lng": 126.65686,
+"lat": 37.48511,
+"sido": "인천광역시",
+"sgg": "제물포구",
+"author": "편집자 D",
+"date": "2026-09-17"
+},
+{
+"id": "p078",
+"title": "샘플 장소 79",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.42602,
+"lat": 36.31927,
+"sido": "대전광역시",
+"sgg": "중구",
+"author": "편집자 B",
+"date": "2026-03-16"
+},
+{
+"id": "p079",
+"title": "샘플 장소 80",
+"primary": "rest",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 126.8361,
+"lat": 37.54607,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 D",
+"date": "2026-04-19"
+},
+{
+"id": "p080",
+"title": "샘플 장소 81",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.90906,
+"lat": 37.55202,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 C",
+"date": "2026-07-06"
+},
+{
+"id": "p081",
+"title": "샘플 장소 82",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.75385,
+"lat": 37.93057,
+"sido": "경기도",
+"sgg": "파주시",
+"author": "편집자 A",
+"date": "2026-05-18"
+},
+{
+"id": "p082",
+"title": "샘플 장소 83",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.63701,
+"lat": 37.4194,
+"sido": "인천광역시",
+"sgg": "연수구",
+"author": "편집자 D",
+"date": "2026-04-06"
+},
+{
+"id": "p083",
+"title": "샘플 장소 84",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 128.56685,
+"lat": 35.74727,
+"sido": "대구광역시",
+"sgg": "달성군",
+"author": "편집자 A",
+"date": "2026-01-01"
+},
+{
+"id": "p084",
+"title": "샘플 장소 85",
+"primary": "read",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 128.9524,
+"lat": 35.08075,
+"sido": "부산광역시",
+"sgg": "사하구",
+"author": "편집자 D",
+"date": "2026-03-05"
+},
+{
+"id": "p085",
+"title": "샘플 장소 86",
+"primary": "eat",
+"secondary": [
+"stay",
+"walk"
+],
+"tags": [
+"season"
+],
+"lng": 126.98309,
+"lat": 37.57003,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 E",
+"date": "2026-06-20"
+},
+{
+"id": "p086",
+"title": "샘플 장소 87",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.65366,
+"lat": 37.59139,
+"sido": "인천광역시",
+"sgg": "검단구",
+"author": "편집자 B",
+"date": "2026-03-14"
+},
+{
+"id": "p087",
+"title": "샘플 장소 88",
+"primary": "walk",
+"secondary": [
+"style"
+],
+"tags": [
+"tip"
+],
+"lng": 127.08461,
+"lat": 37.65592,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 D",
+"date": "2026-09-01"
+},
+{
+"id": "p088",
+"title": "샘플 장소 89",
+"primary": "eat",
+"secondary": [
+"life",
+"style"
+],
+"tags": [
+"tip"
+],
+"lng": 126.94014,
+"lat": 37.51408,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 A",
+"date": "2026-02-11"
+},
+{
+"id": "p089",
+"title": "샘플 장소 90",
+"primary": "walk",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 128.62851,
+"lat": 36.94685,
+"sido": "경상북도",
+"sgg": "영주시",
+"author": "편집자 A",
+"date": "2026-09-01"
+},
+{
+"id": "p090",
+"title": "샘플 장소 91",
+"primary": "rest",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 127.04401,
+"lat": 37.62369,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 E",
+"date": "2026-08-16"
+},
+{
+"id": "p091",
+"title": "샘플 장소 92",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [
+"season"
+],
+"lng": 127.61541,
+"lat": 37.46071,
+"sido": "경기도",
+"sgg": "양평군",
+"author": "편집자 A",
+"date": "2026-02-20"
+},
+{
+"id": "p092",
+"title": "샘플 장소 93",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 128.99231,
+"lat": 35.31001,
+"sido": "경상남도",
+"sgg": "양산시",
+"author": "편집자 A",
+"date": "2026-01-03"
+},
+{
+"id": "p093",
+"title": "샘플 장소 94",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.96327,
+"lat": 36.84774,
+"sido": "충청북도",
+"sgg": "괴산군",
+"author": "편집자 A",
+"date": "2026-11-21"
+},
+{
+"id": "p094",
+"title": "샘플 장소 95",
+"primary": "rest",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal"
+],
+"lng": 126.87368,
+"lat": 37.51062,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 C",
+"date": "2026-06-25"
+},
+{
+"id": "p095",
+"title": "샘플 장소 96",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 129.10689,
+"lat": 37.41162,
+"sido": "강원특별자치도",
+"sgg": "삼척시",
+"author": "편집자 A",
+"date": "2026-06-16"
+},
+{
+"id": "p096",
+"title": "샘플 장소 97",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 127.07992,
+"lat": 37.70701,
+"sido": "경기도",
+"sgg": "의정부시",
+"author": "편집자 E",
+"date": "2026-04-10"
+},
+{
+"id": "p097",
+"title": "샘플 장소 98",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.04846,
+"lat": 37.16236,
+"sido": "경기도",
+"sgg": "오산시",
+"author": "편집자 E",
+"date": "2026-05-19"
+},
+{
+"id": "p098",
+"title": "샘플 장소 99",
+"primary": "stay",
+"secondary": [
+"style"
+],
+"tags": [
+"deal",
+"season"
+],
+"lng": 126.37937,
+"lat": 33.43319,
+"sido": "제주특별자치도",
+"sgg": "제주시",
+"author": "편집자 E",
+"date": "2026-02-21"
+},
+{
+"id": "p099",
+"title": "샘플 장소 100",
+"primary": "life",
+"secondary": [
+"rest",
+"read"
+],
+"tags": [
+"tip"
+],
+"lng": 126.8792,
+"lat": 37.48229,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 C",
+"date": "2026-07-18"
+},
+{
+"id": "p100",
+"title": "샘플 장소 101",
+"primary": "read",
+"secondary": [
+"eat",
+"style"
+],
+"tags": [],
+"lng": 126.91214,
+"lat": 35.00406,
+"sido": "전남광주통합특별시",
+"sgg": "화순군",
+"author": "편집자 D",
+"date": "2026-11-18"
+},
+{
+"id": "p101",
+"title": "샘플 장소 102",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.94409,
+"lat": 37.6746,
+"sido": "경기도",
+"sgg": "고양시덕양구",
+"author": "편집자 E",
+"date": "2026-03-24"
+},
+{
+"id": "p102",
+"title": "샘플 장소 103",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 126.99703,
+"lat": 37.63392,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 A",
+"date": "2026-03-22"
+},
+{
+"id": "p103",
+"title": "샘플 장소 104",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.06724,
+"lat": 37.59432,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 D",
+"date": "2026-08-02"
+},
+{
+"id": "p104",
+"title": "샘플 장소 105",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.96888,
+"lat": 37.61489,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 D",
+"date": "2026-04-22"
+},
+{
+"id": "p105",
+"title": "샘플 장소 106",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 126.80684,
+"lat": 37.53682,
+"sido": "경기도",
+"sgg": "부천시오정구",
+"author": "편집자 B",
+"date": "2026-07-23"
+},
+{
+"id": "p106",
+"title": "샘플 장소 107",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.97481,
+"lat": 37.40265,
+"sido": "경기도",
+"sgg": "안양시동안구",
+"author": "편집자 D",
+"date": "2026-02-02"
+},
+{
+"id": "p107",
+"title": "샘플 장소 108",
+"primary": "life",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.87748,
+"lat": 37.5747,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 E",
+"date": "2026-04-23"
+},
+{
+"id": "p108",
+"title": "샘플 장소 109",
+"primary": "stay",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 127.13697,
+"lat": 37.53846,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 A",
+"date": "2026-10-12"
+},
+{
+"id": "p109",
+"title": "샘플 장소 110",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.71057,
+"lat": 37.55021,
+"sido": "인천광역시",
+"sgg": "계양구",
+"author": "편집자 C",
+"date": "2026-10-09"
+},
+{
+"id": "p110",
+"title": "샘플 장소 111",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.04001,
+"lat": 37.57874,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 B",
+"date": "2026-03-25"
+},
+{
+"id": "p111",
+"title": "샘플 장소 112",
+"primary": "walk",
+"secondary": [
+"read",
+"care"
+],
+"tags": [],
+"lng": 127.06058,
+"lat": 37.53758,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 D",
+"date": "2026-08-10"
+},
+{
+"id": "p112",
+"title": "샘플 장소 113",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 127.2745,
+"lat": 37.72031,
+"sido": "경기도",
+"sgg": "남양주시",
+"author": "편집자 D",
+"date": "2026-11-06"
+},
+{
+"id": "p113",
+"title": "샘플 장소 114",
+"primary": "rest",
+"secondary": [
+"stay",
+"read"
+],
+"tags": [],
+"lng": 127.70352,
+"lat": 34.72272,
+"sido": "전남광주통합특별시",
+"sgg": "여수시",
+"author": "편집자 C",
+"date": "2026-03-10"
+},
+{
+"id": "p114",
+"title": "샘플 장소 115",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.62093,
+"lat": 36.7406,
+"sido": "충청북도",
+"sgg": "증평군",
+"author": "편집자 B",
+"date": "2026-04-13"
+},
+{
+"id": "p115",
+"title": "샘플 장소 116",
+"primary": "walk",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 126.87691,
+"lat": 37.93466,
+"sido": "경기도",
+"sgg": "파주시",
+"author": "편집자 D",
+"date": "2026-11-04"
+},
+{
+"id": "p116",
+"title": "샘플 장소 117",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 129.08039,
+"lat": 35.11345,
+"sido": "부산광역시",
+"sgg": "남구",
+"author": "편집자 B",
+"date": "2026-08-06"
+},
+{
+"id": "p117",
+"title": "샘플 장소 118",
+"primary": "read",
+"secondary": [
+"stay",
+"care"
+],
+"tags": [],
+"lng": 129.07132,
+"lat": 35.16414,
+"sido": "부산광역시",
+"sgg": "부산진구",
+"author": "편집자 A",
+"date": "2026-03-21"
+},
+{
+"id": "p118",
+"title": "샘플 장소 119",
+"primary": "play",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 126.88483,
+"lat": 37.51947,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 C",
+"date": "2026-02-28"
+},
+{
+"id": "p119",
+"title": "샘플 장소 120",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.29556,
+"lat": 36.34487,
+"sido": "대전광역시",
+"sgg": "유성구",
+"author": "편집자 D",
+"date": "2026-06-17"
+},
+{
+"id": "p120",
+"title": "샘플 장소 121",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.1037,
+"lat": 35.97773,
+"sido": "전북특별자치도",
+"sgg": "익산시",
+"author": "편집자 E",
+"date": "2026-11-03"
+},
+{
+"id": "p121",
+"title": "샘플 장소 122",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 127.16424,
+"lat": 37.27499,
+"sido": "경기도",
+"sgg": "용인시기흥구",
+"author": "편집자 D",
+"date": "2026-10-25"
+},
+{
+"id": "p122",
+"title": "샘플 장소 123",
+"primary": "walk",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.37649,
+"lat": 36.35583,
+"sido": "대전광역시",
+"sgg": "서구",
+"author": "편집자 A",
+"date": "2026-04-02"
+},
+{
+"id": "p123",
+"title": "샘플 장소 124",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 129.30657,
+"lat": 35.53343,
+"sido": "울산광역시",
+"sgg": "남구",
+"author": "편집자 A",
+"date": "2026-06-28"
+},
+{
+"id": "p124",
+"title": "샘플 장소 125",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.0751,
+"lat": 37.82232,
+"sido": "경기도",
+"sgg": "양주시",
+"author": "편집자 E",
+"date": "2026-11-19"
+},
+{
+"id": "p125",
+"title": "샘플 장소 126",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 128.36597,
+"lat": 35.54833,
+"sido": "경상남도",
+"sgg": "창녕군",
+"author": "편집자 D",
+"date": "2026-08-03"
+},
+{
+"id": "p126",
+"title": "샘플 장소 127",
+"primary": "life",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.97842,
+"lat": 37.60517,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 D",
+"date": "2026-04-05"
+},
+{
+"id": "p127",
+"title": "샘플 장소 128",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.69247,
+"lat": 37.44196,
+"sido": "인천광역시",
+"sgg": "미추홀구",
+"author": "편집자 B",
+"date": "2026-01-12"
+},
+{
+"id": "p128",
+"title": "샘플 장소 129",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 127.01323,
+"lat": 37.39898,
+"sido": "경기도",
+"sgg": "의왕시",
+"author": "편집자 C",
+"date": "2026-01-23"
+},
+{
+"id": "p129",
+"title": "샘플 장소 130",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.00627,
+"lat": 37.56112,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 D",
+"date": "2026-10-02"
+},
+{
+"id": "p130",
+"title": "샘플 장소 131",
+"primary": "play",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.89904,
+"lat": 37.4811,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 E",
+"date": "2026-06-10"
+},
+{
+"id": "p131",
+"title": "샘플 장소 132",
+"primary": "play",
+"secondary": [
+"stay"
+],
+"tags": [
+"season"
+],
+"lng": 126.8644,
+"lat": 37.53349,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 B",
+"date": "2026-10-27"
+},
+{
+"id": "p132",
+"title": "샘플 장소 133",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.84698,
+"lat": 37.50334,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 C",
+"date": "2026-05-14"
+},
+{
+"id": "p133",
+"title": "샘플 장소 134",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 127.03473,
+"lat": 37.63103,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 D",
+"date": "2026-06-18"
+},
+{
+"id": "p134",
+"title": "샘플 장소 135",
+"primary": "eat",
+"secondary": [
+"walk",
+"read"
+],
+"tags": [],
+"lng": 127.08833,
+"lat": 37.56347,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 B",
+"date": "2026-05-19"
+},
+{
+"id": "p135",
+"title": "샘플 장소 136",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.75749,
+"lat": 37.67002,
+"sido": "경기도",
+"sgg": "고양시일산서구",
+"author": "편집자 C",
+"date": "2026-09-11"
+},
+{
+"id": "p136",
+"title": "샘플 장소 137",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 127.12383,
+"lat": 37.52831,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 B",
+"date": "2026-04-02"
+},
+{
+"id": "p137",
+"title": "샘플 장소 138",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 128.38499,
+"lat": 34.79498,
+"sido": "경상남도",
+"sgg": "통영시",
+"author": "편집자 E",
+"date": "2026-03-09"
+},
+{
+"id": "p138",
+"title": "샘플 장소 139",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.35412,
+"lat": 36.56677,
+"sido": "충청북도",
+"sgg": "청주시흥덕구",
+"author": "편집자 A",
+"date": "2026-10-21"
+},
+{
+"id": "p139",
+"title": "샘플 장소 140",
+"primary": "walk",
+"secondary": [
+"care",
+"rest"
+],
+"tags": [],
+"lng": 126.92242,
+"lat": 37.46925,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 B",
+"date": "2026-03-02"
+},
+{
+"id": "p140",
+"title": "샘플 장소 141",
+"primary": "play",
+"secondary": [
+"eat"
+],
+"tags": [
+"deal",
+"season"
+],
+"lng": 127.8926,
+"lat": 35.81038,
+"sido": "경상남도",
+"sgg": "거창군",
+"author": "편집자 B",
+"date": "2026-11-24"
+},
+{
+"id": "p141",
+"title": "샘플 장소 142",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.77827,
+"lat": 37.55164,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 B",
+"date": "2026-11-01"
+},
+{
+"id": "p142",
+"title": "샘플 장소 143",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.17713,
+"lat": 37.56701,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 B",
+"date": "2026-08-04"
+},
+{
+"id": "p143",
+"title": "샘플 장소 144",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 128.79704,
+"lat": 35.20863,
+"sido": "경상남도",
+"sgg": "김해시",
+"author": "편집자 D",
+"date": "2026-09-05"
+},
+{
+"id": "p144",
+"title": "샘플 장소 145",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.07494,
+"lat": 37.48152,
+"sido": "서울특별시",
+"sgg": "강남구",
+"author": "편집자 A",
+"date": "2026-03-17"
+},
+{
+"id": "p145",
+"title": "샘플 장소 146",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.96079,
+"lat": 37.52985,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 C",
+"date": "2026-04-08"
+},
+{
+"id": "p146",
+"title": "샘플 장소 147",
+"primary": "rest",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 127.05237,
+"lat": 37.5687,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 E",
+"date": "2026-04-23"
+},
+{
+"id": "p147",
+"title": "샘플 장소 148",
+"primary": "care",
+"secondary": [
+"life",
+"play"
+],
+"tags": [],
+"lng": 127.03621,
+"lat": 37.68908,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 B",
+"date": "2026-10-10"
+},
+{
+"id": "p148",
+"title": "샘플 장소 149",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.07044,
+"lat": 37.67355,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 D",
+"date": "2026-02-01"
+},
+{
+"id": "p149",
+"title": "샘플 장소 150",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 127.06876,
+"lat": 37.44217,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 B",
+"date": "2026-06-19"
+},
+{
+"id": "p150",
+"title": "샘플 장소 151",
+"primary": "eat",
+"secondary": [
+"walk",
+"care"
+],
+"tags": [],
+"lng": 128.98663,
+"lat": 35.15826,
+"sido": "부산광역시",
+"sgg": "사상구",
+"author": "편집자 D",
+"date": "2026-10-25"
+},
+{
+"id": "p151",
+"title": "샘플 장소 152",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [
+"deal"
+],
+"lng": 128.73178,
+"lat": 36.34444,
+"sido": "경상북도",
+"sgg": "의성군",
+"author": "편집자 B",
+"date": "2026-03-04"
+},
+{
+"id": "p152",
+"title": "샘플 장소 153",
+"primary": "style",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.88853,
+"lat": 37.50129,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 B",
+"date": "2026-01-09"
+},
+{
+"id": "p153",
+"title": "샘플 장소 154",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.09369,
+"lat": 37.59524,
+"sido": "서울특별시",
+"sgg": "중랑구",
+"author": "편집자 B",
+"date": "2026-04-05"
+},
+{
+"id": "p154",
+"title": "샘플 장소 155",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.42021,
+"lat": 35.5117,
+"sido": "울산광역시",
+"sgg": "동구",
+"author": "편집자 E",
+"date": "2026-09-02"
+},
+{
+"id": "p155",
+"title": "샘플 장소 156",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [
+"season"
+],
+"lng": 126.92966,
+"lat": 37.45016,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 E",
+"date": "2026-03-22"
+},
+{
+"id": "p156",
+"title": "샘플 장소 157",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 128.20236,
+"lat": 34.98866,
+"sido": "경상남도",
+"sgg": "고성군",
+"author": "편집자 B",
+"date": "2026-09-22"
+},
+{
+"id": "p157",
+"title": "샘플 장소 158",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.01213,
+"lat": 37.56995,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 E",
+"date": "2026-05-21"
+},
+{
+"id": "p158",
+"title": "샘플 장소 159",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 129.0774,
+"lat": 35.17401,
+"sido": "부산광역시",
+"sgg": "부산진구",
+"author": "편집자 C",
+"date": "2026-06-21"
+},
+{
+"id": "p159",
+"title": "샘플 장소 160",
+"primary": "life",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.98555,
+"lat": 37.65396,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 E",
+"date": "2026-05-09"
+},
+{
+"id": "p160",
+"title": "샘플 장소 161",
+"primary": "eat",
+"secondary": [
+"play",
+"walk"
+],
+"tags": [],
+"lng": 126.94037,
+"lat": 37.58944,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 C",
+"date": "2026-01-08"
+},
+{
+"id": "p161",
+"title": "샘플 장소 162",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.92608,
+"lat": 37.45091,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 A",
+"date": "2026-03-18"
+},
+{
+"id": "p162",
+"title": "샘플 장소 163",
+"primary": "eat",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 127.06532,
+"lat": 37.54842,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 B",
+"date": "2026-07-11"
+},
+{
+"id": "p163",
+"title": "샘플 장소 164",
+"primary": "care",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 129.36473,
+"lat": 35.46626,
+"sido": "울산광역시",
+"sgg": "남구",
+"author": "편집자 B",
+"date": "2026-07-28"
+},
+{
+"id": "p164",
+"title": "샘플 장소 165",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 127.04594,
+"lat": 37.58574,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 E",
+"date": "2026-02-13"
+},
+{
+"id": "p165",
+"title": "샘플 장소 166",
+"primary": "style",
+"secondary": [
+"care"
+],
+"tags": [
+"tip"
+],
+"lng": 127.62905,
+"lat": 36.26752,
+"sido": "충청북도",
+"sgg": "옥천군",
+"author": "편집자 D",
+"date": "2026-07-15"
+},
+{
+"id": "p166",
+"title": "샘플 장소 167",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.81608,
+"lat": 37.55576,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 C",
+"date": "2026-04-14"
+},
+{
+"id": "p167",
+"title": "샘플 장소 168",
+"primary": "eat",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 128.73125,
+"lat": 36.70506,
+"sido": "경상북도",
+"sgg": "영주시",
+"author": "편집자 D",
+"date": "2026-09-27"
+},
+{
+"id": "p168",
+"title": "샘플 장소 169",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [
+"tip",
+"season"
+],
+"lng": 129.03736,
+"lat": 35.10361,
+"sido": "부산광역시",
+"sgg": "중구",
+"author": "편집자 B",
+"date": "2026-02-14"
+},
+{
+"id": "p169",
+"title": "샘플 장소 170",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 126.93712,
+"lat": 37.4992,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 E",
+"date": "2026-10-11"
+},
+{
+"id": "p170",
+"title": "샘플 장소 171",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 127.05345,
+"lat": 37.26531,
+"sido": "경기도",
+"sgg": "수원시영통구",
+"author": "편집자 C",
+"date": "2026-09-14"
+},
+{
+"id": "p171",
+"title": "샘플 장소 172",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.72649,
+"lat": 37.46147,
+"sido": "인천광역시",
+"sgg": "남동구",
+"author": "편집자 A",
+"date": "2026-06-19"
+},
+{
+"id": "p172",
+"title": "샘플 장소 173",
+"primary": "rest",
+"secondary": [
+"read",
+"stay"
+],
+"tags": [],
+"lng": 127.52993,
+"lat": 35.67382,
+"sido": "전북특별자치도",
+"sgg": "장수군",
+"author": "편집자 E",
+"date": "2026-09-04"
+},
+{
+"id": "p173",
+"title": "샘플 장소 174",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.99348,
+"lat": 37.55695,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 B",
+"date": "2026-04-12"
+},
+{
+"id": "p174",
+"title": "샘플 장소 175",
+"primary": "care",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.82405,
+"lat": 37.53235,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 A",
+"date": "2026-04-13"
+},
+{
+"id": "p175",
+"title": "샘플 장소 176",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 129.0893,
+"lat": 35.16845,
+"sido": "부산광역시",
+"sgg": "연제구",
+"author": "편집자 C",
+"date": "2026-07-20"
+},
+{
+"id": "p176",
+"title": "샘플 장소 177",
+"primary": "walk",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.861,
+"lat": 37.57247,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 A",
+"date": "2026-04-03"
+},
+{
+"id": "p177",
+"title": "샘플 장소 178",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 127.05357,
+"lat": 37.65156,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 A",
+"date": "2026-02-14"
+},
+{
+"id": "p178",
+"title": "샘플 장소 179",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.21562,
+"lat": 37.85969,
+"sido": "경기도",
+"sgg": "포천시",
+"author": "편집자 A",
+"date": "2026-06-26"
+},
+{
+"id": "p179",
+"title": "샘플 장소 180",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.02929,
+"lat": 37.61614,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 B",
+"date": "2026-03-12"
+},
+{
+"id": "p180",
+"title": "샘플 장소 181",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.94619,
+"lat": 37.52094,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 D",
+"date": "2026-10-12"
+},
+{
+"id": "p181",
+"title": "샘플 장소 182",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 129.05783,
+"lat": 35.07632,
+"sido": "부산광역시",
+"sgg": "영도구",
+"author": "편집자 D",
+"date": "2026-01-22"
+},
+{
+"id": "p182",
+"title": "샘플 장소 183",
+"primary": "play",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.80715,
+"lat": 37.48088,
+"sido": "경기도",
+"sgg": "부천시소사구",
+"author": "편집자 E",
+"date": "2026-06-26"
+},
+{
+"id": "p183",
+"title": "샘플 장소 184",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.93609,
+"lat": 34.85009,
+"sido": "전남광주통합특별시",
+"sgg": "화순군",
+"author": "편집자 C",
+"date": "2026-07-28"
+},
+{
+"id": "p184",
+"title": "샘플 장소 185",
+"primary": "rest",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 128.49783,
+"lat": 36.71687,
+"sido": "경상북도",
+"sgg": "예천군",
+"author": "편집자 D",
+"date": "2026-06-21"
+},
+{
+"id": "p185",
+"title": "샘플 장소 186",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.03935,
+"lat": 37.57268,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 B",
+"date": "2026-07-07"
+},
+{
+"id": "p186",
+"title": "샘플 장소 187",
+"primary": "read",
+"secondary": [
+"style",
+"stay"
+],
+"tags": [],
+"lng": 127.11182,
+"lat": 37.62328,
+"sido": "경기도",
+"sgg": "구리시",
+"author": "편집자 C",
+"date": "2026-07-22"
+},
+{
+"id": "p187",
+"title": "샘플 장소 188",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.94011,
+"lat": 37.28664,
+"sido": "경기도",
+"sgg": "수원시권선구",
+"author": "편집자 D",
+"date": "2026-10-27"
+},
+{
+"id": "p188",
+"title": "샘플 장소 189",
+"primary": "life",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 126.92945,
+"lat": 37.60487,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 D",
+"date": "2026-09-02"
+},
+{
+"id": "p189",
+"title": "샘플 장소 190",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 129.0538,
+"lat": 35.59552,
+"sido": "울산광역시",
+"sgg": "울주군",
+"author": "편집자 E",
+"date": "2026-05-06"
+},
+{
+"id": "p190",
+"title": "샘플 장소 191",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 129.04821,
+"lat": 35.19862,
+"sido": "부산광역시",
+"sgg": "동래구",
+"author": "편집자 D",
+"date": "2026-11-16"
+},
+{
+"id": "p191",
+"title": "샘플 장소 192",
+"primary": "style",
+"secondary": [
+"play",
+"life"
+],
+"tags": [],
+"lng": 126.91804,
+"lat": 37.58231,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 E",
+"date": "2026-04-11"
+},
+{
+"id": "p192",
+"title": "샘플 장소 193",
+"primary": "eat",
+"secondary": [
+"stay",
+"rest"
+],
+"tags": [
+"season"
+],
+"lng": 126.69632,
+"lat": 37.38184,
+"sido": "인천광역시",
+"sgg": "연수구",
+"author": "편집자 C",
+"date": "2026-05-07"
+},
+{
+"id": "p193",
+"title": "샘플 장소 194",
+"primary": "read",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.03214,
+"lat": 37.58083,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 D",
+"date": "2026-02-24"
+},
+{
+"id": "p194",
+"title": "샘플 장소 195",
+"primary": "eat",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.8208,
+"lat": 37.50489,
+"sido": "경기도",
+"sgg": "부천시원미구",
+"author": "편집자 C",
+"date": "2026-02-21"
+},
+{
+"id": "p195",
+"title": "샘플 장소 196",
+"primary": "stay",
+"secondary": [
+"read",
+"eat"
+],
+"tags": [
+"tip"
+],
+"lng": 126.86381,
+"lat": 37.53758,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 B",
+"date": "2026-05-12"
+},
+{
+"id": "p196",
+"title": "샘플 장소 197",
+"primary": "life",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.03796,
+"lat": 37.69025,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 E",
+"date": "2026-06-13"
+},
+{
+"id": "p197",
+"title": "샘플 장소 198",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [
+"season"
+],
+"lng": 127.04673,
+"lat": 37.65361,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 A",
+"date": "2026-10-26"
+},
+{
+"id": "p198",
+"title": "샘플 장소 199",
+"primary": "style",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.70507,
+"lat": 37.43352,
+"sido": "인천광역시",
+"sgg": "연수구",
+"author": "편집자 B",
+"date": "2026-04-06"
+},
+{
+"id": "p199",
+"title": "샘플 장소 200",
+"primary": "life",
+"secondary": [
+"care"
+],
+"tags": [
+"season"
+],
+"lng": 127.03661,
+"lat": 37.60122,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 E",
+"date": "2026-09-14"
+},
+{
+"id": "p200",
+"title": "샘플 장소 201",
+"primary": "eat",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 127.04511,
+"lat": 37.59989,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 E",
+"date": "2026-08-14"
+},
+{
+"id": "p201",
+"title": "샘플 장소 202",
+"primary": "life",
+"secondary": [
+"rest"
+],
+"tags": [
+"tip"
+],
+"lng": 127.56447,
+"lat": 38.30676,
+"sido": "강원특별자치도",
+"sgg": "철원군",
+"author": "편집자 E",
+"date": "2026-11-10"
+},
+{
+"id": "p202",
+"title": "샘플 장소 203",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 129.15123,
+"lat": 35.18586,
+"sido": "부산광역시",
+"sgg": "해운대구",
+"author": "편집자 A",
+"date": "2026-04-08"
+},
+{
+"id": "p203",
+"title": "샘플 장소 204",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 127.25345,
+"lat": 36.43465,
+"sido": "세종특별자치시",
+"sgg": "세종시",
+"author": "편집자 B",
+"date": "2026-10-15"
+},
+{
+"id": "p204",
+"title": "샘플 장소 205",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.9788,
+"lat": 37.46828,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 D",
+"date": "2026-04-18"
+},
+{
+"id": "p205",
+"title": "샘플 장소 206",
+"primary": "stay",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 127.11809,
+"lat": 37.51975,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 B",
+"date": "2026-09-18"
+},
+{
+"id": "p206",
+"title": "샘플 장소 207",
+"primary": "walk",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 126.40196,
+"lat": 34.94925,
+"sido": "전남광주통합특별시",
+"sgg": "무안군",
+"author": "편집자 A",
+"date": "2026-03-12"
+},
+{
+"id": "p207",
+"title": "샘플 장소 208",
+"primary": "rest",
+"secondary": [
+"read",
+"walk"
+],
+"tags": [
+"tip"
+],
+"lng": 127.2278,
+"lat": 37.49523,
+"sido": "경기도",
+"sgg": "하남시",
+"author": "편집자 B",
+"date": "2026-10-04"
+},
+{
+"id": "p208",
+"title": "샘플 장소 209",
+"primary": "stay",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 128.60069,
+"lat": 35.08048,
+"sido": "경상남도",
+"sgg": "창원시마산합포구",
+"author": "편집자 C",
+"date": "2026-02-08"
+},
+{
+"id": "p209",
+"title": "샘플 장소 210",
+"primary": "eat",
+"secondary": [
+"walk",
+"read"
+],
+"tags": [
+"season"
+],
+"lng": 126.94963,
+"lat": 37.50945,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 E",
+"date": "2026-08-04"
+},
+{
+"id": "p210",
+"title": "샘플 장소 211",
+"primary": "life",
+"secondary": [
+"play",
+"care"
+],
+"tags": [],
+"lng": 126.75174,
+"lat": 37.73632,
+"sido": "경기도",
+"sgg": "파주시",
+"author": "편집자 C",
+"date": "2026-08-01"
+},
+{
+"id": "p211",
+"title": "샘플 장소 212",
+"primary": "walk",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.00195,
+"lat": 37.56186,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 E",
+"date": "2026-09-03"
+},
+{
+"id": "p212",
+"title": "샘플 장소 213",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.91592,
+"lat": 37.50716,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 C",
+"date": "2026-10-15"
+},
+{
+"id": "p213",
+"title": "샘플 장소 214",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.9511,
+"lat": 37.45566,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 D",
+"date": "2026-05-03"
+},
+{
+"id": "p214",
+"title": "샘플 장소 215",
+"primary": "style",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 127.10258,
+"lat": 34.83628,
+"sido": "전남광주통합특별시",
+"sgg": "보성군",
+"author": "편집자 A",
+"date": "2026-04-25"
+},
+{
+"id": "p215",
+"title": "샘플 장소 216",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.03818,
+"lat": 37.52018,
+"sido": "서울특별시",
+"sgg": "강남구",
+"author": "편집자 E",
+"date": "2026-11-08"
+},
+{
+"id": "p216",
+"title": "샘플 장소 217",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.91753,
+"lat": 37.5139,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 E",
+"date": "2026-06-08"
+},
+{
+"id": "p217",
+"title": "샘플 장소 218",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.96597,
+"lat": 37.19261,
+"sido": "경기도",
+"sgg": "화성시효행구",
+"author": "편집자 C",
+"date": "2026-05-24"
+},
+{
+"id": "p218",
+"title": "샘플 장소 219",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 129.10739,
+"lat": 35.30282,
+"sido": "부산광역시",
+"sgg": "금정구",
+"author": "편집자 E",
+"date": "2026-06-15"
+},
+{
+"id": "p219",
+"title": "샘플 장소 220",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.89785,
+"lat": 37.50334,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 A",
+"date": "2026-07-15"
+},
+{
+"id": "p220",
+"title": "샘플 장소 221",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 127.08425,
+"lat": 37.68524,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 A",
+"date": "2026-02-03"
+},
+{
+"id": "p221",
+"title": "샘플 장소 222",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.90959,
+"lat": 37.2393,
+"sido": "경기도",
+"sgg": "화성시효행구",
+"author": "편집자 E",
+"date": "2026-06-25"
+},
+{
+"id": "p222",
+"title": "샘플 장소 223",
+"primary": "style",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.01146,
+"lat": 35.20576,
+"sido": "전남광주통합특별시",
+"sgg": "담양군",
+"author": "편집자 C",
+"date": "2026-01-14"
+},
+{
+"id": "p223",
+"title": "샘플 장소 224",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 128.55373,
+"lat": 35.80473,
+"sido": "대구광역시",
+"sgg": "달서구",
+"author": "편집자 C",
+"date": "2026-06-14"
+},
+{
+"id": "p224",
+"title": "샘플 장소 225",
+"primary": "walk",
+"secondary": [
+"life",
+"care"
+],
+"tags": [
+"deal"
+],
+"lng": 126.90545,
+"lat": 37.44604,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 E",
+"date": "2026-08-18"
+},
+{
+"id": "p225",
+"title": "샘플 장소 226",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 126.87483,
+"lat": 37.5187,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 E",
+"date": "2026-03-04"
+},
+{
+"id": "p226",
+"title": "샘플 장소 227",
+"primary": "eat",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 127.04127,
+"lat": 37.55348,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 B",
+"date": "2026-09-01"
+},
+{
+"id": "p227",
+"title": "샘플 장소 228",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 126.92891,
+"lat": 37.51644,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 D",
+"date": "2026-04-11"
+},
+{
+"id": "p228",
+"title": "샘플 장소 229",
+"primary": "rest",
+"secondary": [
+"walk"
+],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 126.78474,
+"lat": 37.7608,
+"sido": "경기도",
+"sgg": "파주시",
+"author": "편집자 B",
+"date": "2026-04-12"
+},
+{
+"id": "p229",
+"title": "샘플 장소 230",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.05686,
+"lat": 37.66106,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 A",
+"date": "2026-06-01"
+},
+{
+"id": "p230",
+"title": "샘플 장소 231",
+"primary": "walk",
+"secondary": [
+"life"
+],
+"tags": [
+"tip"
+],
+"lng": 127.75873,
+"lat": 34.93457,
+"sido": "전남광주통합특별시",
+"sgg": "광양시",
+"author": "편집자 C",
+"date": "2026-01-25"
+},
+{
+"id": "p231",
+"title": "샘플 장소 232",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.98106,
+"lat": 37.3506,
+"sido": "경기도",
+"sgg": "의왕시",
+"author": "편집자 A",
+"date": "2026-03-10"
+},
+{
+"id": "p232",
+"title": "샘플 장소 233",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.9914,
+"lat": 37.61785,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 C",
+"date": "2026-01-19"
+},
+{
+"id": "p233",
+"title": "샘플 장소 234",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.95546,
+"lat": 37.5915,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 A",
+"date": "2026-06-03"
+},
+{
+"id": "p234",
+"title": "샘플 장소 235",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.47837,
+"lat": 36.56391,
+"sido": "충청남도",
+"sgg": "홍성군",
+"author": "편집자 E",
+"date": "2026-09-04"
+},
+{
+"id": "p235",
+"title": "샘플 장소 236",
+"primary": "eat",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 129.035,
+"lat": 35.12223,
+"sido": "부산광역시",
+"sgg": "동구",
+"author": "편집자 C",
+"date": "2026-07-14"
+},
+{
+"id": "p236",
+"title": "샘플 장소 237",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.84791,
+"lat": 37.49056,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 E",
+"date": "2026-05-23"
+},
+{
+"id": "p237",
+"title": "샘플 장소 238",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"deal",
+"season"
+],
+"lng": 128.55265,
+"lat": 35.90142,
+"sido": "대구광역시",
+"sgg": "북구",
+"author": "편집자 A",
+"date": "2026-07-23"
+},
+{
+"id": "p238",
+"title": "샘플 장소 239",
+"primary": "walk",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 129.03741,
+"lat": 35.22872,
+"sido": "부산광역시",
+"sgg": "북구",
+"author": "편집자 C",
+"date": "2026-10-18"
+},
+{
+"id": "p239",
+"title": "샘플 장소 240",
+"primary": "stay",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 127.16568,
+"lat": 35.65978,
+"sido": "전북특별자치도",
+"sgg": "임실군",
+"author": "편집자 E",
+"date": "2026-11-22"
+},
+{
+"id": "p240",
+"title": "샘플 장소 241",
+"primary": "read",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.21438,
+"lat": 38.00992,
+"sido": "경기도",
+"sgg": "포천시",
+"author": "편집자 B",
+"date": "2026-09-06"
+},
+{
+"id": "p241",
+"title": "샘플 장소 242",
+"primary": "care",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.00259,
+"lat": 37.19731,
+"sido": "경기도",
+"sgg": "화성시병점구",
+"author": "편집자 A",
+"date": "2026-06-13"
+},
+{
+"id": "p242",
+"title": "샘플 장소 243",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.90746,
+"lat": 37.53503,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 D",
+"date": "2026-11-03"
+},
+{
+"id": "p243",
+"title": "샘플 장소 244",
+"primary": "eat",
+"secondary": [
+"life",
+"play"
+],
+"tags": [],
+"lng": 126.8417,
+"lat": 37.52299,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 B",
+"date": "2026-06-16"
+},
+{
+"id": "p244",
+"title": "샘플 장소 245",
+"primary": "rest",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal"
+],
+"lng": 129.02707,
+"lat": 35.10321,
+"sido": "부산광역시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-10-06"
+},
+{
+"id": "p245",
+"title": "샘플 장소 246",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.79547,
+"lat": 37.5471,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 C",
+"date": "2026-10-25"
+},
+{
+"id": "p246",
+"title": "샘플 장소 247",
+"primary": "rest",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.93426,
+"lat": 37.50561,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 D",
+"date": "2026-10-05"
+},
+{
+"id": "p247",
+"title": "샘플 장소 248",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 128.92093,
+"lat": 35.24233,
+"sido": "경상남도",
+"sgg": "김해시",
+"author": "편집자 D",
+"date": "2026-09-14"
+},
+{
+"id": "p248",
+"title": "샘플 장소 249",
+"primary": "care",
+"secondary": [
+"life"
+],
+"tags": [
+"tip"
+],
+"lng": 127.48614,
+"lat": 35.22046,
+"sido": "전남광주통합특별시",
+"sgg": "구례군",
+"author": "편집자 B",
+"date": "2026-09-25"
+},
+{
+"id": "p249",
+"title": "샘플 장소 250",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.32939,
+"lat": 38.07574,
+"sido": "경기도",
+"sgg": "포천시",
+"author": "편집자 D",
+"date": "2026-08-04"
+},
+{
+"id": "p250",
+"title": "샘플 장소 251",
+"primary": "eat",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.10518,
+"lat": 37.55215,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 B",
+"date": "2026-06-16"
+},
+{
+"id": "p251",
+"title": "샘플 장소 252",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 127.10317,
+"lat": 36.57797,
+"sido": "충청남도",
+"sgg": "공주시",
+"author": "편집자 B",
+"date": "2026-06-11"
+},
+{
+"id": "p252",
+"title": "샘플 장소 253",
+"primary": "read",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal"
+],
+"lng": 127.05407,
+"lat": 37.64427,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 C",
+"date": "2026-09-13"
+},
+{
+"id": "p253",
+"title": "샘플 장소 254",
+"primary": "stay",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.5104,
+"lat": 35.24249,
+"sido": "전남광주통합특별시",
+"sgg": "영광군",
+"author": "편집자 B",
+"date": "2026-01-06"
+},
+{
+"id": "p254",
+"title": "샘플 장소 255",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.10713,
+"lat": 37.46416,
+"sido": "서울특별시",
+"sgg": "강남구",
+"author": "편집자 B",
+"date": "2026-08-08"
+},
+{
+"id": "p255",
+"title": "샘플 장소 256",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 129.40822,
+"lat": 35.56427,
+"sido": "울산광역시",
+"sgg": "북구",
+"author": "편집자 A",
+"date": "2026-08-04"
+},
+{
+"id": "p256",
+"title": "샘플 장소 257",
+"primary": "stay",
+"secondary": [
+"care"
+],
+"tags": [
+"tip"
+],
+"lng": 127.05737,
+"lat": 37.68274,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 A",
+"date": "2026-03-27"
+},
+{
+"id": "p257",
+"title": "샘플 장소 258",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 127.13491,
+"lat": 37.48944,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 D",
+"date": "2026-01-11"
+},
+{
+"id": "p258",
+"title": "샘플 장소 259",
+"primary": "rest",
+"secondary": [
+"care",
+"eat"
+],
+"tags": [
+"deal"
+],
+"lng": 126.94249,
+"lat": 37.50628,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 B",
+"date": "2026-11-17"
+},
+{
+"id": "p259",
+"title": "샘플 장소 260",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.02089,
+"lat": 35.09565,
+"sido": "부산광역시",
+"sgg": "서구",
+"author": "편집자 E",
+"date": "2026-09-25"
+},
+{
+"id": "p260",
+"title": "샘플 장소 261",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.06461,
+"lat": 37.53716,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 A",
+"date": "2026-01-12"
+},
+{
+"id": "p261",
+"title": "샘플 장소 262",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.05229,
+"lat": 37.63893,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 B",
+"date": "2026-02-26"
+},
+{
+"id": "p262",
+"title": "샘플 장소 263",
+"primary": "style",
+"secondary": [
+"rest",
+"care"
+],
+"tags": [
+"season"
+],
+"lng": 127.11709,
+"lat": 38.19131,
+"sido": "경기도",
+"sgg": "연천군",
+"author": "편집자 A",
+"date": "2026-09-19"
+},
+{
+"id": "p263",
+"title": "샘플 장소 264",
+"primary": "read",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 127.05903,
+"lat": 37.56618,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 C",
+"date": "2026-03-22"
+},
+{
+"id": "p264",
+"title": "샘플 장소 265",
+"primary": "care",
+"secondary": [
+"walk"
+],
+"tags": [
+"tip"
+],
+"lng": 127.81699,
+"lat": 35.85149,
+"sido": "경상남도",
+"sgg": "거창군",
+"author": "편집자 A",
+"date": "2026-03-16"
+},
+{
+"id": "p265",
+"title": "샘플 장소 266",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.85886,
+"lat": 37.51674,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 D",
+"date": "2026-09-07"
+},
+{
+"id": "p266",
+"title": "샘플 장소 267",
+"primary": "style",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.78289,
+"lat": 35.86299,
+"sido": "전북특별자치도",
+"sgg": "김제시",
+"author": "편집자 A",
+"date": "2026-01-07"
+},
+{
+"id": "p267",
+"title": "샘플 장소 268",
+"primary": "rest",
+"secondary": [
+"read"
+],
+"tags": [
+"deal"
+],
+"lng": 126.64693,
+"lat": 37.48367,
+"sido": "인천광역시",
+"sgg": "제물포구",
+"author": "편집자 D",
+"date": "2026-01-03"
+},
+{
+"id": "p268",
+"title": "샘플 장소 269",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.0355,
+"lat": 37.3336,
+"sido": "경기도",
+"sgg": "용인시수지구",
+"author": "편집자 C",
+"date": "2026-02-01"
+},
+{
+"id": "p269",
+"title": "샘플 장소 270",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 126.8309,
+"lat": 37.84541,
+"sido": "경기도",
+"sgg": "파주시",
+"author": "편집자 A",
+"date": "2026-06-26"
+},
+{
+"id": "p270",
+"title": "샘플 장소 271",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 127.03776,
+"lat": 37.45462,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 E",
+"date": "2026-03-14"
+},
+{
+"id": "p271",
+"title": "샘플 장소 272",
+"primary": "style",
+"secondary": [
+"rest",
+"eat"
+],
+"tags": [],
+"lng": 126.9565,
+"lat": 37.49123,
+"sido": "서울특별시",
+"sgg": "관악구",
+"author": "편집자 B",
+"date": "2026-04-07"
+},
+{
+"id": "p272",
+"title": "샘플 장소 273",
+"primary": "read",
+"secondary": [
+"eat",
+"walk"
+],
+"tags": [],
+"lng": 129.0853,
+"lat": 35.19427,
+"sido": "부산광역시",
+"sgg": "연제구",
+"author": "편집자 C",
+"date": "2026-07-13"
+},
+{
+"id": "p273",
+"title": "샘플 장소 274",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [
+"deal"
+],
+"lng": 126.48465,
+"lat": 33.49578,
+"sido": "제주특별자치도",
+"sgg": "제주시",
+"author": "편집자 A",
+"date": "2026-05-11"
+},
+{
+"id": "p274",
+"title": "샘플 장소 275",
+"primary": "style",
+"secondary": [
+"walk",
+"eat"
+],
+"tags": [],
+"lng": 127.07213,
+"lat": 37.55866,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 B",
+"date": "2026-07-09"
+},
+{
+"id": "p275",
+"title": "샘플 장소 276",
+"primary": "care",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.89323,
+"lat": 37.47644,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 E",
+"date": "2026-04-28"
+},
+{
+"id": "p276",
+"title": "샘플 장소 277",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.74823,
+"lat": 37.27372,
+"sido": "경기도",
+"sgg": "여주시",
+"author": "편집자 E",
+"date": "2026-11-13"
+},
+{
+"id": "p277",
+"title": "샘플 장소 278",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.01529,
+"lat": 37.60789,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 D",
+"date": "2026-09-26"
+},
+{
+"id": "p278",
+"title": "샘플 장소 279",
+"primary": "style",
+"secondary": [
+"read"
+],
+"tags": [
+"season"
+],
+"lng": 129.24602,
+"lat": 35.54979,
+"sido": "울산광역시",
+"sgg": "울주군",
+"author": "편집자 C",
+"date": "2026-08-05"
+},
+{
+"id": "p279",
+"title": "샘플 장소 280",
+"primary": "style",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.96377,
+"lat": 37.62685,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 B",
+"date": "2026-05-25"
+},
+{
+"id": "p280",
+"title": "샘플 장소 281",
+"primary": "walk",
+"secondary": [
+"care",
+"read"
+],
+"tags": [],
+"lng": 129.0744,
+"lat": 35.22536,
+"sido": "부산광역시",
+"sgg": "동래구",
+"author": "편집자 C",
+"date": "2026-06-06"
+},
+{
+"id": "p281",
+"title": "샘플 장소 282",
+"primary": "read",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.99373,
+"lat": 37.94521,
+"sido": "경기도",
+"sgg": "연천군",
+"author": "편집자 C",
+"date": "2026-09-06"
+},
+{
+"id": "p282",
+"title": "샘플 장소 283",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.03262,
+"lat": 37.32432,
+"sido": "경기도",
+"sgg": "수원시장안구",
+"author": "편집자 D",
+"date": "2026-04-20"
+},
+{
+"id": "p283",
+"title": "샘플 장소 284",
+"primary": "rest",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal"
+],
+"lng": 126.83647,
+"lat": 37.49092,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 E",
+"date": "2026-07-21"
+},
+{
+"id": "p284",
+"title": "샘플 장소 285",
+"primary": "walk",
+"secondary": [
+"care",
+"life"
+],
+"tags": [
+"deal"
+],
+"lng": 126.99923,
+"lat": 37.64981,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 D",
+"date": "2026-09-26"
+},
+{
+"id": "p285",
+"title": "샘플 장소 286",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 126.83836,
+"lat": 37.54665,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 E",
+"date": "2026-06-09"
+},
+{
+"id": "p286",
+"title": "샘플 장소 287",
+"primary": "care",
+"secondary": [
+"rest",
+"style"
+],
+"tags": [],
+"lng": 127.06748,
+"lat": 35.79862,
+"sido": "전북특별자치도",
+"sgg": "전주시완산구",
+"author": "편집자 A",
+"date": "2026-07-13"
+},
+{
+"id": "p287",
+"title": "샘플 장소 288",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 127.70172,
+"lat": 36.67727,
+"sido": "충청북도",
+"sgg": "청주시상당구",
+"author": "편집자 E",
+"date": "2026-09-14"
+},
+{
+"id": "p288",
+"title": "샘플 장소 289",
+"primary": "rest",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 129.41145,
+"lat": 35.47827,
+"sido": "울산광역시",
+"sgg": "동구",
+"author": "편집자 D",
+"date": "2026-04-19"
+},
+{
+"id": "p289",
+"title": "샘플 장소 290",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 127.07305,
+"lat": 37.06772,
+"sido": "경기도",
+"sgg": "평택시",
+"author": "편집자 E",
+"date": "2026-02-10"
+},
+{
+"id": "p290",
+"title": "샘플 장소 291",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 129.13747,
+"lat": 36.42648,
+"sido": "경상북도",
+"sgg": "청송군",
+"author": "편집자 E",
+"date": "2026-04-08"
+},
+{
+"id": "p291",
+"title": "샘플 장소 292",
+"primary": "care",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.84545,
+"lat": 37.4984,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 C",
+"date": "2026-04-01"
+},
+{
+"id": "p292",
+"title": "샘플 장소 293",
+"primary": "style",
+"secondary": [
+"eat"
+],
+"tags": [
+"deal",
+"season"
+],
+"lng": 127.13912,
+"lat": 37.50019,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 B",
+"date": "2026-05-21"
+},
+{
+"id": "p293",
+"title": "샘플 장소 294",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 127.8711,
+"lat": 34.82827,
+"sido": "경상남도",
+"sgg": "남해군",
+"author": "편집자 A",
+"date": "2026-04-25"
+},
+{
+"id": "p294",
+"title": "샘플 장소 295",
+"primary": "rest",
+"secondary": [
+"stay",
+"play"
+],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 127.04604,
+"lat": 37.64998,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 E",
+"date": "2026-07-08"
+},
+{
+"id": "p295",
+"title": "샘플 장소 296",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 129.29337,
+"lat": 35.51017,
+"sido": "울산광역시",
+"sgg": "남구",
+"author": "편집자 D",
+"date": "2026-11-23"
+},
+{
+"id": "p296",
+"title": "샘플 장소 297",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.6078,
+"lat": 37.47054,
+"sido": "인천광역시",
+"sgg": "제물포구",
+"author": "편집자 E",
+"date": "2026-01-15"
+},
+{
+"id": "p297",
+"title": "샘플 장소 298",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.25419,
+"lat": 37.49376,
+"sido": "경기도",
+"sgg": "하남시",
+"author": "편집자 E",
+"date": "2026-01-03"
+},
+{
+"id": "p298",
+"title": "샘플 장소 299",
+"primary": "read",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 126.92404,
+"lat": 37.53821,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 C",
+"date": "2026-05-04"
+},
+{
+"id": "p299",
+"title": "샘플 장소 300",
+"primary": "life",
+"secondary": [
+"care",
+"play"
+],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 126.95805,
+"lat": 37.52387,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 D",
+"date": "2026-08-03"
+},
+{
+"id": "p300",
+"title": "샘플 장소 301",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 129.39657,
+"lat": 36.88295,
+"sido": "경상북도",
+"sgg": "울진군",
+"author": "편집자 D",
+"date": "2026-04-12"
+},
+{
+"id": "p301",
+"title": "샘플 장소 302",
+"primary": "care",
+"secondary": [
+"style"
+],
+"tags": [
+"tip"
+],
+"lng": 126.93387,
+"lat": 37.55574,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 E",
+"date": "2026-07-01"
+},
+{
+"id": "p302",
+"title": "샘플 장소 303",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.98556,
+"lat": 37.60832,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-10-05"
+},
+{
+"id": "p303",
+"title": "샘플 장소 304",
+"primary": "life",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 126.68098,
+"lat": 33.4538,
+"sido": "제주특별자치도",
+"sgg": "제주시",
+"author": "편집자 B",
+"date": "2026-04-25"
+},
+{
+"id": "p304",
+"title": "샘플 장소 305",
+"primary": "eat",
+"secondary": [
+"play"
+],
+"tags": [
+"deal"
+],
+"lng": 129.32281,
+"lat": 35.64812,
+"sido": "울산광역시",
+"sgg": "북구",
+"author": "편집자 A",
+"date": "2026-02-28"
+},
+{
+"id": "p305",
+"title": "샘플 장소 306",
+"primary": "play",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.99812,
+"lat": 37.56097,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 D",
+"date": "2026-07-22"
+},
+{
+"id": "p306",
+"title": "샘플 장소 307",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 126.98362,
+"lat": 37.57392,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-09-17"
+},
+{
+"id": "p307",
+"title": "샘플 장소 308",
+"primary": "eat",
+"secondary": [
+"play"
+],
+"tags": [
+"tip",
+"season"
+],
+"lng": 126.89977,
+"lat": 37.53928,
+"sido": "서울특별시",
+"sgg": "영등포구",
+"author": "편집자 A",
+"date": "2026-11-23"
+},
+{
+"id": "p308",
+"title": "샘플 장소 309",
+"primary": "life",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.71619,
+"lat": 37.37105,
+"sido": "경기도",
+"sgg": "시흥시",
+"author": "편집자 A",
+"date": "2026-01-23"
+},
+{
+"id": "p309",
+"title": "샘플 장소 310",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.02973,
+"lat": 36.93726,
+"sido": "경기도",
+"sgg": "평택시",
+"author": "편집자 B",
+"date": "2026-05-26"
+},
+{
+"id": "p310",
+"title": "샘플 장소 311",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.8061,
+"lat": 37.55167,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 E",
+"date": "2026-06-09"
+},
+{
+"id": "p311",
+"title": "샘플 장소 312",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 126.69547,
+"lat": 37.16501,
+"sido": "경기도",
+"sgg": "화성시만세구",
+"author": "편집자 C",
+"date": "2026-02-18"
+},
+{
+"id": "p312",
+"title": "샘플 장소 313",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.00952,
+"lat": 37.63471,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 E",
+"date": "2026-04-14"
+},
+{
+"id": "p313",
+"title": "샘플 장소 314",
+"primary": "walk",
+"secondary": [
+"read",
+"rest"
+],
+"tags": [
+"season"
+],
+"lng": 128.26511,
+"lat": 35.45965,
+"sido": "경상남도",
+"sgg": "의령군",
+"author": "편집자 C",
+"date": "2026-07-23"
+},
+{
+"id": "p314",
+"title": "샘플 장소 315",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.09958,
+"lat": 37.57812,
+"sido": "서울특별시",
+"sgg": "중랑구",
+"author": "편집자 A",
+"date": "2026-02-23"
+},
+{
+"id": "p315",
+"title": "샘플 장소 316",
+"primary": "walk",
+"secondary": [
+"style",
+"play"
+],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 127.01569,
+"lat": 36.82857,
+"sido": "충청남도",
+"sgg": "아산시",
+"author": "편집자 A",
+"date": "2026-02-24"
+},
+{
+"id": "p316",
+"title": "샘플 장소 317",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.00955,
+"lat": 37.54497,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 C",
+"date": "2026-08-06"
+},
+{
+"id": "p317",
+"title": "샘플 장소 318",
+"primary": "stay",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 128.95197,
+"lat": 36.33212,
+"sido": "경상북도",
+"sgg": "청송군",
+"author": "편집자 D",
+"date": "2026-06-11"
+},
+{
+"id": "p318",
+"title": "샘플 장소 319",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.11467,
+"lat": 38.17201,
+"sido": "경기도",
+"sgg": "연천군",
+"author": "편집자 E",
+"date": "2026-05-22"
+},
+{
+"id": "p319",
+"title": "샘플 장소 320",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.94532,
+"lat": 37.53707,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 A",
+"date": "2026-05-28"
+},
+{
+"id": "p320",
+"title": "샘플 장소 321",
+"primary": "rest",
+"secondary": [
+"stay",
+"read"
+],
+"tags": [
+"season"
+],
+"lng": 128.27342,
+"lat": 35.3004,
+"sido": "경상남도",
+"sgg": "의령군",
+"author": "편집자 B",
+"date": "2026-03-10"
+},
+{
+"id": "p321",
+"title": "샘플 장소 322",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.27421,
+"lat": 37.7495,
+"sido": "경기도",
+"sgg": "남양주시",
+"author": "편집자 A",
+"date": "2026-01-04"
+},
+{
+"id": "p322",
+"title": "샘플 장소 323",
+"primary": "eat",
+"secondary": [
+"life"
+],
+"tags": [
+"deal"
+],
+"lng": 129.33812,
+"lat": 35.55747,
+"sido": "울산광역시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-07-04"
+},
+{
+"id": "p323",
+"title": "샘플 장소 324",
+"primary": "style",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.58728,
+"lat": 34.9302,
+"sido": "전남광주통합특별시",
+"sgg": "나주시",
+"author": "편집자 B",
+"date": "2026-08-24"
+},
+{
+"id": "p324",
+"title": "샘플 장소 325",
+"primary": "eat",
+"secondary": [
+"stay"
+],
+"tags": [],
+"lng": 126.92794,
+"lat": 37.60215,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 B",
+"date": "2026-02-26"
+},
+{
+"id": "p325",
+"title": "샘플 장소 326",
+"primary": "eat",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 127.12958,
+"lat": 37.49348,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 E",
+"date": "2026-01-21"
+},
+{
+"id": "p326",
+"title": "샘플 장소 327",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 127.16439,
+"lat": 37.55062,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 C",
+"date": "2026-01-28"
+},
+{
+"id": "p327",
+"title": "샘플 장소 328",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 127.60719,
+"lat": 37.06563,
+"sido": "충청북도",
+"sgg": "음성군",
+"author": "편집자 C",
+"date": "2026-06-19"
+},
+{
+"id": "p328",
+"title": "샘플 장소 329",
+"primary": "rest",
+"secondary": [
+"life",
+"play"
+],
+"tags": [],
+"lng": 127.07583,
+"lat": 37.6197,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 D",
+"date": "2026-04-10"
+},
+{
+"id": "p329",
+"title": "샘플 장소 330",
+"primary": "style",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.54884,
+"lat": 35.62726,
+"sido": "전북특별자치도",
+"sgg": "부안군",
+"author": "편집자 D",
+"date": "2026-03-05"
+},
+{
+"id": "p330",
+"title": "샘플 장소 331",
+"primary": "care",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.57412,
+"lat": 35.32279,
+"sido": "전북특별자치도",
+"sgg": "고창군",
+"author": "편집자 C",
+"date": "2026-07-04"
+},
+{
+"id": "p331",
+"title": "샘플 장소 332",
+"primary": "care",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.96672,
+"lat": 37.55378,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 E",
+"date": "2026-10-04"
+},
+{
+"id": "p332",
+"title": "샘플 장소 333",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 127.11416,
+"lat": 37.50673,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 A",
+"date": "2026-10-09"
+},
+{
+"id": "p333",
+"title": "샘플 장소 334",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 128.94154,
+"lat": 35.09725,
+"sido": "부산광역시",
+"sgg": "사하구",
+"author": "편집자 A",
+"date": "2026-01-20"
+},
+{
+"id": "p334",
+"title": "샘플 장소 335",
+"primary": "life",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.97783,
+"lat": 37.30719,
+"sido": "경기도",
+"sgg": "수원시장안구",
+"author": "편집자 B",
+"date": "2026-08-11"
+},
+{
+"id": "p335",
+"title": "샘플 장소 336",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.09088,
+"lat": 37.26251,
+"sido": "경기도",
+"sgg": "용인시기흥구",
+"author": "편집자 B",
+"date": "2026-06-24"
+},
+{
+"id": "p336",
+"title": "샘플 장소 337",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.89991,
+"lat": 37.40307,
+"sido": "경기도",
+"sgg": "안양시만안구",
+"author": "편집자 E",
+"date": "2026-03-13"
+},
+{
+"id": "p337",
+"title": "샘플 장소 338",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 128.72724,
+"lat": 36.15763,
+"sido": "대구광역시",
+"sgg": "군위군",
+"author": "편집자 D",
+"date": "2026-06-06"
+},
+{
+"id": "p338",
+"title": "샘플 장소 339",
+"primary": "play",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal"
+],
+"lng": 127.04617,
+"lat": 37.22745,
+"sido": "경기도",
+"sgg": "화성시병점구",
+"author": "편집자 E",
+"date": "2026-11-07"
+},
+{
+"id": "p339",
+"title": "샘플 장소 340",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.74279,
+"lat": 37.52212,
+"sido": "인천광역시",
+"sgg": "부평구",
+"author": "편집자 D",
+"date": "2026-11-25"
+},
+{
+"id": "p340",
+"title": "샘플 장소 341",
+"primary": "rest",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 129.11525,
+"lat": 35.1735,
+"sido": "부산광역시",
+"sgg": "수영구",
+"author": "편집자 B",
+"date": "2026-01-06"
+},
+{
+"id": "p341",
+"title": "샘플 장소 342",
+"primary": "rest",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.91225,
+"lat": 37.61925,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 C",
+"date": "2026-03-09"
+},
+{
+"id": "p342",
+"title": "샘플 장소 343",
+"primary": "rest",
+"secondary": [
+"play",
+"read"
+],
+"tags": [],
+"lng": 127.09236,
+"lat": 37.55843,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 E",
+"date": "2026-01-25"
+},
+{
+"id": "p343",
+"title": "샘플 장소 344",
+"primary": "stay",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 127.02836,
+"lat": 37.63838,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 A",
+"date": "2026-10-05"
+},
+{
+"id": "p344",
+"title": "샘플 장소 345",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.04122,
+"lat": 37.68734,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 D",
+"date": "2026-03-01"
+},
+{
+"id": "p345",
+"title": "샘플 장소 346",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 127.0828,
+"lat": 37.62316,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 C",
+"date": "2026-01-01"
+},
+{
+"id": "p346",
+"title": "샘플 장소 347",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.9229,
+"lat": 37.59186,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 A",
+"date": "2026-04-15"
+},
+{
+"id": "p347",
+"title": "샘플 장소 348",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 126.9469,
+"lat": 37.35822,
+"sido": "경기도",
+"sgg": "군포시",
+"author": "편집자 E",
+"date": "2026-06-03"
+},
+{
+"id": "p348",
+"title": "샘플 장소 349",
+"primary": "eat",
+"secondary": [
+"walk",
+"life"
+],
+"tags": [
+"deal"
+],
+"lng": 126.80342,
+"lat": 37.54484,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 E",
+"date": "2026-06-22"
+},
+{
+"id": "p349",
+"title": "샘플 장소 350",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.78436,
+"lat": 37.51334,
+"sido": "경기도",
+"sgg": "부천시원미구",
+"author": "편집자 E",
+"date": "2026-04-15"
+},
+{
+"id": "p350",
+"title": "샘플 장소 351",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 126.85602,
+"lat": 37.50452,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 C",
+"date": "2026-10-02"
+},
+{
+"id": "p351",
+"title": "샘플 장소 352",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.04845,
+"lat": 37.5898,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 A",
+"date": "2026-08-22"
+},
+{
+"id": "p352",
+"title": "샘플 장소 353",
+"primary": "play",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.61633,
+"lat": 37.43442,
+"sido": "인천광역시",
+"sgg": "제물포구",
+"author": "편집자 A",
+"date": "2026-01-02"
+},
+{
+"id": "p353",
+"title": "샘플 장소 354",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.85413,
+"lat": 37.53698,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 D",
+"date": "2026-03-08"
+},
+{
+"id": "p354",
+"title": "샘플 장소 355",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.0439,
+"lat": 37.66098,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 A",
+"date": "2026-05-24"
+},
+{
+"id": "p355",
+"title": "샘플 장소 356",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.79555,
+"lat": 35.49227,
+"sido": "경상남도",
+"sgg": "함양군",
+"author": "편집자 B",
+"date": "2026-03-24"
+},
+{
+"id": "p356",
+"title": "샘플 장소 357",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.09917,
+"lat": 37.64212,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 E",
+"date": "2026-06-11"
+},
+{
+"id": "p357",
+"title": "샘플 장소 358",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 127.04295,
+"lat": 37.65511,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 A",
+"date": "2026-05-20"
+},
+{
+"id": "p358",
+"title": "샘플 장소 359",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 126.96207,
+"lat": 37.52204,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 C",
+"date": "2026-02-08"
+},
+{
+"id": "p359",
+"title": "샘플 장소 360",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 126.99729,
+"lat": 37.56927,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 C",
+"date": "2026-07-14"
+},
+{
+"id": "p360",
+"title": "샘플 장소 361",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.37755,
+"lat": 37.53116,
+"sido": "경기도",
+"sgg": "양평군",
+"author": "편집자 B",
+"date": "2026-11-18"
+},
+{
+"id": "p361",
+"title": "샘플 장소 362",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 126.14778,
+"lat": 37.23752,
+"sido": "인천광역시",
+"sgg": "옹진군",
+"author": "편집자 D",
+"date": "2026-05-26"
+},
+{
+"id": "p362",
+"title": "샘플 장소 363",
+"primary": "care",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 127.13758,
+"lat": 37.55698,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 C",
+"date": "2026-10-04"
+},
+{
+"id": "p363",
+"title": "샘플 장소 364",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 129.21507,
+"lat": 35.37366,
+"sido": "부산광역시",
+"sgg": "기장군",
+"author": "편집자 E",
+"date": "2026-07-01"
+},
+{
+"id": "p364",
+"title": "샘플 장소 365",
+"primary": "style",
+"secondary": [
+"play"
+],
+"tags": [
+"deal"
+],
+"lng": 126.77629,
+"lat": 37.48608,
+"sido": "경기도",
+"sgg": "부천시원미구",
+"author": "편집자 A",
+"date": "2026-04-12"
+},
+{
+"id": "p365",
+"title": "샘플 장소 366",
+"primary": "stay",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 129.3697,
+"lat": 35.92091,
+"sido": "경상북도",
+"sgg": "포항시남구",
+"author": "편집자 B",
+"date": "2026-10-13"
+},
+{
+"id": "p366",
+"title": "샘플 장소 367",
+"primary": "life",
+"secondary": [
+"read"
+],
+"tags": [],
+"lng": 126.80615,
+"lat": 35.68627,
+"sido": "전북특별자치도",
+"sgg": "부안군",
+"author": "편집자 D",
+"date": "2026-03-20"
+},
+{
+"id": "p367",
+"title": "샘플 장소 368",
+"primary": "eat",
+"secondary": [
+"life",
+"rest"
+],
+"tags": [
+"deal",
+"tip"
+],
+"lng": 127.01778,
+"lat": 37.26508,
+"sido": "경기도",
+"sgg": "수원시팔달구",
+"author": "편집자 B",
+"date": "2026-04-18"
+},
+{
+"id": "p368",
+"title": "샘플 장소 369",
+"primary": "walk",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.91023,
+"lat": 37.54382,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 D",
+"date": "2026-10-23"
+},
+{
+"id": "p369",
+"title": "샘플 장소 370",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.92797,
+"lat": 37.61644,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 D",
+"date": "2026-03-11"
+},
+{
+"id": "p370",
+"title": "샘플 장소 371",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.09872,
+"lat": 37.52522,
+"sido": "서울특별시",
+"sgg": "송파구",
+"author": "편집자 D",
+"date": "2026-05-10"
+},
+{
+"id": "p371",
+"title": "샘플 장소 372",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 126.9932,
+"lat": 37.6331,
+"sido": "서울특별시",
+"sgg": "강북구",
+"author": "편집자 E",
+"date": "2026-08-16"
+},
+{
+"id": "p372",
+"title": "샘플 장소 373",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 126.53488,
+"lat": 33.42081,
+"sido": "제주특별자치도",
+"sgg": "제주시",
+"author": "편집자 D",
+"date": "2026-02-13"
+},
+{
+"id": "p373",
+"title": "샘플 장소 374",
+"primary": "stay",
+"secondary": [
+"style"
+],
+"tags": [],
+"lng": 127.06387,
+"lat": 37.5757,
+"sido": "서울특별시",
+"sgg": "동대문구",
+"author": "편집자 A",
+"date": "2026-08-12"
+},
+{
+"id": "p374",
+"title": "샘플 장소 375",
+"primary": "life",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.58427,
+"lat": 35.15108,
+"sido": "전남광주통합특별시",
+"sgg": "함평군",
+"author": "편집자 A",
+"date": "2026-11-05"
+},
+{
+"id": "p375",
+"title": "샘플 장소 376",
+"primary": "rest",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 126.67916,
+"lat": 37.45169,
+"sido": "인천광역시",
+"sgg": "미추홀구",
+"author": "편집자 D",
+"date": "2026-11-06"
+},
+{
+"id": "p376",
+"title": "샘플 장소 377",
+"primary": "play",
+"secondary": [
+"life"
+],
+"tags": [
+"season"
+],
+"lng": 126.88862,
+"lat": 37.53172,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 E",
+"date": "2026-09-26"
+},
+{
+"id": "p377",
+"title": "샘플 장소 378",
+"primary": "rest",
+"secondary": [
+"stay"
+],
+"tags": [
+"deal",
+"season"
+],
+"lng": 129.09455,
+"lat": 35.39673,
+"sido": "경상남도",
+"sgg": "양산시",
+"author": "편집자 E",
+"date": "2026-01-09"
+},
+{
+"id": "p378",
+"title": "샘플 장소 379",
+"primary": "life",
+"secondary": [
+"eat"
+],
+"tags": [
+"deal"
+],
+"lng": 128.51683,
+"lat": 36.87871,
+"sido": "경상북도",
+"sgg": "영주시",
+"author": "편집자 B",
+"date": "2026-03-10"
+},
+{
+"id": "p379",
+"title": "샘플 장소 380",
+"primary": "life",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 126.94791,
+"lat": 37.63567,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 B",
+"date": "2026-07-27"
+},
+{
+"id": "p380",
+"title": "샘플 장소 381",
+"primary": "care",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 127.06885,
+"lat": 37.62195,
+"sido": "서울특별시",
+"sgg": "노원구",
+"author": "편집자 A",
+"date": "2026-03-04"
+},
+{
+"id": "p381",
+"title": "샘플 장소 382",
+"primary": "eat",
+"secondary": [
+"read"
+],
+"tags": [
+"deal"
+],
+"lng": 126.96968,
+"lat": 37.54046,
+"sido": "서울특별시",
+"sgg": "용산구",
+"author": "편집자 B",
+"date": "2026-06-04"
+},
+{
+"id": "p382",
+"title": "샘플 장소 383",
+"primary": "eat",
+"secondary": [],
+"tags": [
+"tip"
+],
+"lng": 128.5805,
+"lat": 37.97886,
+"sido": "강원특별자치도",
+"sgg": "양양군",
+"author": "편집자 B",
+"date": "2026-03-06"
+},
+{
+"id": "p383",
+"title": "샘플 장소 384",
+"primary": "walk",
+"secondary": [
+"eat"
+],
+"tags": [],
+"lng": 129.05744,
+"lat": 36.05245,
+"sido": "경상북도",
+"sgg": "영천시",
+"author": "편집자 A",
+"date": "2026-08-15"
+},
+{
+"id": "p384",
+"title": "샘플 장소 385",
+"primary": "style",
+"secondary": [],
+"tags": [],
+"lng": 126.259,
+"lat": 36.85459,
+"sido": "충청남도",
+"sgg": "태안군",
+"author": "편집자 B",
+"date": "2026-10-13"
+},
+{
+"id": "p385",
+"title": "샘플 장소 386",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.00906,
+"lat": 36.9807,
+"sido": "경기도",
+"sgg": "평택시",
+"author": "편집자 E",
+"date": "2026-01-19"
+},
+{
+"id": "p386",
+"title": "샘플 장소 387",
+"primary": "rest",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 126.99877,
+"lat": 37.2843,
+"sido": "경기도",
+"sgg": "수원시팔달구",
+"author": "편집자 C",
+"date": "2026-02-16"
+},
+{
+"id": "p387",
+"title": "샘플 장소 388",
+"primary": "life",
+"secondary": [
+"play"
+],
+"tags": [
+"tip"
+],
+"lng": 128.35139,
+"lat": 35.40576,
+"sido": "경상남도",
+"sgg": "의령군",
+"author": "편집자 B",
+"date": "2026-02-13"
+},
+{
+"id": "p388",
+"title": "샘플 장소 389",
+"primary": "style",
+"secondary": [
+"stay",
+"eat"
+],
+"tags": [
+"season"
+],
+"lng": 126.82959,
+"lat": 37.5448,
+"sido": "서울특별시",
+"sgg": "양천구",
+"author": "편집자 D",
+"date": "2026-05-07"
+},
+{
+"id": "p389",
+"title": "샘플 장소 390",
+"primary": "style",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 127.02199,
+"lat": 37.5514,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 C",
+"date": "2026-08-21"
+},
+{
+"id": "p390",
+"title": "샘플 장소 391",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 127.07225,
+"lat": 36.32473,
+"sido": "충청남도",
+"sgg": "공주시",
+"author": "편집자 E",
+"date": "2026-03-12"
+},
+{
+"id": "p391",
+"title": "샘플 장소 392",
+"primary": "care",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 126.71508,
+"lat": 37.48002,
+"sido": "인천광역시",
+"sgg": "부평구",
+"author": "편집자 A",
+"date": "2026-04-15"
+},
+{
+"id": "p392",
+"title": "샘플 장소 393",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 129.22797,
+"lat": 35.37972,
+"sido": "부산광역시",
+"sgg": "기장군",
+"author": "편집자 B",
+"date": "2026-03-08"
+},
+{
+"id": "p393",
+"title": "샘플 장소 394",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.17668,
+"lat": 37.55537,
+"sido": "서울특별시",
+"sgg": "강동구",
+"author": "편집자 D",
+"date": "2026-04-04"
+},
+{
+"id": "p394",
+"title": "샘플 장소 395",
+"primary": "eat",
+"secondary": [
+"walk"
+],
+"tags": [],
+"lng": 127.03467,
+"lat": 37.4599,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 B",
+"date": "2026-05-06"
+},
+{
+"id": "p395",
+"title": "샘플 장소 396",
+"primary": "care",
+"secondary": [],
+"tags": [],
+"lng": 129.02435,
+"lat": 35.10207,
+"sido": "부산광역시",
+"sgg": "중구",
+"author": "편집자 E",
+"date": "2026-06-04"
+},
+{
+"id": "p396",
+"title": "샘플 장소 397",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.08705,
+"lat": 35.15917,
+"sido": "부산광역시",
+"sgg": "남구",
+"author": "편집자 E",
+"date": "2026-09-06"
+},
+{
+"id": "p397",
+"title": "샘플 장소 398",
+"primary": "walk",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 126.82418,
+"lat": 37.48624,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 B",
+"date": "2026-06-07"
+},
+{
+"id": "p398",
+"title": "샘플 장소 399",
+"primary": "style",
+"secondary": [],
+"tags": [
+"season"
+],
+"lng": 128.59642,
+"lat": 35.85996,
+"sido": "대구광역시",
+"sgg": "중구",
+"author": "편집자 C",
+"date": "2026-02-07"
+},
+{
+"id": "p399",
+"title": "샘플 장소 400",
+"primary": "read",
+"secondary": [],
+"tags": [
+"deal"
+],
+"lng": 129.13824,
+"lat": 35.68618,
+"sido": "울산광역시",
+"sgg": "울주군",
+"author": "편집자 B",
+"date": "2026-02-07"
+},
+{
+"id": "p400",
+"title": "샘플 장소 401",
+"primary": "life",
+"secondary": [
+"eat"
+],
+"tags": [
+"deal"
+],
+"lng": 128.43763,
+"lat": 35.24019,
+"sido": "경상남도",
+"sgg": "함안군",
+"author": "편집자 A",
+"date": "2026-05-17"
+},
+{
+"id": "p401",
+"title": "샘플 장소 402",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 127.01028,
+"lat": 37.61661,
+"sido": "서울특별시",
+"sgg": "성북구",
+"author": "편집자 B",
+"date": "2026-06-24"
+},
+{
+"id": "p402",
+"title": "샘플 장소 403",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.93451,
+"lat": 37.49845,
+"sido": "서울특별시",
+"sgg": "동작구",
+"author": "편집자 B",
+"date": "2026-05-17"
+},
+{
+"id": "p403",
+"title": "샘플 장소 404",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 128.96659,
+"lat": 35.1029,
+"sido": "부산광역시",
+"sgg": "사하구",
+"author": "편집자 B",
+"date": "2026-06-08"
+},
+{
+"id": "p404",
+"title": "샘플 장소 405",
+"primary": "eat",
+"secondary": [
+"rest",
+"walk"
+],
+"tags": [
+"season"
+],
+"lng": 126.97992,
+"lat": 37.35538,
+"sido": "경기도",
+"sgg": "의왕시",
+"author": "편집자 B",
+"date": "2026-04-03"
+},
+{
+"id": "p405",
+"title": "샘플 장소 406",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.9288,
+"lat": 37.54363,
+"sido": "서울특별시",
+"sgg": "마포구",
+"author": "편집자 A",
+"date": "2026-08-04"
+},
+{
+"id": "p406",
+"title": "샘플 장소 407",
+"primary": "care",
+"secondary": [],
+"tags": [
+"tip",
+"season"
+],
+"lng": 127.27735,
+"lat": 35.99877,
+"sido": "전북특별자치도",
+"sgg": "완주군",
+"author": "편집자 E",
+"date": "2026-04-17"
+},
+{
+"id": "p407",
+"title": "샘플 장소 408",
+"primary": "eat",
+"secondary": [
+"rest"
+],
+"tags": [
+"season"
+],
+"lng": 127.01019,
+"lat": 37.47384,
+"sido": "서울특별시",
+"sgg": "서초구",
+"author": "편집자 D",
+"date": "2026-02-18"
+},
+{
+"id": "p408",
+"title": "샘플 장소 409",
+"primary": "eat",
+"secondary": [
+"care"
+],
+"tags": [],
+"lng": 126.9953,
+"lat": 37.28111,
+"sido": "경기도",
+"sgg": "수원시팔달구",
+"author": "편집자 A",
+"date": "2026-01-18"
+},
+{
+"id": "p409",
+"title": "샘플 장소 410",
+"primary": "rest",
+"secondary": [
+"life",
+"read"
+],
+"tags": [],
+"lng": 127.02041,
+"lat": 37.6751,
+"sido": "서울특별시",
+"sgg": "도봉구",
+"author": "편집자 D",
+"date": "2026-05-03"
+},
+{
+"id": "p410",
+"title": "샘플 장소 411",
+"primary": "eat",
+"secondary": [
+"rest",
+"play"
+],
+"tags": [],
+"lng": 128.39258,
+"lat": 35.52234,
+"sido": "경상남도",
+"sgg": "창녕군",
+"author": "편집자 A",
+"date": "2026-02-26"
+},
+{
+"id": "p411",
+"title": "샘플 장소 412",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 126.87822,
+"lat": 37.48896,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 D",
+"date": "2026-08-06"
+},
+{
+"id": "p412",
+"title": "샘플 장소 413",
+"primary": "care",
+"secondary": [
+"style",
+"stay"
+],
+"tags": [
+"season"
+],
+"lng": 126.95671,
+"lat": 37.61409,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 D",
+"date": "2026-02-22"
+},
+{
+"id": "p413",
+"title": "샘플 장소 414",
+"primary": "stay",
+"secondary": [
+"life"
+],
+"tags": [],
+"lng": 126.93508,
+"lat": 37.64618,
+"sido": "서울특별시",
+"sgg": "은평구",
+"author": "편집자 E",
+"date": "2026-09-07"
+},
+{
+"id": "p414",
+"title": "샘플 장소 415",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.83142,
+"lat": 37.50516,
+"sido": "서울특별시",
+"sgg": "구로구",
+"author": "편집자 C",
+"date": "2026-11-17"
+},
+{
+"id": "p415",
+"title": "샘플 장소 416",
+"primary": "walk",
+"secondary": [
+"play"
+],
+"tags": [],
+"lng": 127.08391,
+"lat": 37.57569,
+"sido": "서울특별시",
+"sgg": "중랑구",
+"author": "편집자 E",
+"date": "2026-09-13"
+},
+{
+"id": "p416",
+"title": "샘플 장소 417",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 129.03151,
+"lat": 35.18745,
+"sido": "부산광역시",
+"sgg": "부산진구",
+"author": "편집자 D",
+"date": "2026-06-23"
+},
+{
+"id": "p417",
+"title": "샘플 장소 418",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 126.80736,
+"lat": 37.58507,
+"sido": "서울특별시",
+"sgg": "강서구",
+"author": "편집자 C",
+"date": "2026-11-12"
+},
+{
+"id": "p418",
+"title": "샘플 장소 419",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.0482,
+"lat": 37.23828,
+"sido": "경기도",
+"sgg": "수원시영통구",
+"author": "편집자 C",
+"date": "2026-04-11"
+},
+{
+"id": "p419",
+"title": "샘플 장소 420",
+"primary": "stay",
+"secondary": [
+"rest"
+],
+"tags": [],
+"lng": 126.87994,
+"lat": 37.47539,
+"sido": "서울특별시",
+"sgg": "금천구",
+"author": "편집자 B",
+"date": "2026-06-28"
+},
+{
+"id": "c1-0",
+"title": "샘플 코스 가 1",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 126.97362,
+"lat": 37.56566,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 1
+},
+{
+"id": "c1-1",
+"title": "샘플 코스 가 2",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.97921,
+"lat": 37.55814,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 2
+},
+{
+"id": "c1-2",
+"title": "샘플 코스 가 3",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.98896,
+"lat": 37.5527,
+"sido": "서울특별시",
+"sgg": "중구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 3
+},
+{
+"id": "c1-3",
+"title": "샘플 코스 가 4",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.98136,
+"lat": 37.57859,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 4
+},
+{
+"id": "c1-4",
+"title": "샘플 코스 가 5",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.00232,
+"lat": 37.58922,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 5
+},
+{
+"id": "c1-5",
+"title": "샘플 코스 가 6",
+"primary": "stay",
+"secondary": [],
+"tags": [],
+"lng": 126.97433,
+"lat": 37.62244,
+"sido": "서울특별시",
+"sgg": "종로구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c1",
+"order": 6
+},
+{
+"id": "c2-0",
+"title": "샘플 코스 나 1",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 126.93628,
+"lat": 37.56156,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-12",
+"course": "c2",
+"order": 1
+},
+{
+"id": "c2-1",
+"title": "샘플 코스 나 2",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.94315,
+"lat": 37.57061,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-12",
+"course": "c2",
+"order": 2
+},
+{
+"id": "c2-2",
+"title": "샘플 코스 나 3",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.94068,
+"lat": 37.5721,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-12",
+"course": "c2",
+"order": 3
+},
+{
+"id": "c2-3",
+"title": "샘플 코스 나 4",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 126.94047,
+"lat": 37.58235,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-12",
+"course": "c2",
+"order": 4
+},
+{
+"id": "c2-4",
+"title": "샘플 코스 나 5",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 126.94975,
+"lat": 37.59992,
+"sido": "서울특별시",
+"sgg": "서대문구",
+"author": "편집자 B",
+"date": "2026-10-12",
+"course": "c2",
+"order": 5
+},
+{
+"id": "c3-0",
+"title": "샘플 코스 다 1",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 127.03021,
+"lat": 37.54664,
+"sido": "서울특별시",
+"sgg": "성동구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c3",
+"order": 1
+},
+{
+"id": "c3-1",
+"title": "샘플 코스 다 2",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 127.07056,
+"lat": 37.55296,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c3",
+"order": 2
+},
+{
+"id": "c3-2",
+"title": "샘플 코스 다 3",
+"primary": "play",
+"secondary": [],
+"tags": [],
+"lng": 127.09291,
+"lat": 37.54958,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c3",
+"order": 3
+},
+{
+"id": "c3-3",
+"title": "샘플 코스 다 4",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 127.10118,
+"lat": 37.56571,
+"sido": "서울특별시",
+"sgg": "광진구",
+"author": "편집자 A",
+"date": "2026-10-03",
+"course": "c3",
+"order": 4
+},
+{
+"id": "c4-0",
+"title": "샘플 코스 라 1",
+"primary": "walk",
+"secondary": [],
+"tags": [],
+"lng": 129.09956,
+"lat": 35.1623,
+"sido": "부산광역시",
+"sgg": "수영구",
+"author": "편집자 C",
+"date": "2026-09-20",
+"course": "c4",
+"order": 1
+},
+{
+"id": "c4-1",
+"title": "샘플 코스 라 2",
+"primary": "read",
+"secondary": [],
+"tags": [],
+"lng": 129.10765,
+"lat": 35.15318,
+"sido": "부산광역시",
+"sgg": "수영구",
+"author": "편집자 C",
+"date": "2026-09-20",
+"course": "c4",
+"order": 2
+},
+{
+"id": "c4-2",
+"title": "샘플 코스 라 3",
+"primary": "rest",
+"secondary": [],
+"tags": [],
+"lng": 129.11551,
+"lat": 35.14719,
+"sido": "부산광역시",
+"sgg": "수영구",
+"author": "편집자 C",
+"date": "2026-09-20",
+"course": "c4",
+"order": 3
+},
+{
+"id": "c4-3",
+"title": "샘플 코스 라 4",
+"primary": "eat",
+"secondary": [],
+"tags": [],
+"lng": 129.12204,
+"lat": 35.13922,
+"sido": "부산광역시",
+"sgg": "수영구",
+"author": "편집자 C",
+"date": "2026-09-20",
+"course": "c4",
+"order": 4
+},
+{
+"id": "c4-4",
+"title": "샘플 코스 라 5",
+"primary": "life",
+"secondary": [],
+"tags": [],
+"lng": 129.15017,
+"lat": 35.19479,
+"sido": "부산광역시",
+"sgg": "해운대구",
+"author": "편집자 C",
+"date": "2026-09-20",
+"course": "c4",
+"order": 5
+}
+],
+"courses": [
+{
+"id": "c1",
+"title": "샘플 코스 가",
+"author": "편집자 A",
+"date": "2026-10-03"
+},
+{
+"id": "c2",
+"title": "샘플 코스 나",
+"author": "편집자 B",
+"date": "2026-10-12"
+},
+{
+"id": "c3",
+"title": "샘플 코스 다",
+"author": "편집자 A",
+"date": "2026-10-03"
+},
+{
+"id": "c4",
+"title": "샘플 코스 라",
+"author": "편집자 C",
+"date": "2026-09-20"
+}
+]
+}

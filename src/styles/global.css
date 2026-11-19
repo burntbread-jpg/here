@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+@import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+@import '@fontsource/noto-serif-kr/600.css';
+@import '@fontsource-variable/manrope';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+/* 디자인 토큰 — docs/DESIGN_SYSTEM.md. ELSEWHERE(크림·올리브)와 같은 집안, 국내판은 '종이 지도' 톤 */
+@theme {
+  --color-paper: #F6F3ED;      /* ELSEWHERE와 같은 크림: 바다·바탕 */
+  --color-land: #FDFCF9;       /* 땅 */
+  --color-ink: #1E1D1A;        /* 본문·선택 강조 */
+  --color-ink-2: #5A564E;      /* 보조 글자 */
+  --color-ink-3: #8C867B;      /* 캡션 */
+  --color-line: #D9D2C5;       /* 시·도 경계 */
+  --color-line-2: #E8E2D7;     /* 시·군·구 경계, 구분선 */
+  --color-olive: #5F6B2E;      /* ELSEWHERE 포인트 계승 */
+  --color-focus: #2457E6;      /* 선택·포커스 (지도 앱 관례의 파랑) */
+  --font-sans: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --font-serif: 'Noto Serif KR', serif;
+  --font-latin: 'Manrope Variable', 'Pretendard Variable', sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html, body { height: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; word-break: keep-all; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* MapLibre 기본 UI 정리 */
+.maplibregl-ctrl-attrib { font-size: 10px; background: color-mix(in oklab, var(--color-paper) 85%, transparent) !important; }
+.maplibregl-ctrl-group { border-radius: 10px !important; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 0 0 1px rgb(0 0 0 / .06) !important; }
+
+/* 지역 이름 라벨 */
+.rlabel { pointer-events: none; font-size: 12px; font-weight: 600; color: var(--color-ink-3); letter-spacing: -.01em; white-space: nowrap;
+  text-shadow: 0 0 2px var(--color-land), 0 0 4px var(--color-land); }
+.rlabel.sgg { font-size: 11px; font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }

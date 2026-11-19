@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.*
+!.env.example
+shots/*.png
+# 시안 스크린샷 보관본은 docs/drafts/ 에 커밋한다
+!shots/.gitkeep
+.DS_Store

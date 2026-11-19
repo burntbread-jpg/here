@@ -1,0 +1,19 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string }
+const { title = 'HERE', description = '국내의 맛·쉼·멋·길을 지도 위에 찍고 잇는 기록.' } = Astro.props;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#F6F3ED" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body class="h-dvh overflow-hidden">
+    <slot />
+  </body>
+</html>
