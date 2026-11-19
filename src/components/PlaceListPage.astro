@@ -38,7 +38,7 @@ const title = c ? `${c.syllable} — ${c.meaning}` : '모든 곳';
     <div class="mt-12 flex items-center justify-between gap-4 border-b border-[var(--color-ink)] pb-3">
       <label class="flex items-center gap-3 text-[13px] text-[var(--color-caption)]">
         지역
-        <select id="sido" class="border-0 border-b border-[var(--color-linen)] bg-transparent py-1 pr-6 text-[14px] text-[var(--color-ink)] focus:border-[var(--color-ink)] focus:outline-none">
+        <select id="sido" class="border-0 border-b border-[var(--color-linen)] bg-transparent py-1 pr-6 text-[14px] text-[var(--color-ink)] focus:border-[var(--color-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]">
           <option value="">전체</option>
           {sidos.map((s) => <option value={s}>{s}</option>)}
         </select>

@@ -28,10 +28,10 @@
 }
 
 :root {
-  --f-display: 'Hahmlet Variable', 'Noto Serif KR', serif; --w-display: 380;
-  --f-body: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --f-display: 'HERE Hahmlet', 'Hahmlet Variable', serif; --w-display: 400;
+  --f-body: 'HERE Pretendard', 'Pretendard Variable', Pretendard, system-ui, sans-serif;
   --f-latin: 'Manrope Variable', sans-serif;
-  --f-num: 'Hahmlet Variable', serif; --w-num: 420;
+  --f-num: 'HERE Hahmlet', 'Hahmlet Variable', serif; --w-num: 400;
   --track-display: -0.03em;
 }
 

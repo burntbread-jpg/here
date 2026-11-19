@@ -13,7 +13,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { hanjiTextures } from './paper';
 import { PLACES, COURSES, CAT, loadData, type Place } from '../map/places';
-import { shortSido } from '../map/base';
+import { shortSido } from '../../lib/regions';
 
 type Mode = 'day' | 'night';
 const K = 9;                       // 경위도 1도 ≈ K 단위
@@ -24,9 +24,9 @@ const ease = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3);
 const easeInOut = (t: number) => { t = Math.min(1, Math.max(0, t)); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
 const THREADS = ['#A8322A', '#284A8E', '#B8892B', '#3F6B4A']; // 홍실·청실·금사·녹사
 
-interface Stack { name: string; group: THREE.Group; layers: THREE.Mesh[]; top: number; lift: number; liftTo: number; label: HTMLElement; center: THREE.Vector3; places: Place[] }
+interface Stack { name: string; group: THREE.Group; layers: THREE.Mesh[]; top: number; lift: number; vel: number; liftTo: number; dim: number; dimTo: number; label: HTMLAnchorElement; center: THREE.Vector3; places: Place[]; w: number }
 
-export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced: boolean; frame?: number; onReady?: () => void }) {
+export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced: boolean; intro?: boolean; frame?: number; onReady?: () => void; onHint?: (text: string | null) => void }) {
   const [sido] = await Promise.all([fetch('/geo/sido.geojson').then((r) => r.json()) as Promise<GeoJSON.FeatureCollection>, loadData()]);
   const isSmall = matchMedia('(max-width: 767.98px)').matches;
 
@@ -111,22 +111,31 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
     const group = new THREE.Group(); group.position.set(piv.x, 0, -piv.y);
     const layers: THREE.Mesh[] = [];
     for (let k = 0; k < L; k++) {
-      const m = new THREE.Mesh(k === 0 ? baseGeo : mainGeo, sheetMats[(k + stacks.length) % sheetMats.length]);
+      const mat = sheetMats[(k + stacks.length) % sheetMats.length].clone(); // 더미마다 따로(흐리기·밤 밝기를 각자 조절)
+      const m = new THREE.Mesh(k === 0 ? baseGeo : mainGeo, mat);
       m.rotation.x = -Math.PI / 2;
       m.rotation.z = (rnd() - 0.5) * 0.012 * Math.min(1, k);
       const s = k === 0 ? 1 : Math.max(0.3, 1 - (k * 0.16 * (0.85 + rnd() * 0.3)) / R);
       m.scale.set(s, s, 1);
       m.position.set((rnd() - 0.5) * 0.04 * k, k * T, (rnd() - 0.5) * 0.04 * k);
       m.castShadow = true; m.receiveShadow = true;
-      m.userData = { sido: pr.sidonm, k, finalY: k * T, finalS: s };
+      m.userData = { sido: pr.sidonm, k, finalY: k * T, finalS: s, base: mat.color.clone() };
       group.add(m); layers.push(m);
     }
     scene.add(group);
-    const label = document.createElement('div');
+    // 라벨은 진짜 링크: 키보드(Tab)·화면 낭독기로도 시·도에 들어갈 수 있다
+    const label = document.createElement('a');
     label.className = 'r3-label';
+    label.href = `/map?sido=${encodeURIComponent(pr.sidonm)}`;
+    label.setAttribute('aria-label', `${pr.sidonm} ${n}곳, 지도에서 보기`);
     label.innerHTML = `<b>${shortSido(pr.sidonm)}</b><span class="num">${n}</span>`;
     labelHost.appendChild(label);
-    stacks.push({ name: pr.sidonm, group, layers, top: L * T, lift: 0, liftTo: 0, label, center: new THREE.Vector3(piv.x, L * T, -piv.y), places });
+    const st: Stack = { name: pr.sidonm, group, layers, top: L * T, lift: 0, vel: 0, liftTo: 0, dim: 0, dimTo: 0, label, center: new THREE.Vector3(piv.x, L * T, -piv.y), places, w: 0 };
+    label.addEventListener('focus', () => select(st));
+    label.addEventListener('blur', () => select(null));
+    label.addEventListener('mouseenter', () => select(st));
+    label.addEventListener('mouseleave', () => select(null));
+    stacks.push(st);
   }
   const stackOf = new Map(stacks.map((s) => [s.name, s]));
 
@@ -223,9 +232,7 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
     for (const s of stacks) {
       const glow = Math.pow(s.places.length / maxCount, 0.85);
       s.layers.forEach((l, k) => {
-        const mat = (l.material as THREE.MeshStandardMaterial).clone();
-        mat.emissiveIntensity = night ? (0.006 + glow * 0.34) * (0.25 + 0.75 * Math.pow(k / Math.max(1, s.layers.length - 1), 1.4)) : 0;
-        l.material = mat;
+        (l.material as THREE.MeshStandardMaterial).emissiveIntensity = night ? (0.006 + glow * 0.34) * (0.25 + 0.75 * Math.pow(k / Math.max(1, s.layers.length - 1), 1.4)) : 0;
       });
     }
     knotMeshes.forEach((k) => (k.material = night ? knotGlow : knotMat));
@@ -238,9 +245,10 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
 
   // ── 등장: 한지가 한 장씩 내려앉고, 바늘이 코스를 꿰맨다 ──────────
   const t0 = performance.now();
-  let tour = !opts.reduced;
+  let tour = !opts.reduced && opts.intro !== false;
+  const settleFrom = !opts.reduced && !tour ? performance.now() : 0; // 다시 온 방문: 0.6초 만에 자리 잡기
   const allLayers = stacks.flatMap((s) => s.layers.map((l) => ({ l, s })));
-  if (!opts.reduced) for (const { l } of allLayers) { l.visible = false; }
+  if (tour) for (const { l } of allLayers) { l.visible = false; }
   const dropStart = (s: Stack, k: number) => 0.15 + (stacks.indexOf(s) % 16) * 0.07 + k * 0.11;
   const SEW_FROM = 3.2, SEW_DUR = 4.6;
   const sewSeam = seams[0];
@@ -297,17 +305,32 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
     const h = ray.intersectObjects(stacks.flatMap((s) => s.layers), false)[0];
     return h ? stackOf.get(h.object.userData.sido) ?? null : null;
   };
+  // 고르기(마우스 올리기·키보드 포커스·첫 번째 터치 공통): 그 더미를 들어 올리고 나머지는 살짝 흐리게
+  function select(s: Stack | null) {
+    if (s === hovered) return;
+    if (hovered) { hovered.liftTo = 0; hovered.label.classList.remove('is-on'); }
+    hovered = s;
+    for (const x of stacks) x.dimTo = s && x !== s ? 1 : 0;
+    labelHost.classList.toggle('has-on', !!s);
+    if (s) { s.liftTo = 0.62; s.label.classList.add('is-on'); }
+  }
+  let armed: Stack | null = null; // 터치: 한 번 누르면 고르고, 같은 곳을 한 번 더 누르면 들어간다
   renderer.domElement.addEventListener('pointermove', (e) => {
-    if (tour) return;
+    if (tour || e.pointerType !== 'mouse') return;
     const s = hit(e);
-    if (s !== hovered) { if (hovered) { hovered.liftTo = 0; hovered.label.classList.remove('is-on'); } hovered = s; if (s) { s.liftTo = 0.32; s.label.classList.add('is-on'); } }
+    select(s);
     renderer.domElement.style.cursor = s ? 'pointer' : 'grab';
-    host.dispatchEvent(new CustomEvent('r3hover', { detail: s ? { name: s.name, places: s.places } : null }));
   });
+  renderer.domElement.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') select(null); });
   renderer.domElement.addEventListener('pointerdown', (e) => (downAt = { x: e.clientX, y: e.clientY }));
   renderer.domElement.addEventListener('pointerup', (e) => {
     if (Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 6) return;
-    const s = hit(e); if (s) location.href = `/map?sido=${encodeURIComponent(s.name)}`;
+    const s = hit(e);
+    const go = (x: Stack) => (location.href = `/map?sido=${encodeURIComponent(x.name)}`);
+    if (e.pointerType !== 'touch') { if (s) go(s); return; }
+    if (s && armed === s) { go(s); return; }
+    armed = s; select(s);
+    opts.onHint?.(s ? `${s.name} ${s.places.length}곳 · 한 번 더 누르면 지도로 들어가요` : null);
   });
 
   // ── 그리기 ────────────────────────────────────────────────
@@ -319,17 +342,29 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
     // ?frame=초: 등장 장면을 그 시점에 멈춰 그린다(스크린샷·검수용)
     const t = opts.frame ?? (now - t0) / 1000;
     if (tour) { intro(t); camera.lookAt(controls.target); } else controls.update();
-    for (const s of stacks) {
-      s.lift += (s.liftTo - s.lift) * Math.min(1, dt * 9);
+    if (settleFrom) { const p = ease((now - settleFrom) / 600); if (p < 1) camera.position.lerpVectors(home.pos.clone().add(new THREE.Vector3(0, 5, 4)), home.pos, p); }
+    const placed: { x: number; y: number; w: number }[] = [];
+    // 라벨 겹침: 장소가 많은 시·도부터 자리를 차지하고, 겹치는 작은 라벨은 숨긴다(포커스·선택 시에는 보임)
+    const order = stacks.slice().sort((a, b) => b.places.length - a.places.length);
+    for (const s of order) {
+      // 들어 올리기는 스프링(살짝 넘쳤다가 자리 잡음). 동작 줄이기면 바로 이동
+      if (opts.reduced) { s.lift = s.liftTo; s.vel = 0; }
+      else for (let i = 0; i < 2; i++) { const h = dt / 2; s.vel += (170 * (s.liftTo - s.lift) - 18 * s.vel) * h; s.lift += s.vel * h; }
       s.group.position.y = s.lift;
+      s.dim += (s.dimTo - s.dim) * Math.min(1, dt * 10);
+      if (Math.abs(s.dim - s.dimTo) > 0.001 || s.dimTo) for (const l of s.layers) (l.material as THREE.MeshStandardMaterial).color.copy(l.userData.base).multiplyScalar(1 - 0.1 * s.dim);
       v.copy(s.center).setY(s.top + s.lift + 0.25).project(camera);
       const x = (v.x * 0.5 + 0.5) * host.clientWidth, y = (-v.y * 0.5 + 0.5) * host.clientHeight;
       s.label.style.transform = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
-      s.label.style.opacity = v.z < 1 && (!tour || t > 2.6) ? '' : '0';
+      s.w ||= s.label.offsetWidth;
+      const clash = placed.some((q) => Math.abs(q.x - x) < (q.w + s.w) / 2 + 4 && Math.abs(q.y - y) < 20);
+      const show = v.z < 1 && (!tour || t > 2.6);
+      s.label.classList.toggle('is-hidden', !show || (clash && s !== hovered));
+      if (show && !clash) placed.push({ x, y, w: s.w });
     }
     // 먼지는 아주 천천히 떠다닌다
     const pos = dustGeo.attributes.position as THREE.BufferAttribute;
-    for (let i = 0; i < dustN; i++) {
+    if (!opts.reduced) for (let i = 0; i < dustN; i++) {
       let y = pos.getY(i) + dt * (mode === 'night' ? 0.12 : 0.05);
       if (y > 15) y = 0.4;
       pos.setY(i, y); pos.setX(i, pos.getX(i) + Math.sin(t * 0.3 + i) * dt * 0.05);
@@ -350,7 +385,7 @@ export async function initHome3D(host: HTMLElement, opts: { mode: Mode; reduced:
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }).observe(host);
 
-  if (opts.reduced) { stopTour(); controls.update(); }
+  if (!tour) { tour = true; stopTour(); controls.update(); }
   opts.onReady?.();
   return { setMode: applyMode, skip: stopTour };
 }

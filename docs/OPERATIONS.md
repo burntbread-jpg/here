@@ -49,3 +49,9 @@ GitHub 저장소 → Settings → Secrets and variables → Actions → New repo
 - 사진이 1GB(약 6,000장, 장당 약 170KB 기준)를 넘을 때 → 오래된 원본 정리 또는 Supabase Pro
 - 광고·후원 등 수익이 생길 때 → Vercel Pro
 - 새 '생각' 사이트까지 Supabase를 쓰면 무료 프로젝트 2개를 다 쓴다 → 그 사이트는 DB 없는 방식(Git + MDX) 권장
+
+## 4. 글꼴은 쓰인 글자만
+
+`pnpm build` = `astro build && node scripts/subset-fonts.mjs`.
+빌드된 HTML·`/data/places.json`·소스의 한글 문자열에서 글자를 모아 함렛(`fonts-src/Hahmlet-Regular.woff2`, OFL, 굵기 400 고정)과 Pretendard 의 작은 판을 만든다(약 60KB + 120KB).
+미리 알 수 없는 글자(편집 화면에서 새로 쓴 글)는 원래 글꼴(fontsource·pretendard 의 쪼갠 파일)로 넘어간다. 개발 서버에서는 원래 글꼴만 쓴다.

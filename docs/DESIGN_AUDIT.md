@@ -104,3 +104,21 @@ CHROME_PATH=~/.claude/bin/chromium-nosandbox node ~/.claude/skills/taste-skill/s
 ### 오탐으로 판단
 - Taste `shader-lint`(three.js 내부 셰이더), `no-visual`·`overlap-text`·`collide`(라벨을 의도적으로 캔버스 위에 띄움), `hero-*`·`section-*`·`container-edges`(랜딩 페이지 규칙), `copy-headline`(h1은 숨김 처리된 사이트 제목).
 - Taste perf의 전송량은 로컬 서버가 gzip을 하지 않아 실제보다 큼.
+
+### 3D 홈 수정 결과 (10가지 모두)
+
+| # | 문제 | 고친 방법 | 확인 |
+|---|---|---|---|
+| 1 | 키보드로 시·도에 못 감 | 이름표를 진짜 링크(`/map?sido=`)로, 포커스하면 그 더미가 들림. Tab 순서는 머리말·소개·범례 다음 | Tab 으로 16개 시·도 이동, Enter 로 이동 |
+| 2 | 홈이 MapLibre 를 받음 | `shortSido` 를 `src/lib/regions.ts` 로 분리 | 홈 번들에 지도 라이브러리 없음 |
+| 3 | 글꼴 764KB | 빌드 후 `scripts/subset-fonts.mjs` 가 쓰인 글자만 남긴 함렛·Pretendard 를 만들고 preload. 없는 글자는 원래 글꼴로 | 함렛 57KB + Pretendard 123KB + Manrope 24KB = 204KB |
+| 4 | 동작 줄이기에서 먼지가 움직임 | 동작 줄이기면 입자·스프링 멈춤 | 등장 연출 없음, 입자 정지 |
+| 5 | 등장 연출이 매번 | 세션당 한 번(`sessionStorage`), 다시 오면 0.6초 자리 잡기. `?intro` 로 다시 보기 | 두 번째 방문 tour 없음 |
+| 6 | 들림이 미미·선형 | 0.62 높이, 스프링(k=170, c=18: 살짝 넘쳤다 자리), 나머지 더미는 10% 어둡게·이름표 흐리게 | 화면 확인 |
+| 7 | 터치 첫 탭에 바로 이동 | 첫 탭은 고르기 + 안내("한 번 더 누르면 지도로"), 같은 곳 두 번째 탭에 이동. 이름표(링크)는 바로 이동 | 모바일 에뮬레이션 확인 |
+| 8 | 이름표 숫자 대비 | 종이색 바탕 칩, 숫자는 ink-2 | Taste contrast 통과 |
+| 9 | 모바일 범례 21px·이름표 겹침 | 범례 44px, 이름표 누르는 영역 확장, 장소 많은 순으로 자리 잡고 겹치는 작은 이름표 숨김(포커스·선택 시 보임) | 범례 44px |
+| 10 | WebGL 문맥 2개·재질 복제 누수 | 확인용 문맥 즉시 반환, 재질은 처음 한 번만 복제 | 코드 확인 |
+
+추가로 고친 것: 소개 글 대비(소개 영역 바탕 그라데이션 강화), 목록 페이지 선택 상자 포커스 링, 모바일 버튼 44px.
+재점검: Impeccable detect 낮·밤 × 1440·390 **0건**, Taste contrast·focus-ring **통과**, 남은 Taste 경고는 머리말 링크 터치 크기(경고 수준).

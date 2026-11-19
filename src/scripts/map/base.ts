@@ -18,12 +18,8 @@ export async function loadRegions(): Promise<Regions> {
   return { sido, sgg };
 }
 
-/** 시·도 이름을 짧게: '서울특별시' → '서울', '경기도' → '경기' */
-export function shortSido(n: string) {
-  const special: Record<string, string> = { 충청북도: '충북', 충청남도: '충남', 전라북도: '전북', 전북특별자치도: '전북', 경상북도: '경북', 경상남도: '경남', 전라남도: '전남', 전남광주통합특별시: '전남광주' };
-  if (special[n]) return special[n];
-  return n.replace(/(특별자치시|특별자치도|특별시|광역시|도)$/, '');
-}
+import { shortSido } from '../../lib/regions';
+export { shortSido };
 
 export function createBaseMap(container: HTMLElement, regions: Regions, opts: { padding?: number | maplibregl.PaddingOptions } = {}) {
   const map = new maplibregl.Map({
