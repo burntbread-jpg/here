@@ -5,11 +5,8 @@ const require = createRequire(import.meta.url);
 let pw; try { pw = require('playwright'); } catch { pw = require('/opt/node-tools/node_modules/playwright'); }
 const base = process.argv[2] ?? 'http://localhost:4321';
 const scale = Number(process.argv[3] ?? 2);
-const bgs = (process.env.BGS ?? 'paper,hanji,sea,ssuk,meok').split(',');
 const pages = [
-  ...bgs.map((bg) => [`b-${bg}`, `/drafts/b?bg=${bg}`]),
-  ...bgs.map((bg) => [`b-seoul-${bg}`, `/drafts/b?at=seoul&bg=${bg}`]),
-  ['c', '/drafts/c'],
+  ['home', '/'], ['home-seoul', '/drafts/b?at=seoul'], ['course', '/drafts/c'],
 ];
 const sizes = [['1440', { width: 1440, height: 900 }], ['390', { width: 390, height: 844 }]];
 const browser = await pw.chromium.launch({ args: ['--no-sandbox'] });

@@ -35,8 +35,8 @@ export function createBaseMap(container: HTMLElement, regions: Regions, opts: { 
         sgg: { type: 'geojson', data: regions.sgg },
       },
       layers: [
-        { id: 'sea', type: 'background', paint: { 'background-color': css('--color-sea') || css('--color-paper') || '#F6F3ED' } },
-        { id: 'land', type: 'fill', source: 'sido', paint: { 'fill-color': css('--color-land') || '#FDFCF9' } },
+        { id: 'sea', type: 'background', paint: { 'background-color': css('--color-sea') || css('--color-paper') || '#F4F4F1' } },
+        { id: 'land', type: 'fill', source: 'sido', paint: { 'fill-color': css('--color-land') || '#FFFFFF' } },
         { id: 'sgg-hover', type: 'fill', source: 'sgg', paint: { 'fill-color': '#000', 'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.035, 0] } },
         { id: 'sgg-line', type: 'line', source: 'sgg', minzoom: ZOOM.sggLines - 0.6,
           paint: { 'line-color': css('--color-line-2') || '#E8E2D7', 'line-width': ['interpolate', ['linear'], ['zoom'], 7, 0.4, 11, 1], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZOOM.sggLines - 0.6, 0, ZOOM.sggLines, 1] } },

@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import MapShell from '../../components/MapShell.astro';
-import DraftBadge from '../../components/DraftBadge.astro';
 ---
 <Base title="HERE — 국내 장소 지도">
   <MapShell>
@@ -20,7 +19,6 @@ import DraftBadge from '../../components/DraftBadge.astro';
       </div>
       <ul id="sheet-list" class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-[var(--color-linen)] px-5 pb-6 md:px-6"></ul>
     </div>
-    <DraftBadge code="b" name="음절 · 행정 묶음" />
   </MapShell>
 </Base>
 <style is:global>
@@ -63,3 +61,4 @@ import DraftBadge from '../../components/DraftBadge.astro';
   import { initVariantB } from '../../scripts/map/variant-b';
   initVariantB();
 </script>
+

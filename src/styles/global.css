@@ -4,21 +4,21 @@
 @import '@fontsource-variable/hahmlet';   /* 제목·음절·숫자: 함렛(2026-11-19 사용자 선택 ②) */
 @import 'maplibre-gl/dist/maplibre-gl.css';
 
-/* 디자인 토큰 — docs/DESIGN_SYSTEM.md. 색 이름은 ELSEWHERE 디자인 기준을 잇는다. */
+/* 디자인 토큰 — docs/DESIGN_SYSTEM.md. 색 이름은 ELSEWHERE 디자인 기준을 잇고, 값은 '한지'(2026-11-19 확정) */
 @theme {
-  --color-paper: #F6F3ED;      /* Paper: 바탕·패널 */
-  --color-sea: var(--color-paper); /* 지도의 바다(바탕과 다르게 둘 수 있음) */
-  --color-land: #FBF9F5;       /* 땅 */
-  --color-linen: #E4E0D6;      /* Linen: 가는 선, 구분선 */
-  --color-taupe: #A69D8D;      /* Taupe: 장식 전용 */
+  --color-paper: #F4F4F1;      /* Paper(한지): 바탕·패널 */
+  --color-sea: var(--color-paper); /* 지도의 바다 */
+  --color-land: #FFFFFF;       /* 땅 */
+  --color-linen: #E3E3DE;      /* Linen: 가는 선, 구분선 */
+  --color-taupe: #A3A39B;      /* Taupe: 장식 전용 */
   --color-olive: #4F594C;      /* Olive: 포인트(예약) */
-  --color-ink: #24231F;        /* Ink: 본문 */
-  --color-caption: #69655F;    /* Caption: 작은 글자 */
-  --color-line: #D3CCBE;       /* 시·도 경계 */
-  --color-line-2: #E4E0D6;     /* 시·군·구 경계 */
-  --color-coast: #CFC6B6;      /* 해안선 */
+  --color-ink: #1F1F1D;        /* Ink: 본문 (바탕 대비 15:1) */
+  --color-caption: #64645E;    /* Caption: 작은 글자 (바탕 대비 5.4:1) */
+  --color-line: #CFCFC8;       /* 시·도 경계 */
+  --color-line-2: #E6E6E1;     /* 시·군·구 경계 */
+  --color-coast: #C4C4BC;      /* 해안선 */
   --color-focus: #2457E6;      /* 키보드 포커스 링 */
-  --color-ink-2: #4A4741;
+  --color-ink-2: #45453F;
   --color-ink-3: var(--color-caption);
   --font-sans: var(--f-body);
   --font-serif: var(--f-display);
@@ -35,30 +35,9 @@
   --track-display: -0.03em;
 }
 
-/* 바탕색 후보(시안). <html data-bg="…"> 또는 주소 ?bg=… 로 바꾼다. 확정 후 하나만 남긴다. */
-:root[data-bg='hanji'] {   /* 한지: 누런 기를 뺀 중성 백색 */
-  --color-paper: #F4F4F1; --color-land: #FFFFFF; --color-linen: #E3E3DE; --color-taupe: #A3A39B;
-  --color-ink: #1F1F1D; --color-caption: #64645E; --color-ink-2: #45453F; --color-line: #CFCFC8; --color-line-2: #E6E6E1; --color-coast: #C4C4BC;
-}
-:root[data-bg='sea'] {     /* 청회 바다: 바다는 차가운 회청색, 땅과 패널은 흰 종이 */
-  --color-paper: #F8F8F6; --color-sea: #DCE4E6; --color-land: #FDFDFB; --color-linen: #E2E5E3; --color-taupe: #9AA3A6;
-  --color-ink: #1E2326; --color-caption: #5C6569; --color-ink-2: #3F474B; --color-line: #C6CDCD; --color-line-2: #E3E7E6; --color-coast: #B3BFC2;
-}
-:root[data-bg='ssuk'] {    /* 쑥: 옅은 회녹색, ELSEWHERE 올리브와 같은 계열 */
-  --color-paper: #EEF0E9; --color-land: #F9FAF6; --color-linen: #DCE0D4; --color-taupe: #9FA896;
-  --color-ink: #222820; --color-caption: #5D665A; --color-ink-2: #414A3E; --color-line: #C8CFC0; --color-line-2: #DFE3D8; --color-coast: #BCC5B2;
-}
-:root[data-bg='meok'] {    /* 먹: 어두운 지도. 분류 색이 가장 또렷하게 뜬다 */
-  --color-paper: #1E1E1C; --color-sea: #161615; --color-land: #272725; --color-linen: #3A3935; --color-taupe: #6E6A62;
-  --color-ink: #EDE9E1; --color-caption: #A9A49A; --color-ink-2: #CFCAC0; --color-line: #4C4A45; --color-line-2: #34332F; --color-coast: #57544D;
-  color-scheme: dark;
-}
-
-/* 분류 색 글자·칩. 어두운 바탕에서는 밝게 섞는다 */
+/* 분류 색 글자·칩 */
 .cat-chip { background: var(--tint); color: var(--ink); }
 .cat-text { color: var(--ink); }
-:root[data-bg='meok'] .cat-chip, :root[data-bg='meok'] .chip-s { background: color-mix(in oklab, var(--ink) 28%, var(--color-paper)) !important; color: color-mix(in oklab, var(--ink) 30%, white) !important; }
-:root[data-bg='meok'] .cat-text { color: color-mix(in oklab, var(--ink) 45%, white); }
 
 html, body { height: 100%; }
 body { background: var(--color-paper); color: var(--color-ink); font-family: var(--f-body); font-weight: 400; -webkit-font-smoothing: antialiased; word-break: keep-all; }
@@ -80,4 +59,4 @@ body { background: var(--color-paper); color: var(--color-ink); font-family: var
 .rlabel.sgg { font-size: 11px; font-weight: 400; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }
-:root[data-bg='meok'] .maplibregl-ctrl-icon, :root[data-bg='meok'] .maplibregl-ctrl-attrib-button { filter: invert(1); }
+

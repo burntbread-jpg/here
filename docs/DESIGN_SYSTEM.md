@@ -3,20 +3,25 @@
 ELSEWHERE와 한 집안처럼 보이도록 **ELSEWHERE 디자인 기준의 색 이름·값, 글꼴 굵기, 가는 선 문법**을 그대로 잇는다. 국내판은 '종이 위의 지도'가 주인공이다.
 v1에서 바꾼 것: 굵은 글자(700–800)와 그림자, 검은 알약 버튼, 둥근 카드를 걷어 내고 가는 선(Linen) + 얇은 숫자 + 명조 제목으로 바꿨다(사용자 피드백 "ELSEWHERE보다 감도가 떨어진다").
 
-## 색 (ELSEWHERE와 같은 이름)
+## 색 — **한지 확정** (2026-11-19)
+
+색 이름(Paper, Linen, Taupe, Ink, Caption)은 ELSEWHERE 디자인 기준을 잇되, 값은 누런 기를 뺀 중성 백색 '한지'로 바꿨다. 디자인 점검에서 크림 바탕이 'AI 기본 색'으로 지적된 것도 함께 해소된다.
 
 | 토큰 | 값 | 쓰임 |
 |---|---|---|
-| Paper `--color-paper` | `#F6F3ED` | 바탕·바다 |
-| Land `--color-land` | `#FBF9F5` | 땅(HERE 전용) |
-| Linen `--color-linen` | `#E4E0D6` | 가는 선, 패널 테두리, 시·군·구 경계 |
-| Taupe `--color-taupe` | `#A69D8D` | 장식 전용(글자에 쓰지 않음), 비활성 코스 선 |
+| Paper `--color-paper` | `#F4F4F1` | 바탕·패널·바다 |
+| Land `--color-land` | `#FFFFFF` | 땅 |
+| Linen `--color-linen` | `#E3E3DE` | 가는 선, 패널 테두리 |
+| Taupe `--color-taupe` | `#A3A39B` | 장식 전용(글자에 쓰지 않음), 비활성 코스 선 |
 | Olive `--color-olive` | `#4F594C` | 포인트(예약) |
-| Ink `--color-ink` | `#24231F` | 본문, 활성 상태, 버튼 테두리 |
-| Caption `--color-caption` | `#69655F` | 작은 글자(대비 5:1 이상) |
+| Ink `--color-ink` | `#1F1F1D` | 본문(대비 15:1), 활성 상태, 버튼 테두리 |
+| Caption `--color-caption` | `#64645E` | 작은 글자(대비 5.4:1) |
+| `--color-line` / `-line-2` / `-coast` | `#CFCFC8` / `#E6E6E1` / `#C4C4BC` | 시·도 경계 / 시·군·구 경계 / 해안선 |
 | `--color-focus` | `#2457E6` | 키보드 포커스 링만 |
 
 분류 9색은 `src/data/categories.ts` (ink: 마커·글자, tint: 칩 바탕). 모두 AA 대비 통과.
+
+검토했던 다른 후보(크림·청회·쑥·먹)의 값은 git 기록(커밋 f6202da)의 `src/styles/global.css`에 남아 있다.
 
 ## 글꼴 — **② 함렛 확정** (2026-11-19)
 
@@ -27,18 +32,6 @@ v1에서 바꾼 것: 굵은 글자(700–800)와 그림자, 검은 알약 버튼
 | 워드마크·영문 라벨 | Manrope Variable |
 
 모두 자체 호스팅(`@fontsource-variable/hahmlet`, `pretendard`, `@fontsource-variable/manrope`). 후보였던 Noto Serif KR, IBM Plex는 삭제했다.
-
-## 바탕색 — 후보 5개 (사용자 선택 대기)
-
-주소 `?bg=paper|hanji|sea|ssuk|meok` 또는 `<html data-bg>`. 정의는 `src/styles/global.css`. 모든 후보에서 본문 13:1 이상, 캡션 5.2:1 이상(AA).
-
-| 후보 | 바탕/패널 | 바다 | 땅 | 성격 |
-|---|---|---|---|---|
-| 크림 `paper` | #F6F3ED | 바탕과 같음 | #FBF9F5 | 현행. ELSEWHERE와 같은 Paper. 디자인 점검에서 'AI 기본 색'으로 지적됨 |
-| 한지 `hanji` | #F4F4F1 | 바탕과 같음 | #FFFFFF | 누런 기를 뺀 중성 백색. 가장 깔끔, 분류 색이 정확하게 보임 |
-| 청회 `sea` | #F8F8F6 | #DCE4E6 | #FDFDFB | 바다만 차가운 회청색. 땅과 바다가 가장 잘 갈려 지도로 읽힘 |
-| 쑥 `ssuk` | #EEF0E9 | 바탕과 같음 | #F9FAF6 | 옅은 회녹색. ELSEWHERE 올리브와 같은 계열이라 자매 느낌 유지 |
-| 먹 `meok` | #1E1E1C | #161615 | #272725 | 어두운 지도. 분류 색이 가장 또렷, 밤에 보기 좋음. 사진이 들어오면 무게가 커짐 |
 
 ## 문법
 
