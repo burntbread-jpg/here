@@ -11,12 +11,12 @@ importers:
       '@astrojs/vercel':
         specifier: ^11.0.22
         version: 11.0.22(astro@7.4.13(@vercel/functions@3.11.3)(jiti@2.7.0)(yaml@2.9.1))
+      '@fontsource-variable/hahmlet':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@fontsource-variable/manrope':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/noto-serif-kr':
-        specifier: ^5.3.1
-        version: 5.3.1
       '@tailwindcss/vite':
         specifier: ^4.3.5
         version: 4.3.5(vite@8.3.8(jiti@2.7.0)(yaml@2.9.1))
@@ -299,11 +299,11 @@ packages:
   '@emnapi/wasi-threads@2.2.0':
     resolution: {integrity: sha512-JP7OYH38Q7+pyTAe14raZHLQIK7BDKbdwji+Xi3pcd/6QkJYQH3SX4wu6EplGrGJWRepoNzedfm0G3B9Z4e9Rw==}
 
+  '@fontsource-variable/hahmlet@5.3.0':
+    resolution: {integrity: sha512-hgD7VYcbA3sJcZww0yZ9qG0IvtOdP7CDVh8N7CHdrLmZsQZPOnikxs/ULT8C5ipAOW77yg7cAOEurBigpt5CLQ==}
+
   '@fontsource-variable/manrope@5.3.0':
     resolution: {integrity: sha512-6D5dgokHsWDDMtmXHznKa0hK229NN+1a4BLPmUCLqcO1Pw5EEhWY5RFt0AcXnVRAljFFPfRtLkJePQj6LSsV6g==}
-
-  '@fontsource/noto-serif-kr@5.3.1':
-    resolution: {integrity: sha512-xtsAgK4S4MjPllHRSAFaMiB7xnFb8Nlhx47uPaD/qvyTP5WgRICNawZmwGzLVshCyA/QmydSVzA9kWF8otycpQ==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -2649,9 +2649,9 @@ snapshots:
       tslib: 2.9.1
     optional: true
 
-  '@fontsource-variable/manrope@5.3.0': {}
+  '@fontsource-variable/hahmlet@5.3.0': {}
 
-  '@fontsource/noto-serif-kr@5.3.1': {}
+  '@fontsource-variable/manrope@5.3.0': {}
 
   '@img/colour@1.1.0':
     optional: true

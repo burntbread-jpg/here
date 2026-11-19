@@ -9,8 +9,12 @@ const { title = 'HERE', description = '국내의 맛·쉼·멋·길을 지도 �
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#F6F3ED" />
+    <meta name="theme-color" content="#F4F4F1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
     <title>{title}</title>
   </head>
   <body class="h-dvh overflow-hidden">

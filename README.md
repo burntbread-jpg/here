@@ -2,7 +2,7 @@
 
 국내의 맛·쉼·멋·길… 가까운 곳들을 **지도 위에 찍고 잇는** 기록. 해외 여행기 아카이브 [ELSEWHERE](https://elsewhere-travel-archive.vercel.app/)의 짝 사이트다.
 
-> 상태: **초안(시안 비교 단계)**. 홈 지도 시안 A·B·C 중 하나를 고르는 중. 지도 위 장소는 모두 **샘플 데이터**다.
+> 상태: **초안**. 홈 지도 시안 B, 글씨체 함렛, 바탕색 한지로 결정. 지도 위 장소는 모두 **샘플 데이터**다.
 
 ## 빠른 시작
 
@@ -14,17 +14,17 @@ pnpm dev                # http://localhost:4321
 
 | 주소 | 내용 |
 |---|---|
-| `/` | 홈 (지금은 시안 A를 임시로 표시) |
+| `/` | 홈 (시안 B) |
 | `/drafts/a` | 시안 A · 사진 핀 (`?sel=1`: 가장 큰 묶음 선택 상태) |
 | `/drafts/b` | 시안 B · 음절 + 행정구역 묶음 (`?at=seoul`: 서울 확대) |
-| `/drafts/c` | 시안 C · 잇기(코스·같은 날·같은 작성자) |
+| `/drafts/c` | 코스 탭 시안 (작성자가 등록한 코스만 선으로) |
 | `/admin` | 편집 화면 자리 (로그인 연결 전) |
 
 스크린샷: `pnpm dev` 를 띄운 상태에서 `node scripts/screenshots.mjs` → `shots/*.png` (1440·390).
 
 ## 스택
 
-Astro 7 + TypeScript + Tailwind 4, pnpm, Node 24(로컬은 22 이상). 지도는 MapLibre GL(타일 없이 행정구역 GeoJSON만으로 그린 백지도) + supercluster.
+Astro 7 + TypeScript + Tailwind 4, pnpm. 글꼴 함렛 + Pretendard + Manrope, Node 24(로컬은 22 이상). 지도는 MapLibre GL(타일 없이 행정구역 GeoJSON만으로 그린 백지도) + supercluster.
 배포는 Vercel(`@astrojs/vercel`): 공개 페이지는 정적, `/admin`·`/api` 는 서버 함수. 이유는 [docs/AUTH.md](docs/AUTH.md).
 
 ## 문서

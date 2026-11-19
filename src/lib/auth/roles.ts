@@ -16,8 +16,7 @@ const MATRIX: Record<Role, ReadonlySet<Action>> = {
   editor: new Set<Action>([
     'place.create', 'place.update.own', 'place.delete.own',
     'course.create', 'course.update.own',
-    // 공동 작업이므로 다른 사람 글 '수정'은 허용하고 '삭제'는 관리자만 — [확인 필요] docs/AUTH.md §3
-    'place.update.any', 'course.update.any',
+    // 다른 사람 글은 수정·삭제할 수 없다(2026-11-19 사용자 결정). 관리자만 가능.
   ]),
   admin: new Set<Action>([
     'place.create', 'place.update.own', 'place.update.any', 'place.delete.own', 'place.delete.any',

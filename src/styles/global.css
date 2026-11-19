@@ -1,37 +1,62 @@
 @import 'tailwindcss';
 @import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
-@import '@fontsource/noto-serif-kr/600.css';
 @import '@fontsource-variable/manrope';
+@import '@fontsource-variable/hahmlet';   /* 제목·음절·숫자: 함렛(2026-11-19 사용자 선택 ②) */
 @import 'maplibre-gl/dist/maplibre-gl.css';
 
-/* 디자인 토큰 — docs/DESIGN_SYSTEM.md. ELSEWHERE(크림·올리브)와 같은 집안, 국내판은 '종이 지도' 톤 */
+/* 디자인 토큰 — docs/DESIGN_SYSTEM.md. 색 이름은 ELSEWHERE 디자인 기준을 잇고, 값은 '한지'(2026-11-19 확정) */
 @theme {
-  --color-paper: #F6F3ED;      /* ELSEWHERE와 같은 크림: 바다·바탕 */
-  --color-land: #FDFCF9;       /* 땅 */
-  --color-ink: #1E1D1A;        /* 본문·선택 강조 */
-  --color-ink-2: #5A564E;      /* 보조 글자 */
-  --color-ink-3: #8C867B;      /* 캡션 */
-  --color-line: #D9D2C5;       /* 시·도 경계 */
-  --color-line-2: #E8E2D7;     /* 시·군·구 경계, 구분선 */
-  --color-olive: #5F6B2E;      /* ELSEWHERE 포인트 계승 */
-  --color-focus: #2457E6;      /* 선택·포커스 (지도 앱 관례의 파랑) */
-  --font-sans: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
-  --font-serif: 'Noto Serif KR', serif;
-  --font-latin: 'Manrope Variable', 'Pretendard Variable', sans-serif;
+  --color-paper: #F4F4F1;      /* Paper(한지): 바탕·패널 */
+  --color-sea: var(--color-paper); /* 지도의 바다 */
+  --color-land: #FFFFFF;       /* 땅 */
+  --color-linen: #E3E3DE;      /* Linen: 가는 선, 구분선 */
+  --color-taupe: #A3A39B;      /* Taupe: 장식 전용 */
+  --color-olive: #4F594C;      /* Olive: 포인트(예약) */
+  --color-ink: #1F1F1D;        /* Ink: 본문 (바탕 대비 15:1) */
+  --color-caption: #64645E;    /* Caption: 작은 글자 (바탕 대비 5.4:1) */
+  --color-line: #CFCFC8;       /* 시·도 경계 */
+  --color-line-2: #E6E6E1;     /* 시·군·구 경계 */
+  --color-coast: #C4C4BC;      /* 해안선 */
+  --color-focus: #2457E6;      /* 키보드 포커스 링 */
+  --color-ink-2: #45453F;
+  --color-ink-3: var(--color-caption);
+  --font-sans: var(--f-body);
+  --font-serif: var(--f-display);
+  --font-latin: var(--f-latin);
+  --font-num: var(--f-num);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-html, body { height: 100%; }
-body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; word-break: keep-all; }
-.tnum { font-variant-numeric: tabular-nums; }
+:root {
+  --f-display: 'Hahmlet Variable', 'Noto Serif KR', serif; --w-display: 380;
+  --f-body: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --f-latin: 'Manrope Variable', sans-serif;
+  --f-num: 'Hahmlet Variable', serif; --w-num: 420;
+  --track-display: -0.03em;
+}
 
-/* MapLibre 기본 UI 정리 */
+/* 분류 색 글자·칩 */
+.cat-chip { background: var(--tint); color: var(--ink); }
+.cat-text { color: var(--ink); }
+
+html, body { height: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--f-body); font-weight: 400; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+.tnum { font-variant-numeric: tabular-nums; }
+.display { font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--track-display); }
+.num { font-family: var(--f-num); font-weight: var(--w-num); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.eyebrow { font-family: var(--f-latin); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-caption); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+/* MapLibre 기본 UI를 종이 톤으로 */
 .maplibregl-ctrl-attrib { font-size: 10px; background: color-mix(in oklab, var(--color-paper) 85%, transparent) !important; }
-.maplibregl-ctrl-group { border-radius: 10px !important; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 0 0 1px rgb(0 0 0 / .06) !important; }
+.maplibregl-ctrl-group { border-radius: 4px !important; box-shadow: none !important; border: 1px solid var(--color-linen); background: var(--color-paper) !important; }
+.maplibregl-ctrl-group button + button { border-top-color: var(--color-linen) !important; }
+@media (max-width: 767.98px) { .maplibregl-ctrl-zoom-in, .maplibregl-ctrl-zoom-out { display: none !important; } .maplibregl-ctrl-group:has(.maplibregl-ctrl-zoom-in) { display: none; } }
 
 /* 지역 이름 라벨 */
-.rlabel { pointer-events: none; font-size: 12px; font-weight: 600; color: var(--color-ink-3); letter-spacing: -.01em; white-space: nowrap;
-  text-shadow: 0 0 2px var(--color-land), 0 0 4px var(--color-land); }
-.rlabel.sgg { font-size: 11px; font-weight: 500; }
+.rlabel { pointer-events: none; font-size: 11.5px; font-weight: 500; color: var(--color-caption); letter-spacing: 0; white-space: nowrap;
+  text-shadow: 0 0 2px var(--color-land), 0 0 4px var(--color-land), 0 0 6px var(--color-land); }
+.rlabel.sgg { font-size: 11px; font-weight: 400; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; } }
+

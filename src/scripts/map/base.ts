@@ -1,6 +1,9 @@
 // 타일 서비스 없이 행정구역 경계만으로 그리는 '백지도'. 모든 시안이 공유한다. docs/MAP.md
 import * as maplibregl from 'maplibre-gl';
 import type { Map as MLMap, LngLatBoundsLike } from 'maplibre-gl';
+// 배포 빌드에서 워커 경로가 깨지지 않도록 워커 파일을 자산으로 내보내고 주소를 직접 알려 준다
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+maplibregl.setWorkerUrl(workerUrl);
 
 export const KOREA_BOUNDS: LngLatBoundsLike = [[124.6, 33.0], [131.0, 38.65]];
 export const ZOOM = { sggLines: 7.4, sggLabels: 9.6, sidoLabelsMax: 8.6 };
@@ -32,13 +35,13 @@ export function createBaseMap(container: HTMLElement, regions: Regions, opts: { 
         sgg: { type: 'geojson', data: regions.sgg },
       },
       layers: [
-        { id: 'sea', type: 'background', paint: { 'background-color': css('--color-paper') || '#F6F3ED' } },
-        { id: 'land', type: 'fill', source: 'sido', paint: { 'fill-color': css('--color-land') || '#FDFCF9' } },
+        { id: 'sea', type: 'background', paint: { 'background-color': css('--color-sea') || css('--color-paper') || '#F4F4F1' } },
+        { id: 'land', type: 'fill', source: 'sido', paint: { 'fill-color': css('--color-land') || '#FFFFFF' } },
         { id: 'sgg-hover', type: 'fill', source: 'sgg', paint: { 'fill-color': '#000', 'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 0.035, 0] } },
         { id: 'sgg-line', type: 'line', source: 'sgg', minzoom: ZOOM.sggLines - 0.6,
           paint: { 'line-color': css('--color-line-2') || '#E8E2D7', 'line-width': ['interpolate', ['linear'], ['zoom'], 7, 0.4, 11, 1], 'line-opacity': ['interpolate', ['linear'], ['zoom'], ZOOM.sggLines - 0.6, 0, ZOOM.sggLines, 1] } },
         { id: 'sido-line', type: 'line', source: 'sido', paint: { 'line-color': css('--color-line') || '#D9D2C5', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 0.6, 10, 1.6] } },
-        { id: 'coast', type: 'line', source: 'sido', paint: { 'line-color': '#CFC6B6', 'line-width': 0.6, 'line-blur': 0.4 } },
+        { id: 'coast', type: 'line', source: 'sido', paint: { 'line-color': css('--color-coast') || '#CFC6B6', 'line-width': 0.6, 'line-blur': 0.4 } },
       ],
     },
     bounds: KOREA_BOUNDS,
