@@ -1,0 +1,12 @@
+---
+export const prerender = false;
+import AdminShell from '../../../components/AdminShell.astro';
+import PlaceForm from '../../../components/PlaceForm.astro';
+import { session, allowed } from '../../../lib/admin';
+const { role } = await session(Astro);
+if (!allowed(role, 'place.create')) return Astro.redirect('/admin');
+---
+<AdminShell title="새 장소">
+  <Fragment slot="crumb"><span>/</span><span>새 장소</span></Fragment>
+  <PlaceForm action="/api/places" />
+</AdminShell>

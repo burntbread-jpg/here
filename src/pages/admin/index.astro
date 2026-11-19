@@ -1,77 +1,63 @@
 ---
-// 편집 화면 입구. 서버에서만 렌더링된다.
-// 로그인: Supabase Auth(Google). 권한: members 테이블(이메일·역할, RLS로 보호). 이메일 목록은 브라우저로 보내지 않는다.
+// 편집 입구: 로그인 → 내 장소 목록(관리자는 전체) → 새 장소, 계정 관리
 export const prerender = false;
-import Base from '../../layouts/Base.astro';
-import SiteHeader from '../../components/SiteHeader.astro';
-import { supabaseServer, supabaseConfigured } from '../../lib/supabase';
-import { can, type Role } from '../../lib/auth/roles';
+import AdminShell from '../../components/AdminShell.astro';
+import CatChip from '../../components/CatChip.astro';
+import { session, allowed } from '../../lib/admin';
+import type { CategoryId } from '../../data/categories';
 
-const configured = supabaseConfigured();
-let email: string | null = null;
-let role: Role | null = null;
-let myPlaces = 0;
-let dbError = false;
-if (configured) {
-  const sb = supabaseServer(Astro);
-  const { data } = await sb.auth.getUser();
-  email = data.user?.email?.toLowerCase() ?? null;
-  if (email) {
-    const m = await sb.from('members').select('role').eq('email', email).maybeSingle();
-    if (m.error) dbError = true; else role = (m.data?.role as Role) ?? null;
-    if (role) myPlaces = (await sb.from('places').select('id', { count: 'exact', head: true }).eq('author', email)).count ?? 0;
-  }
+const { sb, email, role, configured } = await session(Astro);
+let rows: { id: string; title: string; primary_cat: CategoryId; sido: string | null; sgg: string | null; published: boolean; updated_at: string; author: string }[] = [];
+if (sb && role) {
+  let q = sb.from('places').select('id,title,primary_cat,sido,sgg,published,updated_at,author').order('updated_at', { ascending: false });
+  if (!allowed(role, 'place.update.any')) q = q.eq('author', email!);
+  rows = (await q).data ?? [];
 }
-const err = Astro.url.searchParams.get('error');
-const errText: Record<string, string> = { config: 'Supabase 설정이 아직 없습니다.', signin: '로그인을 시작하지 못했습니다.', callback: '로그인을 마치지 못했습니다. 다시 시도해 주세요.' };
+const deleted = Astro.url.searchParams.has('deleted');
 const roleName = { admin: '관리자', editor: '편집자' };
 ---
-<Base title="편집 — HERE" scroll>
-  <SiteHeader variant="page" />
-  <main class="mx-auto max-w-[680px] px-4 pt-14 pb-24 sm:px-6">
-    <p class="eyebrow">Editor</p>
-    <h1 class="display mt-4 text-[44px] leading-[1.1]">편집</h1>
-    {err && <p class="mt-6 border-l-2 border-[var(--color-ink)] pl-3 text-[14px]">{errText[err] ?? '문제가 생겼습니다.'}</p>}
+<AdminShell title="편집" wide>
+  {!configured && <p class="mt-6 text-[15px] leading-relaxed text-[var(--color-caption)]">Supabase 연결 값(<code>PUBLIC_SUPABASE_URL</code>, <code>PUBLIC_SUPABASE_ANON_KEY</code>)이 아직 없습니다. 연결 순서는 docs/AUTH.md §5에 있습니다.</p>}
 
-    {!configured && (
-      <p class="mt-6 text-[15px] leading-relaxed text-[var(--color-caption)]">
-        Supabase 연결 값(<code>PUBLIC_SUPABASE_URL</code>, <code>PUBLIC_SUPABASE_ANON_KEY</code>)이 아직 없습니다. 연결 순서는 docs/AUTH.md §5에 있습니다.
-      </p>
-    )}
+  {configured && !email && (
+    <>
+      <p class="mt-6 text-[15px] leading-relaxed text-[var(--color-caption)]">등록된 Google 계정으로만 들어올 수 있습니다.</p>
+      <form method="post" action="/api/auth/signin" class="mt-8"><button class="btn">Google 계정으로 로그인</button></form>
+    </>
+  )}
 
-    {configured && !email && (
-      <>
-        <p class="mt-6 text-[15px] leading-relaxed text-[var(--color-caption)]">등록된 Google 계정으로만 들어올 수 있습니다.</p>
-        <form method="post" action="/api/auth/signin" class="mt-8"><button class="btn">Google 계정으로 로그인</button></form>
-      </>
-    )}
+  {configured && email && !role && (
+    <>
+      <p class="mt-6 text-[15px] leading-relaxed">이 계정({email})은 편집 가능 계정으로 등록되어 있지 않습니다. 관리자에게 등록을 요청해 주세요.</p>
+      <form method="post" action="/api/auth/signout" class="mt-8"><button class="btn">로그아웃</button></form>
+    </>
+  )}
 
-    {configured && email && !role && (
-      <>
-        <p class="mt-6 text-[15px] leading-relaxed">{dbError ? '권한 정보를 읽지 못했습니다. DB 설정(docs/AUTH.md §5)을 확인해 주세요.' : '이 계정은 편집 가능 계정으로 등록되어 있지 않습니다. 관리자에게 등록을 요청해 주세요.'}</p>
-        <form method="post" action="/api/auth/signout" class="mt-8"><button class="btn">로그아웃</button></form>
-      </>
-    )}
-
-    {configured && email && role && (
-      <>
-        <dl class="mt-10 border-t border-[var(--color-ink)] text-[14px]">
-          <div class="grid grid-cols-[7rem_1fr] border-b border-[var(--color-linen)] py-3"><dt class="text-[var(--color-caption)]">계정</dt><dd>{email}</dd></div>
-          <div class="grid grid-cols-[7rem_1fr] border-b border-[var(--color-linen)] py-3"><dt class="text-[var(--color-caption)]">역할</dt><dd>{roleName[role]}</dd></div>
-          <div class="grid grid-cols-[7rem_1fr] border-b border-[var(--color-linen)] py-3"><dt class="text-[var(--color-caption)]">내가 쓴 곳</dt><dd class="num">{myPlaces}</dd></div>
-        </dl>
-        <ul class="mt-10 space-y-3 text-[15px]">
-          <li class="text-[var(--color-caption)]">장소 쓰기 — 다음 단계에서 만듭니다</li>
-          {can(role, 'member.manage') && <li class="text-[var(--color-caption)]">편집 가능 계정 관리 — 다음 단계에서 만듭니다</li>}
-        </ul>
-        <form method="post" action="/api/auth/signout" class="mt-10"><button class="btn">로그아웃</button></form>
-      </>
-    )}
-  </main>
-</Base>
-<style>
-  .btn { font-size: 14px; padding: 10px 18px; border: 1px solid var(--color-ink); border-radius: 2px; background: var(--color-paper); transition: background-color 160ms, color 160ms, transform 120ms; }
-  .btn:hover { background: var(--color-ink); color: var(--color-paper); }
-  .btn:active { transform: scale(.97); }
-  code { font-size: 13px; }
-</style>
+  {configured && email && role && (
+    <>
+      <div class="mt-8 flex flex-wrap items-center justify-between gap-4 border-b border-[var(--color-ink)] pb-4">
+        <p class="text-[14px] text-[var(--color-caption)]">{email} · {roleName[role]}</p>
+        <div class="flex flex-wrap gap-2">
+          {allowed(role, 'member.manage') && <a href="/admin/members" class="btn">계정 관리</a>}
+          <a href="/admin/places/new" class="btn btn-solid">새 장소</a>
+          <form method="post" action="/api/auth/signout"><button class="btn btn-quiet">로그아웃</button></form>
+        </div>
+      </div>
+      {deleted && <p role="status" class="mt-6 border-l-2 border-[var(--color-ink)] pl-3 text-[14px]">지웠어요.</p>}
+      <h2 class="display mt-10 text-[24px]">{allowed(role, 'place.update.any') ? '모든 장소' : '내가 쓴 곳'} <span class="num text-[16px] text-[var(--color-caption)]">{rows.length}</span></h2>
+      {rows.length === 0
+        ? <p class="mt-6 text-[15px] text-[var(--color-caption)]">아직 쓴 곳이 없어요. ‘새 장소’로 첫 장소를 찍어 보세요.</p>
+        : <ol class="mt-4 border-t border-[var(--color-linen)]">
+            {rows.map((r) => (
+              <li class="border-b border-[var(--color-linen)]">
+                <a href={`/admin/places/${r.id}`} class="flex items-center gap-4 py-3.5 hover:opacity-70">
+                  <CatChip id={r.primary_cat} size="md" />
+                  <span class="min-w-0 flex-1"><span class="block truncate text-[16px]">{r.title}</span><span class="text-[12.5px] text-[var(--color-caption)]">{r.sido} {r.sgg}{r.author !== email && ` · ${r.author.split('@')[0]}`}</span></span>
+                  <span class:list={['text-[12px]', r.published ? 'text-[var(--color-ink)]' : 'text-[var(--color-caption)]']}>{r.published ? '공개' : '비공개'}</span>
+                </a>
+              </li>
+            ))}
+          </ol>}
+    </>
+  )}
+</AdminShell>

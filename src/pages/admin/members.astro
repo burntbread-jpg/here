@@ -1,0 +1,46 @@
+---
+// 편집 가능 계정 관리 — 관리자만. 이메일은 서버에서만 다루고 공개 페이지에는 나가지 않는다.
+export const prerender = false;
+import AdminShell from '../../components/AdminShell.astro';
+import { session, allowed } from '../../lib/admin';
+import { MAX_MEMBERS } from '../../lib/auth/roles';
+const { sb, email, role } = await session(Astro);
+if (!sb || !allowed(role, 'member.manage')) return Astro.redirect('/admin');
+const { data } = await sb.from('members').select('email, role, name, created_at').order('created_at');
+const members = data ?? [];
+---
+<AdminShell title="계정 관리">
+  <Fragment slot="crumb"><span>/</span><span>계정 관리</span></Fragment>
+  <p class="mt-4 text-[14px] text-[var(--color-caption)]">등록된 Google 계정만 편집할 수 있어요. 최대 {MAX_MEMBERS}명 · 지금 <span class="num">{members.length}</span>명. ‘이름’은 공개 페이지에 쓴 사람으로 보입니다.</p>
+
+  <ul class="mt-8 border-t border-[var(--color-ink)]">
+    {members.map((m) => (
+      <li class="border-b border-[var(--color-linen)] py-4">
+        <form method="post" action="/api/members" class="grid items-end gap-3 sm:grid-cols-[1fr_9rem_8rem_auto]">
+          <input type="hidden" name="email" value={m.email} />
+          <div><p class="text-[15px]">{m.email}{m.email === email && <span class="ml-2 text-[12px] text-[var(--color-caption)]">나</span>}</p></div>
+          <label class="field"><span>이름</span><input class="input" name="name" value={m.name ?? ''} maxlength="40" /></label>
+          <label class="field"><span>역할</span>
+            <select class="input" name="role"><option value="editor" selected={m.role === 'editor'}>편집자</option><option value="admin" selected={m.role === 'admin'}>관리자</option></select>
+          </label>
+          <div class="flex gap-2">
+            <button class="btn" name="action" value="update">저장</button>
+            {m.email !== email && <button class="btn btn-quiet" name="action" value="remove" onclick="return confirm('이 계정을 지울까요? 이 사람이 쓴 장소가 있으면 지워지지 않아요.')">빼기</button>}
+          </div>
+        </form>
+      </li>
+    ))}
+  </ul>
+
+  {members.length < MAX_MEMBERS && (
+    <form method="post" action="/api/members" class="mt-12">
+      <h2 class="display text-[24px]">계정 추가</h2>
+      <div class="mt-4 grid items-end gap-3 sm:grid-cols-[1fr_9rem_8rem_auto]">
+        <label class="field"><span>Google 계정 이메일</span><input class="input" type="email" name="email" required /></label>
+        <label class="field"><span>이름</span><input class="input" name="name" maxlength="40" /></label>
+        <label class="field"><span>역할</span><select class="input" name="role"><option value="editor">편집자</option><option value="admin">관리자</option></select></label>
+        <button class="btn btn-solid" name="action" value="add">추가</button>
+      </div>
+    </form>
+  )}
+</AdminShell>

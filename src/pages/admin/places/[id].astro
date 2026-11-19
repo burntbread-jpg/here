@@ -1,0 +1,18 @@
+---
+export const prerender = false;
+import AdminShell from '../../../components/AdminShell.astro';
+import PlaceForm from '../../../components/PlaceForm.astro';
+import { session, allowed } from '../../../lib/admin';
+const { sb, email, role } = await session(Astro);
+if (!sb || !role) return Astro.redirect('/admin');
+const { data: place } = await sb.from('places').select('*').eq('id', Astro.params.id!).maybeSingle();
+if (!place) return Astro.redirect('/admin?error=notfound');
+const mine = place.author === email;
+if (!(mine ? allowed(role, 'place.update.own') : allowed(role, 'place.update.any'))) return Astro.redirect('/admin?error=forbidden');
+const canDelete = mine ? allowed(role, 'place.delete.own') : allowed(role, 'place.delete.any');
+---
+<AdminShell title={place.title}>
+  <Fragment slot="crumb"><span>/</span><span>고치기</span></Fragment>
+  {place.published && <p class="mt-4 text-[13px] text-[var(--color-caption)]">공개 중 · <a class="underline" href={`/place/${place.id}`}>공개 페이지</a>(다시 배포된 뒤 반영)</p>}
+  <PlaceForm action={`/api/places/${place.id}`} place={place} deleteAction={canDelete ? `/api/places/${place.id}/delete` : undefined} />
+</AdminShell>

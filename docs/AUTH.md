@@ -46,14 +46,17 @@ ELSEWHERE는 정적 출력만 썼다. HERE는 `@astrojs/vercel` 어댑터를 붙
 - 코드는 연결 준비 완료, **anon 키와 DB 설정은 아직**:
   - `src/lib/supabase.ts` — 서버용 클라이언트(@supabase/ssr, 세션은 쿠키)
   - `/api/auth/signin` → Google → `/api/auth/callback` → `/admin`, `/api/auth/signout`
-  - `/admin` — 로그인한 이메일을 `members` 테이블에서 찾아 역할을 보여 준다. 등록되지 않은 계정은 거부.
+  - `/admin` — 로그인 → 내가 쓴 곳 목록(관리자는 전체), 새 장소, 계정 관리
+  - `/admin/places/new`, `/admin/places/[id]` — 장소 쓰기·고치기·지우기(지도에서 위치 찍기, 시·도/시·군·구 자동, 사진은 브라우저에서 2000px webp로 줄여 Storage에 바로 올림)
+  - `/admin/members` — 관리자만: 계정 추가·이름·역할·빼기(최대 5명, 관리자 최소 1명은 DB가 지킴)
+  - 저장 API: `/api/places`, `/api/places/[id]`, `/api/places/[id]/delete`, `/api/members` — 앱에서 권한을 한 번 확인하고, DB의 RLS가 다시 막는다
   - `src/lib/data.ts` — 빌드할 때 공개 뷰에서 장소·코스를 읽는다. 키가 없거나 실패하면 샘플 데이터.
 - `HERE_MEMBERS` 환경 변수 방식은 더 이상 `/admin`에서 쓰지 않는다(`roles.ts`의 `parseMembers`는 비상용으로 남김).
-- 이 클라우드 컨테이너는 네트워크 정책상 `*.supabase.co`에 접속할 수 없어, 실제 로그인·조회는 아직 시험하지 못했다.
+- 클라우드 환경: `here` 환경(개인)에 `olbwwfnxcoecxtoukhyz.supabase.co`, `api.supabase.com` 접속을 허용해 두었다(2026-11-19). 기본 환경(Default)에서는 막혀 있으므로 **새 세션을 `here` 환경으로 시작**해야 실제 로그인·조회를 시험할 수 있다.
 
 ## 5. 연결 순서 (사용자가 Supabase·Vercel 대시보드에서)
 
-1. **DB 만들기**: Supabase → SQL Editor 에 `supabase/migrations/0001_init.sql` 전체를 붙여 넣고 실행.
+1. **DB 만들기**: Supabase → SQL Editor 에 `supabase/migrations/0001_init.sql`, 이어서 `0002_storage_and_touch.sql` 을 차례로 붙여 넣고 실행. (`api.supabase.com` 개인 액세스 토큰을 주면 Claude가 관리 API로 대신 실행할 수 있다)
 2. **첫 관리자 등록**: 같은 SQL Editor에서 직접 입력(이메일은 저장소·대화에 남기지 않는다).
    `insert into members (email, role, name) values ('<관리자 이메일>', 'admin', '<표시 이름>');`
    `name`은 공개 페이지에 '쓴 사람'으로 보이는 이름이다.
@@ -66,8 +69,8 @@ ELSEWHERE는 정적 출력만 썼다. HERE는 `@astrojs/vercel` 어댑터를 붙
    - Vercel → Settings → Environment Variables: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`
    - 로컬: `.env` (커밋 금지)
    `service_role` 키는 지금 단계에서 필요 없다. 쓰게 되더라도 `PUBLIC_` 이름으로 두지 않는다.
-6. **사진**: Storage 버킷 `photos`(공개 읽기, 멤버만 쓰기) — 장소 쓰기 화면을 만들 때 함께 설정.
-7. **글이 바뀌면 다시 빌드**: 공개 페이지는 빌드 때 만들어지므로, 글을 공개하면 Vercel 재배포가 필요하다. Vercel Deploy Hook을 만들어 두면 편집 화면에서 자동으로 부를 수 있다(다음 단계).
+6. **사진**: `0002` 마이그레이션이 Storage 버킷 `photos`(공개 읽기, 멤버만 올리기, 8MB, jpeg·png·webp)를 만든다.
+7. **글이 바뀌면 다시 빌드**: Vercel → Settings → Git → Deploy Hooks 에서 훅을 만들고, 그 주소를 Vercel 환경 변수 `VERCEL_DEPLOY_HOOK_URL`(서버 전용, `PUBLIC_` 아님)에 넣는다. 공개 글을 저장·공개·지우면 편집 화면이 자동으로 부른다.
 
 ## 6. 방문자에게 이메일이 새지 않게
 

@@ -15,6 +15,8 @@ export async function getStaticPaths() {
 const { places, courses, source } = await getData();
 const p = places.find((x) => x.id === Astro.params.id)!;
 const c = CAT[p.primary];
+// 본문은 일반 글자로 저장한다(HTML 아님). 빈 줄로 문단을 나눈다.
+const paragraphs = (p.body ?? '').split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean);
 const tagLabel = (t: string) => ATTRIBUTE_TAGS.find((a) => a.id === t)?.label ?? t;
 const course = p.course ? courses.find((k) => k.id === p.course) : undefined;
 const courseStops = course ? places.filter((x) => x.course === course.id).sort((a, b) => a.order! - b.order!) : [];
@@ -48,7 +50,7 @@ const meta: [string, string][] = [
         </figure>
 
         <div class="prose-here mt-10 max-w-[680px] text-[16.5px] leading-[1.85]">
-          {p.body ? <Fragment set:html={p.body} /> : <p class="text-[var(--color-caption)]">{source === 'sample' ? '샘플 장소라 본문이 없습니다.' : '아직 글이 없습니다.'}</p>}
+          {p.body ? paragraphs.map((t) => <p class="mb-5">{t}</p>) : <p class="text-[var(--color-caption)]">{source === 'sample' ? '샘플 장소라 본문이 없습니다.' : '아직 글이 없습니다.'}</p>}
         </div>
       </article>
 

@@ -25,7 +25,7 @@ export function shortSido(n: string) {
   return n.replace(/(특별자치시|특별자치도|특별시|광역시|도)$/, '');
 }
 
-export function createBaseMap(container: HTMLElement, regions: Regions, opts: { padding?: maplibregl.PaddingOptions } = {}) {
+export function createBaseMap(container: HTMLElement, regions: Regions, opts: { padding?: number | maplibregl.PaddingOptions } = {}) {
   const map = new maplibregl.Map({
     container,
     style: {
