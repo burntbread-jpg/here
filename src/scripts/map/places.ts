@@ -17,14 +17,14 @@ export function thumbStyle(p: Pick<Place, 'primary' | 'id'>) {
   const n = [...p.id].reduce((a, ch) => a + ch.charCodeAt(0), 0);
   const ang = (n * 47) % 360;
   return `background:
-    radial-gradient(120% 90% at ${20 + (n % 60)}% ${10 + (n % 50)}%, color-mix(in oklab, ${c.tint} 80%, #F6F3ED) 0%, transparent 65%),
-    linear-gradient(${ang}deg, color-mix(in oklab, ${c.ink} 38%, #E4E0D6) 0%, color-mix(in oklab, ${c.ink} 18%, #F6F3ED) 100%);`;
+    radial-gradient(120% 90% at ${20 + (n % 60)}% ${10 + (n % 50)}%, color-mix(in oklab, ${c.tint} 80%, var(--color-paper)) 0%, transparent 65%),
+    linear-gradient(${ang}deg, color-mix(in oklab, ${c.ink} 38%, var(--color-linen)) 0%, color-mix(in oklab, ${c.ink} 18%, var(--color-paper)) 100%);`;
 }
 
 export function syllableChip(id: CategoryId, size: 'sm' | 'md' = 'sm') {
   const c = CAT[id];
   const s = size === 'sm' ? 'size-5 text-[11.5px]' : 'size-6 text-[13px]';
-  return `<span class="display inline-grid place-items-center rounded-[3px] ${s}" style="background:${c.tint};color:${c.ink}" title="${c.en}">${c.syllable}</span>`;
+  return `<span class="display cat-chip inline-grid place-items-center rounded-[3px] ${s}" style="--tint:${c.tint};--ink:${c.ink}" title="${c.en}">${c.syllable}</span>`;
 }
 
 export function placeRow(p: Place, i = 0) {

@@ -18,17 +18,27 @@ v1에서 바꾼 것: 굵은 글자(700–800)와 그림자, 검은 알약 버튼
 
 분류 9색은 `src/data/categories.ts` (ink: 마커·글자, tint: 칩 바탕). 모두 AA 대비 통과.
 
-## 글꼴 — 후보 3개 (사용자 선택 대기)
+## 글꼴 — **② 함렛 확정** (2026-11-19)
 
-`<html data-type>` 또는 주소 `?type=1|2|3` 으로 바꾼다. 토큰: `--f-display`(제목·음절), `--f-body`(본문), `--f-latin`(워드마크·영문 라벨), `--f-num`(숫자).
+| 쓰임 | 글꼴 |
+|---|---|
+| 제목·음절·숫자 | Hahmlet Variable (제목 380, 숫자 420, 표 형식 숫자) |
+| 본문 | Pretendard Variable 400 |
+| 워드마크·영문 라벨 | Manrope Variable |
 
-| | 제목·음절 | 본문 | 영문·숫자 | 느낌 |
+모두 자체 호스팅(`@fontsource-variable/hahmlet`, `pretendard`, `@fontsource-variable/manrope`). 후보였던 Noto Serif KR, IBM Plex는 삭제했다.
+
+## 바탕색 — 후보 5개 (사용자 선택 대기)
+
+주소 `?bg=paper|hanji|sea|ssuk|meok` 또는 `<html data-bg>`. 정의는 `src/styles/global.css`. 모든 후보에서 본문 13:1 이상, 캡션 5.2:1 이상(AA).
+
+| 후보 | 바탕/패널 | 바다 | 땅 | 성격 |
 |---|---|---|---|---|
-| ① 명조 | Noto Serif KR 400 | Pretendard | Manrope 500 | ELSEWHERE와 같은 조합. 가장 조용하고 문학적 |
-| ② 함렛 | Hahmlet(가변) 380 | Pretendard | 숫자도 Hahmlet, 영문 Manrope | 획 대비가 큰 현대 명조. 숫자가 잡지처럼 보임 |
-| ③ 플렉스 | IBM Plex Sans KR 500 | IBM Plex Sans KR | IBM Plex Mono | 지도 라벨·도면 같은 단정한 고딕. ELSEWHERE와 대비 |
-
-모두 자체 호스팅(fontsource / pretendard 패키지). 하나를 고르면 나머지는 `global.css`에서 지운다.
+| 크림 `paper` | #F6F3ED | 바탕과 같음 | #FBF9F5 | 현행. ELSEWHERE와 같은 Paper. 디자인 점검에서 'AI 기본 색'으로 지적됨 |
+| 한지 `hanji` | #F4F4F1 | 바탕과 같음 | #FFFFFF | 누런 기를 뺀 중성 백색. 가장 깔끔, 분류 색이 정확하게 보임 |
+| 청회 `sea` | #F8F8F6 | #DCE4E6 | #FDFDFB | 바다만 차가운 회청색. 땅과 바다가 가장 잘 갈려 지도로 읽힘 |
+| 쑥 `ssuk` | #EEF0E9 | 바탕과 같음 | #F9FAF6 | 옅은 회녹색. ELSEWHERE 올리브와 같은 계열이라 자매 느낌 유지 |
+| 먹 `meok` | #1E1E1C | #161615 | #272725 | 어두운 지도. 분류 색이 가장 또렷, 밤에 보기 좋음. 사진이 들어오면 무게가 커짐 |
 
 ## 문법
 

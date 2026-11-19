@@ -27,9 +27,9 @@ import DraftBadge from '../../components/DraftBadge.astro';
   .course { border-bottom: 1px solid var(--color-linen); border-radius: 0 !important; padding: 16px 0 !important; }
   .course[aria-current='true'] { box-shadow: inset 2px 0 0 var(--color-ink); padding-left: 12px !important; }
   .stop { display: flex; align-items: center; gap: 0; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; transition: opacity 200ms, transform 140ms var(--ease-out); }
-  .stop b { display: grid; place-items: center; min-width: 26px; height: 26px; border-radius: 999px; background: var(--color-ink); color: #fff; font-family: var(--f-num); font-size: 12px; font-weight: 500;
-    border: 2px solid #fff; box-shadow: 0 2px 6px rgb(0 0 0 / .25); position: relative; z-index: 1; }
-  .stop span { margin-left: -6px; padding: 0 7px 0 10px; height: 22px; display: grid; place-items: center; border-radius: 0 999px 999px 0; background: #fff; color: var(--ink); font-size: 12px; font-weight: 700;
+  .stop b { display: grid; place-items: center; min-width: 26px; height: 26px; border-radius: 999px; background: var(--color-ink); color: var(--color-paper); font-family: var(--f-num); font-size: 12px; font-weight: 500;
+    border: 2px solid var(--color-land); box-shadow: 0 2px 6px rgb(0 0 0 / .25); position: relative; z-index: 1; }
+  .stop span { margin-left: -6px; padding: 0 7px 0 10px; height: 22px; display: grid; place-items: center; border-radius: 0 999px 999px 0; background: var(--color-land); color: var(--ink); font-size: 12px; font-weight: 700;
     box-shadow: 0 1px 4px rgb(0 0 0 / .18); }
   .stop.is-dim { opacity: .55; } .stop.is-dim b { background: #8C867B; }
   @media (hover: hover) { .stop:hover { transform: translateY(-1px); } }

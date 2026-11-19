@@ -24,13 +24,14 @@ export async function initVariantC() {
   }
 
   const stopMarkers: { p: Place; m: maplibregl.Marker }[] = [];
+  const v = (n: string, f: string) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || f;
   map.on('load', () => {
     map.addSource('others', { type: 'geojson', data: { type: 'FeatureCollection', features: others.map((p) => ({ type: 'Feature', properties: { c: CAT[p.primary].ink }, geometry: { type: 'Point', coordinates: [p.lng, p.lat] } })) } });
-    map.addLayer({ id: 'others', type: 'circle', source: 'others', paint: { 'circle-color': ['get', 'c'], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 1.6, 12, 3.5], 'circle-opacity': 0.45, 'circle-stroke-color': '#fff', 'circle-stroke-width': 0.6 } });
+    map.addLayer({ id: 'others', type: 'circle', source: 'others', paint: { 'circle-color': ['get', 'c'], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 6, 1.6, 12, 3.5], 'circle-opacity': 0.45, 'circle-stroke-color': v('--color-land', '#fff'), 'circle-stroke-width': 0.6 } });
     map.addSource('links', { type: 'geojson', data: links() });
-    map.addLayer({ id: 'links-halo', type: 'line', source: 'links', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#fff', 'line-width': ['case', ['get', 'active'], 7, 5], 'line-opacity': 0.9 } });
+    map.addLayer({ id: 'links-halo', type: 'line', source: 'links', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': v('--color-land', '#fff'), 'line-width': ['case', ['get', 'active'], 7, 5], 'line-opacity': 0.9 } });
     map.addLayer({ id: 'links', type: 'line', source: 'links', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: {
-      'line-color': ['case', ['get', 'active'], '#24231F', '#A69D8D'], 'line-width': ['case', ['get', 'active'], 2, 1.25] } });
+      'line-color': ['case', ['get', 'active'], v('--color-ink', '#24231F'), v('--color-taupe', '#A69D8D')], 'line-width': ['case', ['get', 'active'], 2, 1.25] } });
 
     for (const p of stops) {
       const el = document.createElement('button'); el.type = 'button'; el.className = 'stop';

@@ -30,7 +30,7 @@ export async function initVariantB() {
     const max = Math.max(1, ...CATEGORIES.map((c) => items.filter((p) => p.primary === c.id).length));
     bars.innerHTML = CATEGORIES.map((c) => {
       const n = items.filter((p) => p.primary === c.id).length;
-      return `<div class="dist-row"><span class="display text-[14px]" style="color:${c.ink}">${c.syllable}</span>
+      return `<div class="dist-row"><span class="display cat-text text-[14px]" style="--ink:${c.ink}">${c.syllable}</span>
         <span class="eyebrow !tracking-[0.06em]">${c.en}</span>
         <span class="relative h-px flex-1 bg-[var(--color-linen)]"><span class="absolute inset-y-[-0.5px] left-0 h-[2px]" style="width:${(n / max) * 100}%;background:${c.ink}"></span></span>
         <span class="num w-8 text-right text-[12px] text-[var(--color-caption)]">${n}</span></div>`;
@@ -40,12 +40,13 @@ export async function initVariantB() {
   }
 
   // 도넛: 분류별 비율을 conic-gradient로
+  const land = getComputedStyle(document.documentElement).getPropertyValue('--color-land').trim() || '#FBF9F5';
   function donut(items: Place[]) {
     const total = items.length; let acc = 0; const stops: string[] = [];
     for (const c of CATEGORIES) {
       const n = items.filter((p) => p.primary === c.id).length; if (!n) continue;
       const a = (acc / total) * 360, b = ((acc + n) / total) * 360; acc += n;
-      stops.push(`${c.ink} ${a}deg ${b - 2}deg`, `#FBF9F5 ${b - 2}deg ${b}deg`);
+      stops.push(`${c.ink} ${a}deg ${b - 2}deg`, `${land} ${b - 2}deg ${b}deg`);
     }
     return `conic-gradient(${stops.join(',')})`;
   }

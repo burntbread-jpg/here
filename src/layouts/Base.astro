@@ -17,8 +17,8 @@ const { title = 'HERE', description = '국내의 맛·쉼·멋·길을 지도 �
     <meta name="twitter:card" content="summary" />
     <title>{title}</title>
     <script is:inline>
-      // 글씨체 후보 비교용: ?type=1|2|3 (시안 확정 후 삭제)
-      (function () { var t = new URLSearchParams(location.search).get('type'); if (t) document.documentElement.dataset.type = t; })();
+      // 바탕색 후보 비교용: ?bg=paper|hanji|sea|ssuk|meok (시안 확정 후 삭제)
+      (function () { var t = new URLSearchParams(location.search).get('bg'); if (t && t !== 'paper') document.documentElement.dataset.bg = t; })();
     </script>
   </head>
   <body class="h-dvh overflow-hidden">
