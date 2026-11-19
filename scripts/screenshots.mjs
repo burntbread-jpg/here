@@ -6,9 +6,8 @@ let pw; try { pw = require('playwright'); } catch { pw = require('/opt/node-tool
 const base = process.argv[2] ?? 'http://localhost:4321';
 const scale = Number(process.argv[3] ?? 2);
 const pages = [
-  ['a', '/drafts/a'], ['a-selected', '/drafts/a?sel=1'],
-  ['b', '/drafts/b'], ['b-seoul', '/drafts/b?at=seoul'],
-  ['c', '/drafts/c'],
+  ['b-type1', '/drafts/b?type=1'], ['b-type2', '/drafts/b?type=2'], ['b-type3', '/drafts/b?type=3'],
+  ['b-seoul', '/drafts/b?at=seoul'], ['c', '/drafts/c'],
 ];
 const sizes = [['1440', { width: 1440, height: 900 }], ['390', { width: 390, height: 844 }]];
 const browser = await pw.chromium.launch({ args: ['--no-sandbox'] });

@@ -1,6 +1,9 @@
 // 타일 서비스 없이 행정구역 경계만으로 그리는 '백지도'. 모든 시안이 공유한다. docs/MAP.md
 import * as maplibregl from 'maplibre-gl';
 import type { Map as MLMap, LngLatBoundsLike } from 'maplibre-gl';
+// 배포 빌드에서 워커 경로가 깨지지 않도록 워커 파일을 자산으로 내보내고 주소를 직접 알려 준다
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+maplibregl.setWorkerUrl(workerUrl);
 
 export const KOREA_BOUNDS: LngLatBoundsLike = [[124.6, 33.0], [131.0, 38.65]];
 export const ZOOM = { sggLines: 7.4, sggLabels: 9.6, sidoLabelsMax: 8.6 };

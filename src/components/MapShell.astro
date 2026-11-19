@@ -1,5 +1,5 @@
 ---
-// 지도 + 패널 골격. 데스크톱: 왼쪽 떠 있는 패널 / 모바일: 아래에서 올라오는 시트.
+// 지도 + 패널 골격. 데스크톱: 왼쪽 패널 / 모바일: 아래에서 올라오는 시트.
 import SiteHeader from './SiteHeader.astro';
 interface Props { current?: string }
 const { current } = Astro.props;
@@ -8,27 +8,29 @@ const { current } = Astro.props;
   <div class="absolute inset-0"><div id="map" class="h-full w-full" aria-label="장소 지도" role="region"></div></div>
   <SiteHeader current={current} />
   <slot name="top" />
-  <aside id="panel" data-state="peek"
-    class="panel absolute z-20 flex flex-col overflow-hidden bg-[var(--color-paper)] shadow-[0_-1px_0_rgb(0_0_0/.06),0_-8px_30px_rgb(0_0_0/.08)]
-      inset-x-0 bottom-0 rounded-t-[22px]
-      md:inset-x-auto md:top-[76px] md:bottom-4 md:left-4 md:w-[372px] md:rounded-[20px] md:shadow-[0_0_0_1px_rgb(0_0_0/.06),0_10px_40px_rgb(0_0_0/.10)]">
-    <button type="button" id="sheet-handle" class="flex h-6 w-full shrink-0 items-center justify-center md:hidden" aria-label="목록 펼치기">
-      <span class="h-1 w-10 rounded-full bg-black/15"></span>
+  <aside id="panel" data-state="peek" class="panel absolute z-20 flex flex-col overflow-hidden bg-[var(--color-paper)]
+      inset-x-0 bottom-0 border-t border-[var(--color-linen)]
+      md:inset-x-auto md:top-[68px] md:bottom-6 md:left-6 md:w-[360px] md:border md:border-[var(--color-linen)]">
+    <button type="button" id="sheet-handle" class="flex h-7 w-full shrink-0 items-center justify-center md:hidden" aria-label="목록 펼치기" aria-expanded="false">
+      <span class="h-[3px] w-9 rounded-full bg-[var(--color-taupe)] opacity-60"></span>
     </button>
     <slot name="panel" />
   </aside>
   <slot />
 </div>
 <style>
-  .panel { transition: height 320ms var(--ease-out); }
+  .panel { transition: height 320ms var(--ease-out); box-shadow: 0 1px 0 rgb(36 35 31 / .02), 0 12px 32px -12px rgb(36 35 31 / .12); }
   @media (max-width: 767.98px) {
-    .panel[data-state='peek'] { height: 168px; }
-    .panel[data-state='open'] { height: 62dvh; }
+    .panel { border-radius: 10px 10px 0 0; }
+    .panel[data-state='peek'] { height: 176px; }
+    .panel[data-state='open'] { height: 64dvh; }
   }
 </style>
 <script>
   const panel = document.getElementById('panel')!;
-  document.getElementById('sheet-handle')!.addEventListener('click', () => {
+  const handle = document.getElementById('sheet-handle')!;
+  handle.addEventListener('click', () => {
     panel.dataset.state = panel.dataset.state === 'open' ? 'peek' : 'open';
+    handle.setAttribute('aria-expanded', String(panel.dataset.state === 'open'));
   });
 </script>

@@ -65,13 +65,19 @@ begin
 end $$;
 create trigger members_limit before insert on members for each row execute function members_limit();
 
--- places/courses: 공개된 글은 누구나 읽고, 멤버는 쓰고 고친다. 삭제는 본인 글 또는 관리자.
+-- places/courses: 공개된 글은 누구나 읽고, 멤버는 쓴다. 수정·삭제는 본인 글 또는 관리자만(2026-11-19 결정).
 create policy places_read   on places for select using (published or my_role() is not null);
 create policy places_insert on places for insert with check (my_role() is not null and author = lower(auth.jwt() ->> 'email'));
-create policy places_update on places for update using (my_role() is not null);
+create policy places_update on places for update using (my_role() = 'admin' or author = lower(auth.jwt() ->> 'email'))
+  with check (my_role() = 'admin' or author = lower(auth.jwt() ->> 'email'));
 create policy places_delete on places for delete using (my_role() = 'admin' or author = lower(auth.jwt() ->> 'email'));
 
 create policy courses_read   on courses for select using (published or my_role() is not null);
-create policy courses_write  on courses for all using (my_role() is not null) with check (my_role() is not null);
+create policy courses_insert on courses for insert with check (my_role() is not null and author = lower(auth.jwt() ->> 'email'));
+create policy courses_change on courses for update using (my_role() = 'admin' or author = lower(auth.jwt() ->> 'email'));
+create policy courses_delete on courses for delete using (my_role() = 'admin' or author = lower(auth.jwt() ->> 'email'));
 create policy stops_read     on course_stops for select using (true);
-create policy stops_write    on course_stops for all using (my_role() is not null) with check (my_role() is not null);
+-- 코스 정류장은 그 코스의 작성자(또는 관리자)만 바꾼다. 연결은 작성자가 원할 때만 등록된다.
+create policy stops_write    on course_stops for all
+  using (my_role() = 'admin' or exists (select 1 from courses c where c.id = course_id and c.author = lower(auth.jwt() ->> 'email')))
+  with check (my_role() = 'admin' or exists (select 1 from courses c where c.id = course_id and c.author = lower(auth.jwt() ->> 'email')));

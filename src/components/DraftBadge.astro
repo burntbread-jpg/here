@@ -2,12 +2,16 @@
 // 시안 비교용 표시. 시안 확정 후 삭제한다.
 interface Props { code: string; name: string }
 const { code, name } = Astro.props;
-const all = [['a', '사진 핀'], ['b', '음절 · 행정 묶음'], ['c', '잇기 · 코스']];
+const types = [['1', '① 명조'], ['2', '② 함렛'], ['3', '③ 플렉스']];
 ---
-<div class="draft-badge pointer-events-auto absolute right-3 bottom-3 z-40 hidden items-center gap-1 rounded-full bg-[var(--color-ink)] p-1 text-[12px] text-[var(--color-paper)] shadow-lg md:right-auto md:left-1/2 md:flex md:-translate-x-1/2">
-  <span class="px-2 opacity-70">시안</span>
-  {all.map(([c, n]) => (
-    <a href={`/drafts/${c}`} class:list={['rounded-full px-2.5 py-1', c === code ? 'bg-[var(--color-paper)] text-[var(--color-ink)]' : 'opacity-80 hover:opacity-100']}>{c.toUpperCase()} {n}</a>
-  ))}
+<div class="draft-badge absolute right-6 bottom-6 z-40 hidden items-center gap-3 border border-[var(--color-linen)] bg-[var(--color-paper)] px-3 py-2 text-[12px] text-[var(--color-caption)] md:flex">
+  <span class="eyebrow">시안 {code.toUpperCase()}</span>
+  <span class="text-[var(--color-ink)]">{name}</span>
+  <span class="h-3 w-px bg-[var(--color-linen)]"></span>
+  <span>글씨체</span>
+  {types.map(([t, n]) => <a data-t={t} href={`?type=${t}`} class="type-opt hover:text-[var(--color-ink)]">{n}</a>)}
 </div>
-<span class="sr-only">현재 시안 {code.toUpperCase()} {name}</span>
+<script>
+  const cur = document.documentElement.dataset.type ?? '1';
+  document.querySelectorAll<HTMLElement>('.type-opt').forEach((a) => { if (a.dataset.t === cur) { a.style.color = 'var(--color-ink)'; a.style.textDecoration = 'underline'; a.style.textUnderlineOffset = '3px'; } });
+</script>
