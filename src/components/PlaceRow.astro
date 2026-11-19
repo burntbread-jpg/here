@@ -3,8 +3,10 @@
 import CatChip from './CatChip.astro';
 import type { Place } from '../lib/data';
 import { thumbStyle } from '../scripts/map/places';
+import { thumb } from '../lib/photos';
 interface Props { place: Place; index: number }
 const { place: p, index } = Astro.props;
+const t = p.photos?.[0] ? await thumb(p.photos[0]) : null;
 ---
 <li class="place-row border-b border-[var(--color-linen)]" data-sido={p.sido}>
   <a href={`/place/${p.id}`} class="row group grid grid-cols-[2.25rem_1fr_auto] items-center gap-x-4 py-4 sm:grid-cols-[3rem_1fr_9rem_auto] sm:gap-x-6">
@@ -18,8 +20,8 @@ const { place: p, index } = Astro.props;
     </span>
     <span class="num hidden text-right text-[12.5px] text-[var(--color-caption)] sm:block">{p.date.replaceAll('-', '.')}</span>
     <span class="size-16 shrink-0 overflow-hidden rounded-[2px] sm:size-20">
-      {p.photos?.[0]
-        ? <img src={p.photos[0]} alt="" loading="lazy" class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+      {t
+        ? <img src={t} alt="" loading="lazy" width="320" height="320" class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
         : <span class="block size-full transition-transform duration-300 group-hover:scale-[1.03]" style={thumbStyle(p)}></span>}
     </span>
   </a>

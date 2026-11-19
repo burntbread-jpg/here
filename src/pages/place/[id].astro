@@ -7,6 +7,7 @@ import PlaceRow from '../../components/PlaceRow.astro';
 import { CAT, ATTRIBUTE_TAGS } from '../../data/categories';
 import { getData, type Place } from '../../lib/data';
 import { thumbStyle } from '../../scripts/map/places';
+import { large } from '../../lib/photos';
 
 export async function getStaticPaths() {
   const { places } = await getData();
@@ -22,6 +23,7 @@ const course = p.course ? courses.find((k) => k.id === p.course) : undefined;
 const courseStops = course ? places.filter((x) => x.course === course.id).sort((a, b) => a.order! - b.order!) : [];
 const near: Place[] = places.filter((x) => x.id !== p.id && x.sido === p.sido && x.sgg === p.sgg).slice(0, 4);
 const nearDots = places.filter((x) => x.id !== p.id && Math.abs(x.lng - p.lng) < 0.15 && Math.abs(x.lat - p.lat) < 0.1).map((x) => [x.lng, x.lat, CAT[x.primary].ink]);
+const pics = await Promise.all((p.photos ?? []).map(large));
 const meta: [string, string][] = [
   ['지역', `${p.sido} ${p.sgg}`],
   ['다녀온 날', p.date.replaceAll('-', '. ')],
@@ -44,10 +46,15 @@ const meta: [string, string][] = [
         {p.tags.length > 0 && <p class="mt-4 flex flex-wrap gap-2">{p.tags.map((t) => <span class="border border-[var(--color-linen)] px-2 py-0.5 text-[12.5px] text-[var(--color-caption)]">{tagLabel(t)}</span>)}</p>}
 
         <figure class="mt-10 aspect-[4/3] overflow-hidden rounded-[2px] bg-[var(--color-linen)]">
-          {p.photos?.[0]
-            ? <img src={p.photos[0]} alt={p.title} class="size-full object-cover" />
+          {pics[0]
+            ? <img src={pics[0]} alt={p.title} class="size-full object-cover" />
             : <div class="grid size-full place-items-center" style={thumbStyle(p)}><span class="rounded-[2px] bg-[var(--color-paper)] px-2.5 py-1 text-[12.5px] text-[var(--color-ink)]">사진 준비 중</span></div>}
         </figure>
+        {pics.length > 1 && (
+          <ul class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {pics.slice(1).map((u, k) => <li class="aspect-[4/3] overflow-hidden rounded-[2px] bg-[var(--color-linen)]"><img src={u} alt={`${p.title} 사진 ${k + 2}`} loading="lazy" class="size-full object-cover" /></li>)}
+          </ul>
+        )}
 
         <div class="prose-here mt-10 max-w-[680px] text-[16.5px] leading-[1.85]">
           {p.body ? paragraphs.map((t) => <p class="mb-5">{t}</p>) : <p class="text-[var(--color-caption)]">{source === 'sample' ? '샘플 장소라 본문이 없습니다.' : '아직 글이 없습니다.'}</p>}

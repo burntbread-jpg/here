@@ -9,6 +9,7 @@ export interface Place {
   primary: CategoryId; secondary: CategoryId[]; tags: string[];
   lng: number; lat: number; sido: string; sgg: string;
   photos?: string[];
+  thumb?: string;          // 빌드 때 만든 썸네일 주소(사진이 있을 때)
   author: string;          // 표시 이름(이메일 아님)
   date: string;            // 다녀온 날 YYYY-MM-DD
   course?: string; order?: number;

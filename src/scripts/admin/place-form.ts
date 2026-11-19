@@ -80,7 +80,7 @@ export async function initPlaceForm(form: HTMLFormElement) {
       if (urls.length >= 12) { status.textContent = '사진은 12장까지예요.'; break; }
       status.textContent = `올리는 중… ${i + 1}/${files.length}`;
       try {
-        const blob = await shrink(file, 2000);
+        const blob = await shrink(file, 1600);
         const path = `${crypto.randomUUID()}.webp`;
         const { error } = await sb.storage.from('photos').upload(path, blob, { contentType: 'image/webp', cacheControl: '31536000' });
         if (error) throw error;
@@ -96,5 +96,5 @@ async function shrink(file: File, max: number): Promise<Blob> {
   const k = Math.min(1, max / Math.max(bmp.width, bmp.height));
   const c = new OffscreenCanvas(Math.round(bmp.width * k), Math.round(bmp.height * k));
   c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height);
-  return c.convertToBlob({ type: 'image/webp', quality: 0.86 });
+  return c.convertToBlob({ type: 'image/webp', quality: 0.82 });
 }

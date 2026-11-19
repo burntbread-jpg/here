@@ -34,6 +34,7 @@ HERE — 국내의 맛집·카페·병원·산책로·숙소·생활 정보를 �
 | 2026-11-19 | 바탕색 **한지**(#F4F4F1, 땅 #FFFFFF) 확정, `design/b-refine` → main 병합 |
 | 2026-11-19 | Supabase 프로젝트 `olbwwfnxcoecxtoukhyz` 제공. 장소 목록·상세 페이지 추가, 시안 A 삭제, 코스 탭 `/course` 로 이동 |
 | 2026-11-19 | 편집 화면: 장소 쓰기·고치기·지우기, 사진 올리기, 계정 관리. 본문은 HTML이 아닌 일반 글자로 저장 |
+| 2026-11-19 | 가급적 **무료 운영**: 사진은 빌드 때 사이트 안으로 복사, 주 1회 GitHub Actions로 일시 정지 방지·백업 (docs/OPERATIONS.md) |
 | 2026-11-19 | 사용자 피드백: "ELSEWHERE보다 감도가 떨어진다", "글씨체가 마음에 안 든다" → ELSEWHERE 톤으로 다듬고 글씨체 후보 3개 제시 |
 
 ## 4. 사용자 선택을 기다리는 것
@@ -57,6 +58,7 @@ HERE — 국내의 맛집·카페·병원·산책로·숙소·생활 정보를 �
 2. **`here` 클라우드 환경으로 새 세션을 시작**해 실제 로그인·저장·사진 올리기를 시험(이 세션은 기본 환경이라 Supabase 접속 불가)
 3. 코스 만들기·고치기 화면(작성자가 장소를 골라 순서대로 잇기)
 4. Vercel 연결과 Deploy Hook(`VERCEL_DEPLOY_HOOK_URL`)
+5. GitHub Secrets `SUPABASE_URL`, `SUPABASE_ANON_KEY`(선택 `SUPABASE_DB_URL`) 등록 → Actions에서 'Supabase weekly' 한 번 직접 실행해 확인
 4. Vercel 연결, 도메인 결정 후 `astro.config.mjs` 의 `site` 교체
 5. 소개 페이지에 경계 데이터 출처 표기
 

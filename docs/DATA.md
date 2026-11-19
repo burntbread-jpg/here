@@ -23,6 +23,10 @@
 | `/admin/places/new`, `/admin/places/[id]` | 장소 쓰기·고치기 |
 | `/admin/members` | 계정 관리(관리자) |
 
+## 사진
+
+원본은 Supabase Storage, 방문자에게는 빌드 때 만든 사본(썸네일 320, 상세 1600)이 나간다. 자세한 내용은 docs/OPERATIONS.md §1.
+
 ## 장소 필드
 
 `src/lib/data.ts`의 `Place`. DB 열 이름과의 대응: `primary_cat → primary`, `visited_on → date`, `author_name → author`, 코스는 `course_stops`에서 `course`, `order`로 붙는다.

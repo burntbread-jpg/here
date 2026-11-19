@@ -54,7 +54,7 @@ const tags = new Set(place.tags ?? []);
   <label class="field max-w-[14rem]"><span>다녀온 날</span><input class="input" type="date" name="visited_on" value={place.visited_on ?? ''} /></label>
 
   <div>
-    <p class="mb-3 text-[13px] text-[var(--color-caption)]">사진 <span class="opacity-80">— 첫 사진이 대표 사진. 긴 변 2000px로 줄여 올립니다</span></p>
+    <p class="mb-3 text-[13px] text-[var(--color-caption)]">사진 <span class="opacity-80">— 첫 사진이 대표 사진. 긴 변 1600px로 줄여 올립니다</span></p>
     <ul id="photo-list" class="grid grid-cols-3 gap-2 sm:grid-cols-6"></ul>
     <label class="btn mt-3 cursor-pointer"><input type="file" accept="image/jpeg,image/png,image/webp" multiple class="sr-only" id="photo-input" />사진 추가</label>
     <p id="photo-status" class="mt-2 text-[13px] text-[var(--color-caption)]" aria-live="polite"></p>
