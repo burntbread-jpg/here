@@ -1,0 +1,12 @@
+---
+import { CAT } from '../data/categories';
+import type { CategoryId } from '../data/categories';
+interface Props { id: CategoryId; size?: 'sm' | 'md' | 'lg'; label?: boolean }
+const { id, size = 'sm', label = false } = Astro.props;
+const c = CAT[id];
+const box = { sm: 'size-5 text-[11.5px]', md: 'size-7 text-[15px]', lg: 'size-10 text-[21px]' }[size];
+---
+<span class="inline-flex items-center gap-2" title={c.en}>
+  <span class={`display cat-chip inline-grid place-items-center rounded-[3px] ${box}`} style={`--tint:${c.tint};--ink:${c.ink}`}>{c.syllable}</span>
+  {label && <span class="eyebrow !tracking-[0.06em]">{c.en}</span>}
+</span>

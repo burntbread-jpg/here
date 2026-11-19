@@ -1,4 +1,4 @@
-// 타일 서비스 없이 행정구역 경계만으로 그리는 '백지도'. 모든 시안이 공유한다. docs/MAP.md
+// 타일 서비스 없이 행정구역 경계만으로 그리는 '백지도'. 홈·코스·장소 지도가 공유한다. docs/MAP.md
 import * as maplibregl from 'maplibre-gl';
 import type { Map as MLMap, LngLatBoundsLike } from 'maplibre-gl';
 // 배포 빌드에서 워커 경로가 깨지지 않도록 워커 파일을 자산으로 내보내고 주소를 직접 알려 준다

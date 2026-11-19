@@ -1,15 +1,15 @@
-// 시안 B · 음절 + 행정 묶음 — 전국에서는 시·도별, 확대하면 시·군·구별 개수, 더 확대하면 음절 점.
+// 홈 지도 — 전국에서는 시·도별, 확대하면 시·군·구별 개수, 더 확대하면 음절 점(2026-11-19 확정한 시안 B).
 // 묶음 원에는 분류 비율을 도넛으로 그린다. 위쪽 음절 칩으로 분류를 거른다.
 import * as maplibregl from 'maplibre-gl';
 import Supercluster from 'supercluster';
 import { createBaseMap, loadRegions, attachRegionLabels, shortSido, prefersReducedMotion, type RegionProps } from './base';
-import { PLACES, CATEGORIES, CAT, placeRow, type Place } from './places';
+import { PLACES, CATEGORIES, CAT, placeRow, type Place, loadData } from './places';
 import type { CategoryId } from '../../data/categories';
 
 const LEVEL = { sggFrom: 7.6, pointsFrom: 10.4 };
 
-export async function initVariantB() {
-  const regions = await loadRegions();
+export async function initHomeMap() {
+  const [regions] = await Promise.all([loadRegions(), loadData()]);
   const isMobile = matchMedia('(max-width: 767.98px)').matches;
   const padding = isMobile ? { top: 110, bottom: 196, left: 20, right: 20 } : { top: 120, bottom: 60, left: 430, right: 60 };
   const map = createBaseMap(document.getElementById('map')!, regions, { padding });

@@ -1,13 +1,15 @@
 ---
 // 지도 위 상단 줄. 상자 없이 종이색 그라데이션 위에 글자만 놓는다(ELSEWHERE의 조용한 헤더를 잇는다).
-interface Props { current?: string }
-const { current = 'map' } = Astro.props;
+// variant: 'map' = 지도 위에 떠 있음 / 'page' = 목록·상세 페이지 위에 붙어 있음
+interface Props { current?: string; variant?: 'map' | 'page' }
+const { current = 'map', variant = 'map' } = Astro.props;
 const nav = [
   { id: 'map', label: '지도', href: '/' },
-  { id: 'course', label: '코스', href: '/drafts/c' },
+  { id: 'list', label: '목록', href: '/places' },
+  { id: 'course', label: '코스', href: '/course' },
 ];
 ---
-<header class="site-header pointer-events-none absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-4 px-4 pt-3 pb-8 sm:px-6 sm:pt-4">
+<header class:list={['site-header z-30 flex items-center justify-between gap-4 px-4 sm:px-6', variant === 'map' ? 'pointer-events-none absolute inset-x-0 top-0 pt-3 pb-8 sm:pt-4' : 'is-page sticky top-0 py-3 sm:py-4']}>
   <div class="pointer-events-auto flex items-baseline gap-6">
     <a href="/" class="wordmark" aria-label="HERE 홈">HERE</a>
     <nav class="flex items-baseline gap-5" aria-label="주요 메뉴">
@@ -21,9 +23,10 @@ const nav = [
     <a href="/admin" class="edit-btn">편집</a>
   </div>
 </header>
-<h1 class="sr-only">HERE — 국내의 가까운 곳을 지도 위에 찍고 잇는 기록</h1>
+{variant === 'map' && <h1 class="sr-only">HERE — 국내의 가까운 곳을 지도 위에 찍고 잇는 기록</h1>}
 <style>
-  .site-header { background: linear-gradient(to bottom, var(--color-paper) 0%, color-mix(in oklab, var(--color-paper) 85%, transparent) 55%, transparent 100%); }
+  .site-header.is-page { background: color-mix(in oklab, var(--color-paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-linen); }
+  .site-header:not(.is-page) { background: linear-gradient(to bottom, var(--color-paper) 0%, color-mix(in oklab, var(--color-paper) 85%, transparent) 55%, transparent 100%); }
   .wordmark { font-family: var(--f-latin); font-size: 14px; font-weight: 600; letter-spacing: 0.28em; color: var(--color-ink); }
   .navlink { position: relative; font-size: 13.5px; color: var(--color-caption); padding: 6px 0; transition: color 160ms var(--ease-out); }
   .navlink:hover { color: var(--color-ink); }

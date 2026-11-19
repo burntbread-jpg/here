@@ -1,0 +1,7 @@
+---
+import PlaceListPage from '../../components/PlaceListPage.astro';
+import { CATEGORIES, type CategoryId } from '../../data/categories';
+export const getStaticPaths = () => CATEGORIES.map((c) => ({ params: { cat: c.id } }));
+const { cat } = Astro.params as { cat: CategoryId };
+---
+<PlaceListPage cat={cat} />

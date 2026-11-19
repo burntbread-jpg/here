@@ -1,14 +1,16 @@
-import data from '../../data/sample-places.json';
 import { CAT, CATEGORIES, type CategoryId } from '../../data/categories';
+import type { Place, Course } from '../../lib/data';
+export type { Place, Course };
 
-export interface Place {
-  id: string; title: string; primary: CategoryId; secondary: CategoryId[]; tags: string[];
-  lng: number; lat: number; sido: string; sgg: string; author: string; date: string; course?: string; order?: number;
+// 빌드 때 만든 /data/places.json 을 읽는다(샘플 또는 Supabase 공개 데이터)
+export let PLACES: Place[] = [];
+export let COURSES: Course[] = [];
+export let SOURCE: 'supabase' | 'sample' = 'sample';
+export async function loadData() {
+  if (PLACES.length) return;
+  const d = await fetch('/data/places.json').then((r) => r.json());
+  PLACES = d.places; COURSES = d.courses; SOURCE = d.source;
 }
-export interface Course { id: string; title: string; author: string; date: string }
-
-export const PLACES = data.places as Place[];
-export const COURSES = data.courses as Course[];
 export { CAT, CATEGORIES };
 
 /** 사진이 들어갈 자리의 임시 썸네일. 실제 사진이 등록되면 <img>로 바뀐다. */
@@ -28,7 +30,7 @@ export function syllableChip(id: CategoryId, size: 'sm' | 'md' = 'sm') {
 }
 
 export function placeRow(p: Place, i = 0) {
-  return `<li class="border-b border-[var(--color-linen)] last:border-b-0"><button type="button" data-place="${p.id}" class="row group flex w-full items-center gap-3.5 py-3 text-left">
+  return `<li class="border-b border-[var(--color-linen)] last:border-b-0"><a href="/place/${p.id}" data-place="${p.id}" class="row group flex w-full items-center gap-3.5 py-3 text-left">
     <span class="num w-6 shrink-0 self-start pt-0.5 text-[11px] text-[var(--color-caption)]">${String(i + 1).padStart(2, '0')}</span>
     <span class="min-w-0 flex-1">
       <span class="block truncate text-[15px] text-[var(--color-ink)]">${p.title}</span>
@@ -36,7 +38,7 @@ export function placeRow(p: Place, i = 0) {
       <span class="mt-2 flex items-center gap-1">${syllableChip(p.primary)}${p.secondary.map((s) => syllableChip(s)).join('')}</span>
     </span>
     <span class="size-14 shrink-0 rounded-[2px] transition-transform duration-200 group-hover:scale-[1.03]" style="${thumbStyle(p)}"></span>
-    </button></li>`;
+    </a></li>`;
 }
 
 export function countBy<T>(arr: T[], key: (t: T) => string) {

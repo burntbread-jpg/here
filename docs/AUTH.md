@@ -40,16 +40,36 @@
 
 ELSEWHERE는 정적 출력만 썼다. HERE는 `@astrojs/vercel` 어댑터를 붙여 **공개 페이지는 정적, `/admin`·`/api`만 서버 함수**(`export const prerender = false`)로 둔다. 공개 지도는 빌드 때 DB에서 공개 글을 읽어 정적으로 만들고, 글이 바뀌면 Vercel 재배포 훅으로 다시 만든다(또는 지도 데이터만 API로 읽음) — 배포 연결 때 결정.
 
-## 4. 지금 상태 (초안)
+## 4. 지금 상태
 
-- `HERE_MEMBERS="이메일:역할,…"` 환경 변수 → `parseMembers()` 로 읽음. 예시는 `.env.example`.
-- `/admin` 은 서버에서만 이 값을 읽고(빌드 결과물에 이메일이 남지 않음을 확인), 등록 수만 보여 준다.
+- Supabase 프로젝트: `https://olbwwfnxcoecxtoukhyz.supabase.co` (2026-11-19 사용자 제공). URL은 공개 값이다.
+- 코드는 연결 준비 완료, **anon 키와 DB 설정은 아직**:
+  - `src/lib/supabase.ts` — 서버용 클라이언트(@supabase/ssr, 세션은 쿠키)
+  - `/api/auth/signin` → Google → `/api/auth/callback` → `/admin`, `/api/auth/signout`
+  - `/admin` — 로그인한 이메일을 `members` 테이블에서 찾아 역할을 보여 준다. 등록되지 않은 계정은 거부.
+  - `src/lib/data.ts` — 빌드할 때 공개 뷰에서 장소·코스를 읽는다. 키가 없거나 실패하면 샘플 데이터.
+- `HERE_MEMBERS` 환경 변수 방식은 더 이상 `/admin`에서 쓰지 않는다(`roles.ts`의 `parseMembers`는 비상용으로 남김).
+- 이 클라우드 컨테이너는 네트워크 정책상 `*.supabase.co`에 접속할 수 없어, 실제 로그인·조회는 아직 시험하지 못했다.
 
-## 5. 배포 연결 때 할 일
+## 5. 연결 순서 (사용자가 Supabase·Vercel 대시보드에서)
 
-1. Supabase 프로젝트 생성 → `supabase/migrations/0001_init.sql` 적용.
-2. Supabase Auth에서 Google 로그인 켜기(Google Cloud OAuth 클라이언트 필요).
-3. 첫 관리자 등록: Supabase SQL 편집기에서 `insert into members (email, role) values ('<관리자 이메일>', 'admin');` — 이메일은 대화나 저장소에 남기지 말고 대시보드에서 직접 입력.
-4. Vercel 환경 변수: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`(서버 전용).
-5. `/admin` 에 로그인 → `members`에 없는 이메일은 거부. 이후 `HERE_MEMBERS` 는 비상용으로만 남기거나 삭제.
-6. 사진: Supabase Storage 버킷 `photos`(공개 읽기, 멤버만 쓰기).
+1. **DB 만들기**: Supabase → SQL Editor 에 `supabase/migrations/0001_init.sql` 전체를 붙여 넣고 실행.
+2. **첫 관리자 등록**: 같은 SQL Editor에서 직접 입력(이메일은 저장소·대화에 남기지 않는다).
+   `insert into members (email, role, name) values ('<관리자 이메일>', 'admin', '<표시 이름>');`
+   `name`은 공개 페이지에 '쓴 사람'으로 보이는 이름이다.
+3. **Google 로그인 켜기**: Google Cloud 콘솔에서 OAuth 클라이언트(웹)를 만들고, 승인된 리디렉션 URI에
+   `https://olbwwfnxcoecxtoukhyz.supabase.co/auth/v1/callback` 을 넣는다. 받은 Client ID/Secret을 Supabase → Authentication → Providers → Google 에 입력.
+4. **돌아올 주소 허용**: Supabase → Authentication → URL Configuration
+   - Site URL: 배포 주소(예: `https://here-….vercel.app`)
+   - Redirect URLs: `https://<배포 주소>/api/auth/callback`, `http://localhost:4321/api/auth/callback`
+5. **키 넣기**: Supabase → Project Settings → API 의 `anon public` 키를
+   - Vercel → Settings → Environment Variables: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`
+   - 로컬: `.env` (커밋 금지)
+   `service_role` 키는 지금 단계에서 필요 없다. 쓰게 되더라도 `PUBLIC_` 이름으로 두지 않는다.
+6. **사진**: Storage 버킷 `photos`(공개 읽기, 멤버만 쓰기) — 장소 쓰기 화면을 만들 때 함께 설정.
+7. **글이 바뀌면 다시 빌드**: 공개 페이지는 빌드 때 만들어지므로, 글을 공개하면 Vercel 재배포가 필요하다. Vercel Deploy Hook을 만들어 두면 편집 화면에서 자동으로 부를 수 있다(다음 단계).
+
+## 6. 방문자에게 이메일이 새지 않게
+
+- `places`·`courses`·`course_stops` 테이블은 **멤버만** 직접 읽는다(작성자 이메일 열이 있으므로).
+- 방문자(anon)는 공개 뷰 `public_places`, `public_courses`, `public_course_stops`로만 읽는다. 공개된 글만, 작성자는 `members.name`(표시 이름)으로 나간다.

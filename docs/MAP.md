@@ -32,7 +32,7 @@ python3 -m venv .venv-geo && .venv-geo/bin/pip install geopandas pyarrow shapely
 
 ## 시안 — **B로 결정** (2026-11-19)
 
-홈은 시안 B. 시안 C는 '코스' 탭의 바탕으로 쓴다. 시안 A는 비교용으로만 남겨 둔다.
+홈(`/`)은 시안 B, 코스 탭(`/course`)은 시안 C를 바탕으로 한다. 시안 A는 삭제했다(git 기록에 남음).
 
 | | A · 사진 핀 | B · 음절 + 행정 묶음 | C · 잇기 |
 |---|---|---|---|

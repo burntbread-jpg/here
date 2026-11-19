@@ -1,0 +1,111 @@
+---
+// 장소 상세. 빌드할 때 장소마다 한 페이지씩 만든다.
+import Base from '../../layouts/Base.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import CatChip from '../../components/CatChip.astro';
+import PlaceRow from '../../components/PlaceRow.astro';
+import { CAT, ATTRIBUTE_TAGS } from '../../data/categories';
+import { getData, type Place } from '../../lib/data';
+import { thumbStyle } from '../../scripts/map/places';
+
+export async function getStaticPaths() {
+  const { places } = await getData();
+  return places.map((p) => ({ params: { id: p.id } }));
+}
+const { places, courses, source } = await getData();
+const p = places.find((x) => x.id === Astro.params.id)!;
+const c = CAT[p.primary];
+const tagLabel = (t: string) => ATTRIBUTE_TAGS.find((a) => a.id === t)?.label ?? t;
+const course = p.course ? courses.find((k) => k.id === p.course) : undefined;
+const courseStops = course ? places.filter((x) => x.course === course.id).sort((a, b) => a.order! - b.order!) : [];
+const near: Place[] = places.filter((x) => x.id !== p.id && x.sido === p.sido && x.sgg === p.sgg).slice(0, 4);
+const nearDots = places.filter((x) => x.id !== p.id && Math.abs(x.lng - p.lng) < 0.15 && Math.abs(x.lat - p.lat) < 0.1).map((x) => [x.lng, x.lat, CAT[x.primary].ink]);
+const meta: [string, string][] = [
+  ['지역', `${p.sido} ${p.sgg}`],
+  ['다녀온 날', p.date.replaceAll('-', '. ')],
+  ['쓴 사람', p.author],
+];
+---
+<Base title={`${p.title} — HERE`} scroll description={`${c.syllable} · ${p.sido} ${p.sgg}`}>
+  <SiteHeader current="list" variant="page" />
+  <main class="mx-auto max-w-[1120px] px-4 pt-8 pb-24 sm:px-6 sm:pt-12">
+    <nav aria-label="위치" class="flex items-center gap-2 text-[13px] text-[var(--color-caption)]">
+      <a href="/places" class="hover:text-[var(--color-ink)]">목록</a><span aria-hidden="true">/</span>
+      <a href={`/places/${c.id}`} class="hover:text-[var(--color-ink)]">{c.syllable} {c.en}</a>
+      {source === 'sample' && <span class="ml-auto eyebrow !tracking-[0.06em]">샘플 데이터</span>}
+    </nav>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[7fr_5fr] lg:gap-14">
+      <article class="min-w-0">
+        <div class="flex items-center gap-2"><CatChip id={p.primary} size="lg" />{p.secondary.map((s) => <CatChip id={s} size="md" />)}</div>
+        <h1 class="display mt-6 text-[38px] leading-[1.12] sm:text-[52px]">{p.title}</h1>
+        {p.tags.length > 0 && <p class="mt-4 flex flex-wrap gap-2">{p.tags.map((t) => <span class="border border-[var(--color-linen)] px-2 py-0.5 text-[12.5px] text-[var(--color-caption)]">{tagLabel(t)}</span>)}</p>}
+
+        <figure class="mt-10 aspect-[4/3] overflow-hidden rounded-[2px] bg-[var(--color-linen)]">
+          {p.photos?.[0]
+            ? <img src={p.photos[0]} alt={p.title} class="size-full object-cover" />
+            : <div class="grid size-full place-items-center" style={thumbStyle(p)}><span class="rounded-[2px] bg-[var(--color-paper)] px-2.5 py-1 text-[12.5px] text-[var(--color-ink)]">사진 준비 중</span></div>}
+        </figure>
+
+        <div class="prose-here mt-10 max-w-[680px] text-[16.5px] leading-[1.85]">
+          {p.body ? <Fragment set:html={p.body} /> : <p class="text-[var(--color-caption)]">{source === 'sample' ? '샘플 장소라 본문이 없습니다.' : '아직 글이 없습니다.'}</p>}
+        </div>
+      </article>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <dl class="border-t border-[var(--color-ink)]">
+          {meta.map(([k, v]) => (
+            <div class="grid grid-cols-[6rem_1fr] border-b border-[var(--color-linen)] py-3 text-[14px]">
+              <dt class="text-[var(--color-caption)]">{k}</dt><dd>{v}</dd>
+            </div>
+          ))}
+          <div class="grid grid-cols-[6rem_1fr] border-b border-[var(--color-linen)] py-3 text-[14px]">
+            <dt class="text-[var(--color-caption)]">분류</dt>
+            <dd class="flex flex-wrap gap-3"><CatChip id={p.primary} label />{p.secondary.map((s) => <CatChip id={s} label />)}</dd>
+          </div>
+        </dl>
+        <div id="mini-map" class="mt-6 aspect-square w-full overflow-hidden border border-[var(--color-linen)] sm:aspect-[4/3] lg:aspect-square"
+          data-lng={p.lng} data-lat={p.lat} data-ink={c.ink} data-syllable={c.syllable} data-near={JSON.stringify(nearDots)}
+          role="img" aria-label={`${p.sido} ${p.sgg}에 있는 ${p.title}의 위치`}></div>
+
+        {course && (
+          <section class="mt-8">
+            <p class="eyebrow">Course</p>
+            <a href={`/course?c=${course.id}`} class="display mt-2 block text-[22px] hover:underline">{course.title}</a>
+            <ol class="mt-3 border-t border-[var(--color-linen)]">
+              {courseStops.map((s) => (
+                <li class="border-b border-[var(--color-linen)]">
+                  <a href={`/place/${s.id}`} aria-current={s.id === p.id ? 'page' : undefined} class="stoprow flex items-center gap-3 py-2.5 text-[14px]">
+                    <span class="num w-5 text-[12px] text-[var(--color-caption)]">{s.order}</span>
+                    <CatChip id={s.primary} /><span class="truncate">{s.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+      </aside>
+    </div>
+
+    {near.length > 0 && (
+      <section class="mt-20">
+        <div class="flex items-baseline justify-between border-b border-[var(--color-ink)] pb-3">
+          <h2 class="display text-[26px]">{p.sgg}의 다른 곳</h2>
+          <a href="/places" class="text-[13px] text-[var(--color-caption)] hover:text-[var(--color-ink)]">목록 전체 →</a>
+        </div>
+        <ol>{near.map((x, i) => <PlaceRow place={x} index={i} />)}</ol>
+      </section>
+    )}
+  </main>
+</Base>
+<style>
+  .stoprow[aria-current='page'] { font-weight: 600; }
+  .stoprow:hover span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+  :global(.mini-pin) { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; border: 2px solid var(--color-land); color: #fff; font-size: 15px; box-shadow: 0 2px 6px rgb(0 0 0 / .25); }
+  :global(.mini-near) { width: 7px; height: 7px; border-radius: 999px; opacity: .45; border: 1px solid var(--color-land); }
+</style>
+<script>
+  import { initMiniMap } from '../../scripts/map/mini-map';
+  const el = document.getElementById('mini-map');
+  if (el) initMiniMap(el);
+</script>
