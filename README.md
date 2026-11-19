@@ -39,6 +39,7 @@ Astro 7 + TypeScript + Tailwind 4, pnpm. 글꼴 함렛 + Pretendard + Manrope, N
 - [docs/AUTH.md](docs/AUTH.md) — 편집 권한(관리자·편집자) 모델과 인증 방식 비교
 - [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) — 색·글꼴·마커 규칙
 - [docs/DESIGN_AUDIT.md](docs/DESIGN_AUDIT.md) — 디자인 도구 설치·점검 결과
+- [docs/LAUNCH.md](docs/LAUNCH.md) — **시범 운영 체크리스트(사용자가 할 일)**
 - [docs/OPERATIONS.md](docs/OPERATIONS.md) — 무료 운영(사진 복사, 주 1회 백업·일시 정지 방지)
 - [docs/DATA.md](docs/DATA.md) — 데이터 흐름과 주소
 
