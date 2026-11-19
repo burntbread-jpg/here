@@ -10,3 +10,4 @@ shots/*.png
 !shots/.gitkeep
 .DS_Store
 .taste-skill/
+.playwright-mcp/
